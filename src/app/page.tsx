@@ -1,95 +1,64 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client"
+
+import styled from "styled-components";
+import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
+import Gauge from "@/components/Gauge";
+import LandingSection from "@/app/segments/LandingSection";
+import ProjectSection from "@/app/segments/ProjectSection";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    return (
+        <main>
+            <Wrapper>
+                <Left>
+                    <LandingSection/>
+                    <ProjectSection/>
+                </Left>
+                <Right>
+                    <Gauge relativeValues={[1, 2, 3, 4, 5]}/>
+                    <HoverButton>Links</HoverButton>
+                </Right>
+            </Wrapper>
+        </main>
+    )
 }
+
+const Wrapper = styled(FlexRow)`
+  overflow: auto;
+  height: 100dvh;
+  scrollbar-gutter: stable;
+  padding: 0 200px;
+  gap: 96px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+`
+
+const Left = styled(FlexColumn)`
+  width: 100%;
+`
+
+const Right = styled(FlexColumn)`
+  align-self: flex-start;
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  max-width: 128px;
+  padding: 136px 0 96px 0;
+  gap: 16px;
+`
+
+const HoverButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--width-standard) solid var(--color-dark);
+  border-radius: var(--border-radius-standard);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: 24px;
+  padding: 35px 30px;
+`
