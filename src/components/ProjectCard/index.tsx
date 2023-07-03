@@ -1,63 +1,129 @@
 import styled from "styled-components";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
 import {Text} from "@/components/styled-elements/text";
-import {smoothTransition} from "@/styles/transitions";
+import {hoverUnderlineStyles, smoothTargetTransition, smoothTransition} from "@/styles/transitions";
 import Pill, {PillWrapper} from "@/components/Pill";
 import {Project} from "@/data/projects";
+import Link from "next/link";
+import {mobileOnly} from "@/util";
 
 type ProjectCardProps = Project
 
-const ProjectCard = ({title, subtitle, description, skills, isCreative}: ProjectCardProps) => {
-    return (
-        <CardWrapper>
-            <CardHeader>
-                <Text $fontSize="36px" $fontWeight={600} $isHeading>{title}</Text>
-                <Text $fontSize="16px" style={{opacity: 0.5}}>{subtitle}</Text>
-            </CardHeader>
-            <CardContent>
-                {description.map((text, index) => {
-                    return <Text key={`description-copy-${index}`}>{text}</Text>
-                })}
-            </CardContent>
-            <CardFooter>
-                {skills && skills.map((skill, index) => {
-                    return <Pill key={`skill-${index}`}>{skill}</Pill>
-                })}
-            </CardFooter>
-        </CardWrapper>
-    );
-};
+const ProjectCard = ({title, subtitle, description, skills, contributions, link, isCreative}: ProjectCardProps) => {
+        const openProject = () => {
+            window.open(link, "_blank")
+        }
+
+        return (
+            <CardWrapper onClick={openProject} data-hoverable>
+                <FlexColumn gap="1.25rem">
+                    <CardHeader>
+                        <Text $fontSize="1rem" style={{opacity: 0.5}}>{subtitle}</Text>
+                        <FlexRow>
+                            <Text $fontSize="2.25rem" $fontWeight={700}>{title}</Text>
+                        </FlexRow>
+                    </CardHeader>
+                    <CardContent>
+                        {description.map((text, index) => {
+                            return <Text key={`description-copy-${index}`} $fontSize="1rem">{text}</Text>
+                        })}
+                        {contributions &&
+                            <ContributionsWrapper>
+                                <Text $fontSize="1rem" $fontWeight={700} $isUppercase>Key Contributions</Text>
+                                <FlexColumn gap="4px">
+                                    {contributions.map((contribution, index) => {
+                                        return !!contribution?.link ? (
+                                            <Text key={`contribution-${index}`} $fontSize="1rem">
+                                                {"-> "}
+                                                <StyledLink href={contribution.link} target="_blank">
+                                                    {contribution.title}
+                                                </StyledLink>
+                                            </Text>
+                                        ) : (
+                                            <Text key={`contribution-${index}`} $fontSize="1rem">
+                                                {"->"} {contribution.title}
+                                            </Text>
+                                        )
+                                    })}
+                                </FlexColumn>
+                            </ContributionsWrapper>
+                        }
+                    </CardContent>
+                </FlexColumn>
+                <CardFooter>
+                    {skills && skills.map((skill, index) => {
+                        return <Pill key={`skill-${index}`}>
+                            <Text $fontSize="0.875rem">
+                                {skill}
+                            </Text>
+                        </Pill>
+                    })}
+                </CardFooter>
+            </CardWrapper>
+        );
+    }
+;
 
 export default ProjectCard;
 
+const StyledLink = styled(Link)`
+  ${smoothTargetTransition("color")};
+  ${hoverUnderlineStyles};
+  color: var(--color-dark);
+`
+
+const ContributionsWrapper = styled(FlexColumn)`
+  gap: 0.5rem;
+`
+
+const CardContent = styled(FlexColumn)`
+  gap: 1.5rem;
+`
+
 const CardWrapper = styled(FlexColumn)`
-  ${smoothTransition};
-  border: var(--width-standard) solid var(--color-dark);
+  ${smoothTargetTransition("background-color, color")};
   border-radius: var(--border-radius-standard);
-  background-color: var(--color-light);
-  padding: 36px;
-  gap: 36px;
+  background-color: rgb(var(--color-dark-core) / 0.075);
+  color: var(--color-dark);
+  padding: 2.25rem;
+  gap: 2.25rem;
   width: 100%;
 
+  ${PillWrapper} {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+  }
+
   &:hover {
-    background-color: #FFB36C;
+    background-color: var(--color-primary);
+    color: rgb(var(--base-color-not-black));
     cursor: pointer;
+    
+    ${StyledLink} {
+      color: rgb(var(--base-color-not-black));
+    }
 
     ${PillWrapper} {
-      background-color: var(--color-light);
+      background-color: rgb(var(--base-color-not-black));
+      color: rgb(var(--base-color-not-white));
+    }
+  }
+  
+  ${mobileOnly} {
+    border-top: 1rem solid var(--color-dark);
+    padding-top: 1.25rem;
+    
+    @media (prefers-color-scheme: dark) {
+      border-top-color: var(--color-primary);
     }
   }
 `
 
 const CardHeader = styled(FlexColumn)`
-    
-`
-
-const CardContent = styled(FlexColumn)`
-  gap: 8px;
+  gap: 0.25rem;
 `
 
 const CardFooter = styled(FlexRow)`
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 0.5rem;
 `

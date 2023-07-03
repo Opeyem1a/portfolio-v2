@@ -1,9 +1,16 @@
 import styled from "styled-components";
+import {mqValue} from "@/util";
 
-type FlexOptionProps = { gap?: string, wrap?: string }
+type FlexOptionProps = { gap?: string | string[], wrap?: string, width?: string, flex?: number }
 const FlexOption = styled.div<FlexOptionProps>`
-  gap: ${(props: FlexOptionProps) => props.gap ? props.gap : null};
+  ${(props: FlexOptionProps) => {
+    return {
+      ...mqValue("gap", props.gap, null),
+    }
+  }}
+  flex: ${(props: FlexOptionProps) => props.flex ? props.flex : null};
   flex-wrap: ${(props: FlexOptionProps) => props.wrap ? props.wrap : null};
+  width: ${(props: FlexOptionProps) => props.width ? props.width : null};
 `
 
 const FlexRow = styled(FlexOption)`
