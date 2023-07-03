@@ -18,10 +18,8 @@ const ProjectCard = ({title, subtitle, description, skills, contributions, link}
             <CardWrapper onClick={openProject} data-hoverable>
                 <FlexColumn gap="1.25rem">
                     <CardHeader>
-                        <Text $fontSize="1rem" style={{opacity: 0.5}}>{subtitle}</Text>
-                        <FlexRow>
-                            <Text $fontSize="2.25rem" $fontWeight={700}>{title}</Text>
-                        </FlexRow>
+                        <Text $fontSize={["0.8rem", "0.8rem", "1rem"]} style={{opacity: 0.5}}>{subtitle}</Text>
+                        <Text $fontSize={["1.75rem", "2rem", "2.25rem"]} $fontWeight={700}>{title}</Text>
                     </CardHeader>
                     <CardContent>
                         {description.map((text, index) => {
@@ -83,7 +81,7 @@ const CardContent = styled(FlexColumn)`
 const CardWrapper = styled(FlexColumn)`
   ${smoothTargetTransition("background-color, color")};
   border-radius: var(--border-radius-standard);
-  background-color: rgb(var(--color-dark-core) / 0.075);
+  background-color: rgb(var(--color-dark-core) / 0.05);
   color: var(--color-dark);
   padding: 2.25rem;
   gap: 2.25rem;

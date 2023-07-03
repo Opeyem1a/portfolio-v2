@@ -21,7 +21,7 @@ const LandingSection = ({...props}) => {
             <Section>
                 <MainContent>
                     <TitleWrapper gap={["1rem", "1rem", "1.5rem"]}>
-                        <Text $fontSize="clamp(0.75rem, 2vw, 1.5rem)">Opey Adeyemi</Text>
+                        <Text $fontSize="clamp(0.75rem, 2vw, 1.5rem)" style={{paddingLeft: "0.45rem"}}>Opey Adeyemi</Text>
                         <StyledTitle>Designer & Developer</StyledTitle>
                     </TitleWrapper>
                     <ItemWrapper>
@@ -95,9 +95,11 @@ const Section = styled.section`
 const ItemWrapper = styled(FlexRow)`
   align-items: center;
   gap: 1.5rem;
-
+  padding: 0 2.5rem 0 0.5rem;
+  
   ${mobileOnly} {
     flex-direction: column;
+    padding: unset;
   }
 `
 
