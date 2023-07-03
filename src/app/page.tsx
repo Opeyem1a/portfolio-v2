@@ -6,7 +6,7 @@ import ProjectSection from "@/app/segments/ProjectSection";
 import {FlexColumn} from "@/components/styled-elements/flex";
 import AboutSection from "@/app/segments/AboutSection";
 import Blob from "@/components/Blob";
-import {DESKTOP_MIN_WIDTH, desktopOnly, mq} from "@/util";
+import {mq} from "@/util";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -29,8 +29,8 @@ const Wrapper = styled(FlexColumn)`
   gap: 1.5rem;
   align-items: center;
   padding: 0 1.75rem;
-  
-  ${mq(`${1328 + 36*2}px`, undefined)} {
+
+  ${mq(`${1328 + 36 * 2}px`, undefined)} {
     padding: unset;
   }
 `

@@ -3,18 +3,15 @@ import SectionHeading from "@/components/SectionHeading";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
 import {FullWidthDiv} from "@/components/styled-elements/base";
 import {Text} from "@/components/styled-elements/text";
-import StampButton from "@/components/StampButton";
-import {smoothTransition} from "@/styles/transitions";
 import {useClickHandlers} from "@/app/segments/clickHandlers";
 import SkillIcons from "@/app/segments/SkillIcons";
 import Star from "@/static/star.svg"
 import SmileBlock from "@/components/SmileBlock";
 import Button from "@/components/Button";
 import {desktopOnly, mobileOnly, mq} from "@/util";
-import BlockGrid from "@/components/BlockGrid";
 
 const AboutSection = ({...props}) => {
-    const {scrollToProjectsSection, showResume, showEmail} = useClickHandlers()
+    const {showResume, showEmail} = useClickHandlers()
 
     return (
         <FullWidthDiv {...props}>
@@ -56,7 +53,6 @@ const AboutSection = ({...props}) => {
                             </FlexColumn>
                         </Left>
                         <Right>
-                            {/*<BlockGrid />*/}
                             <SmileBlock/>
                         </Right>
                     </Wrapper>
@@ -75,7 +71,7 @@ const MainContent = styled(FlexColumn)`
     gap: 1.5rem;
   }
 
-  min-height: calc(100vh - 36px - 80px); // - Section.yPaddingTop - Section.yPaddingBottom
+  min-height: calc(100vh - 4.5rem); // - Section.yPaddingTop - Section.yPaddingBottom
 `
 
 const ButtonRow = styled(FlexRow)`
@@ -109,19 +105,4 @@ const Right = styled(FlexColumn)`
   ${mq(undefined, "400px")} {
     display: none;
   }
-`
-
-const OverlapStampButton = styled(StampButton)<{ $alignSelf?: string, $marginRight?: string }>`
-  align-self: ${({$alignSelf}) => $alignSelf ? $alignSelf : null};
-  margin-right: ${({$marginRight}) => $marginRight ? $marginRight : null};
-  margin-top: -5%;
-`
-
-const StampStack = styled(FlexColumn)`
-  width: 100%;
-  flex: 1;
-  min-height: 100%;
-  margin-top: 5%;
-  gap: 0;
-  align-items: center;
 `

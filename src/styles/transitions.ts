@@ -32,14 +32,9 @@ const smoothTargetTransition = (property: string) => {
 
 const smoothTransitionStyles =  "300ms cubic-bezier(0.445, 0.05, 0.55, 0.95)"
 
-const chillTransition = {
-    transition: "all 0.5s ease-in-out"
-}
-
 export {
     _hoverUnderlineStyles,
     hoverUnderlineStyles,
     smoothTargetTransition,
     smoothTransitionStyles,
-    chillTransition,
 }
