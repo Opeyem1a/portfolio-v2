@@ -2,7 +2,6 @@ import styled from "styled-components";
 import {useCallback, useEffect, useRef} from "react";
 import SmileIcon from "@/static/smile.svg"
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
-import {smoothTransition} from "@/styles/transitions";
 
 const SmileBlock = () => {
     const ref = useRef(null)

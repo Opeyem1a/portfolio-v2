@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 import {FlexRow} from "@/components/styled-elements/flex";
 import styled from "styled-components";
-import {smoothTargetTransition, smoothTransition} from "@/styles/transitions";
+import {smoothTargetTransition} from "@/styles/transitions";
 
 type PillProps = {
     children: ReactNode;

@@ -9,7 +9,7 @@ import Link from "next/link"
 import LinkedInIcon from "@/static/icons/linkedin.svg"
 import GithubIcon from "@/static/icons/github.svg"
 import {GITHUB_LINK, LINKEDIN_LINK} from "@/data/links";
-import {smoothTargetTransition, smoothTransition} from "@/styles/transitions";
+import {smoothTargetTransition} from "@/styles/transitions";
 import {mobileOnly} from "@/util";
 import EmailIcon from "@/static/email.svg"
 
@@ -36,7 +36,7 @@ const LandingSection = ({...props}) => {
                                            $fontWeight={600}>
                                     Contact me
                                 </MaybeText>
-                                <MaybeEmailIcon />
+                                <MaybeEmailIcon/>
                             </Button>
                         </ButtonWrapper>
                         <MaybeLine on={[false, true, true]}/>
@@ -78,7 +78,7 @@ const IconLink = styled(Link)`
 const StyledTitle = styled(Title)`
   max-width: 10ch;
   line-height: 100%;
-  
+
   ${mobileOnly} {
     text-align: center;
   }
@@ -120,14 +120,14 @@ const MaybeEmailIcon = styled(EmailIcon)`
   height: 1.5rem;
   display: none;
   fill: var(--color-dark);
-  
+
   ${mobileOnly} {
     display: initial;
   }
 `
 
 const TitleWrapper = styled(FlexColumn)`
-    ${mobileOnly} {
-      align-items: center;
-    }
+  ${mobileOnly} {
+    align-items: center;
+  }
 `

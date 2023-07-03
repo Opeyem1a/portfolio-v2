@@ -18,11 +18,6 @@ const Title = styled.h1`
   text-transform: uppercase;
 `
 
-const Subtitle = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 400;
-`
-
 const Heading = styled.h3`
   ${titleTypeface.style};
   text-transform: uppercase;

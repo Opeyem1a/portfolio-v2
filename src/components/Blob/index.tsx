@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {useCallback, useEffect, useRef} from "react";
-import {smoothTargetTransition, smoothTransitionStyles} from "@/styles/transitions";
+import {smoothTransitionStyles} from "@/styles/transitions";
 import {mobileOnly} from "@/util";
 
 type BlobProps = {

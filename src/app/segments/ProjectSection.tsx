@@ -2,13 +2,12 @@ import styled from "styled-components";
 import SectionHeading from "@/components/SectionHeading";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
 import ProjectCard from "@/components/ProjectCard";
-import {DummyIcon} from "@/components/styled-elements/artifacts";
 import {PROJECTS} from "@/data/projects";
 import {FullWidthDiv} from "@/components/styled-elements/base";
 import Star from "@/static/star.svg";
-import {desktopOnly, mq} from "@/util";
+import {mq} from "@/util";
 
-const ProjectSection = ({ ...props }) => {
+const ProjectSection = ({...props}) => {
     return (
         <FullWidthDiv {...props}>
             <Section>
@@ -19,14 +18,14 @@ const ProjectSection = ({ ...props }) => {
                             {PROJECTS
                                 .filter((_, index) => index % 2 === 0)
                                 .map((project, index) => {
-                                    return <ProjectCard {...project} key={`project-card-${index}`} />
-                            })}
+                                    return <ProjectCard {...project} key={`project-card-${index}`}/>
+                                })}
                         </FlexColumn>
                         <FlexColumn gap="2rem" flex={1}>
                             {PROJECTS
                                 .filter((_, index) => index % 2 !== 0)
                                 .map((project, index) => {
-                                    return <ProjectCard {...project} key={`project-card-${index}`} />
+                                    return <ProjectCard {...project} key={`project-card-${index}`}/>
                                 })}
                         </FlexColumn>
                     </ProjectsContainer>
@@ -43,9 +42,9 @@ const Section = styled.section`
 `
 
 const ProjectsContainer = styled(FlexRow)`
-    gap: 32px;
-    
-     ${mq(undefined, "850px")} {
-       flex-direction: column;
-     }
+  gap: 32px;
+
+  ${mq(undefined, "850px")} {
+    flex-direction: column;
+  }
 `

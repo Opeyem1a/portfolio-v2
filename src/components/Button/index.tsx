@@ -1,6 +1,6 @@
 import {HTMLProps, ReactNode} from "react";
 import styled from "styled-components";
-import {smoothTargetTransition, smoothTransition} from "@/styles/transitions";
+import {smoothTargetTransition} from "@/styles/transitions";
 import {mobileOnly} from "@/util";
 
 type CustomButtonProps = {
@@ -10,7 +10,7 @@ type CustomButtonProps = {
 
 type ButtonProps = CustomButtonProps & HTMLProps<HTMLButtonElement>
 
-const Button = ({ $variant="primary", children, ...props }: ButtonProps) => {
+const Button = ({$variant = "primary", children, ...props}: ButtonProps) => {
     return (
         <StyledButton $variant={$variant} {...props}>
             {children}
@@ -29,7 +29,7 @@ export const StyledButton = styled.button<CustomButtonProps>`
   border-radius: var(--border-radius-standard);
   background-color: ${(props: CustomButtonProps) => props.$variant === "primary" ? "var(--color-dark)" : "rgb(var(--color-dark-core) / 0.05);"};
   color: ${(props: CustomButtonProps) => props.$variant === "primary" ? "var(--color-light)" : "var(--color-dark)"};
-  
+
   ${mobileOnly} {
     padding: 1rem 1.5rem;
   }

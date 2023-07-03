@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
 import {Text} from "@/components/styled-elements/text";
-import {hoverUnderlineStyles, smoothTargetTransition, smoothTransition} from "@/styles/transitions";
+import {hoverUnderlineStyles, smoothTargetTransition} from "@/styles/transitions";
 import Pill, {PillWrapper} from "@/components/Pill";
 import {Project} from "@/data/projects";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import {mobileOnly} from "@/util";
 
 type ProjectCardProps = Project
 
-const ProjectCard = ({title, subtitle, description, skills, contributions, link, isCreative}: ProjectCardProps) => {
+const ProjectCard = ({title, subtitle, description, skills, contributions, link}: ProjectCardProps) => {
         const openProject = () => {
             window.open(link, "_blank")
         }
@@ -98,7 +98,7 @@ const CardWrapper = styled(FlexColumn)`
     background-color: var(--color-primary);
     color: rgb(var(--base-color-not-black));
     cursor: pointer;
-    
+
     ${StyledLink} {
       color: rgb(var(--base-color-not-black));
     }
@@ -108,11 +108,11 @@ const CardWrapper = styled(FlexColumn)`
       color: rgb(var(--base-color-not-white));
     }
   }
-  
+
   ${mobileOnly} {
     border-top: 1rem solid var(--color-dark);
     padding-top: 1.25rem;
-    
+
     @media (prefers-color-scheme: dark) {
       border-top-color: var(--color-primary);
     }
