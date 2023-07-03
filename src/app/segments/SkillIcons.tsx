@@ -24,14 +24,14 @@ import {mobileOnly} from "@/util";
 const SkillIcons = () => {
     return (
         <SVGWrapper>
-            <NextJsIcon/>
+            <NextJsIcon data-hover-base />
             <ReactJsIcon/>
             <TypeScriptIcon/>
             <JavaScriptIcon/>
 
             <GraphQlIcon/>
             <PythonIcon/>
-            <DjangoIcon/>
+            <DjangoIcon data-hover-base/>
 
             <Html5Icon/>
             <Css3Icon/>
@@ -39,16 +39,16 @@ const SkillIcons = () => {
 
             <PostgresSqlIcon/>
 
-            <CircleCiIcon/>
+            <CircleCiIcon data-hover-base />
             <DockerIcon/>
 
             <YarnIcon/>
             <NpmIcon/>
 
-            <AfterEffectsIcon/>
-            <FigmaIcon/>
+            <AfterEffectsIcon data-hover-base/>
+            <FigmaIcon />
 
-            <JetBrainsIcon/>
+            <JetBrainsIcon data-hover-base/>
         </SVGWrapper>
     );
 };
@@ -59,9 +59,8 @@ export default SkillIcons;
 const SVGWrapper = styled(FlexRow)`
   gap: 12px;
   flex-wrap: wrap;
-
+  
   svg {
-    ${smoothTargetTransition("opacity")};
     height: 3rem;
     opacity: 0.5;
 
@@ -72,6 +71,13 @@ const SVGWrapper = styled(FlexRow)`
     &:not(:hover) {
       path, circle, rect {
         ${smoothTargetTransition("fill")};
+        fill: var(--color-dark);
+      }
+    }
+    
+    &[data-hover-base]:hover {
+      fill: var(--color-dark);
+      * {
         fill: var(--color-dark);
       }
     }
