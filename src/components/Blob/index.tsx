@@ -8,7 +8,7 @@ type BlobProps = {
 }
 
 const Blob = ({size}: BlobProps) => {
-    const ref = useRef(null)
+    const ref = useRef<HTMLDivElement>(null)
 
     const shouldExpandOnHover = (element: any) => {
         return !!element?.["dataset"]?.hoverable || !!element.closest("[data-hoverable]")
