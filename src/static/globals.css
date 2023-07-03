@@ -1,24 +1,19 @@
 :root {
-    --max-width: 2000px;
-    /*--color-sand: #f9f7f2;*/
-    /*--color-sand: #f8f4e6;*/
-    --color-sand: #f6e9d9;
-    --color-dark: #1b1b1b;
-    --color-gray: #484848;
-    --color-light: #fafafa;
-    --color-green: #8CDD8A;
-    --color-purple: #B092EF;
-    --color-orange: #FFB36C;
-    --color-blue: #75CDFF;
-    --color-red: #FF7878;
+    --max-width: 1328px;
 
-    --color-new-sand-light: #F3E0C7;
-    --color-new-sand-dark: #EFE5D8;
-    --color-new-dark: #0F0F0F;
-    --color-new-light: #FCFCFC;
+    --base-color-not-white: 252 252 252;
+    --base-color-not-black: 15 15 15;
+
+    --color-dark-core: var(--base-color-not-black);
+    --color-light-core: var(--base-color-not-white);
+    --color-primary-core: 255 196 45;
+
+    --color-dark: rgb(var(--color-dark-core));
+    --color-light: rgb(var(--color-light-core));
+    --color-primary: rgb(var(--color-primary-core));
 
     --width-standard: 3px;
-    --border-radius-standard: 4px;
+    --border-radius-standard: 6px;
 }
 
 * {
@@ -32,11 +27,19 @@ body {
     margin: 0 auto;
     overflow-x: hidden;
     color: var(--color-dark);
-    background-color: var(--color-sand);
+    background-color: var(--color-light);
+    max-width: var(--max-width);
+    font-size: clamp(15px, 1.5vw, 16px);
+    scroll-behavior: smooth;
 }
 
-/*@media (prefers-color-scheme: dark) {*/
-/*  html {*/
-/*    color-scheme: dark;*/
-/*  }*/
-/*}*/
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-light-core: var(--base-color-not-black);
+        --color-dark-core: var(--base-color-not-white);
+    }
+
+    html {
+        color-scheme: dark;
+    }
+}

@@ -1,104 +1,133 @@
 import styled from "styled-components";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
-import StampButton from "@/components/StampButton";
-import {smoothTransition} from "@/styles/transitions";
-import {Subtitle, Text, Title} from "@/components/styled-elements/text";
-import {DummyIcon, Line} from "@/components/styled-elements/artifacts";
-import SectionHeading from "@/components/SectionHeading";
+import {MaybeText, Text, Title} from "@/components/styled-elements/text";
+import Button from "@/components/Button";
+import {MaybeLine} from "@/components/styled-elements/artifacts";
+import {FullWidthDiv} from "@/components/styled-elements/base";
+import {useClickHandlers} from "@/app/segments/clickHandlers";
+import Link from "next/link"
+import LinkedInIcon from "@/static/icons/linkedin.svg"
+import GithubIcon from "@/static/icons/github.svg"
+import {GITHUB_LINK, LINKEDIN_LINK} from "@/data/links";
+import {smoothTargetTransition, smoothTransition} from "@/styles/transitions";
+import {mobileOnly} from "@/util";
+import EmailIcon from "@/static/email.svg"
 
-const LandingSection = () => {
+const LandingSection = ({...props}) => {
+    const {scrollToProjectsSection, showEmail} = useClickHandlers()
+
     return (
-        <div>
+        <FullWidthDiv {...props}>
             <Section>
-                <ContentWrapper>
-                    <MainContent>
-                        <FlexColumn gap="14px">
-                            <Title>Opey Adeyemi</Title>
-                            <Subtitle>Full-stack Engineer & Designer</Subtitle>
-                        </FlexColumn>
-                        <FlexColumn gap="64px">
-                            <FlexColumn gap="14px">
-                                <Text $fontSize="36px" $fontWeight={600}>
-                                    Hello 👋
+                <MainContent>
+                    <TitleWrapper gap={["1rem", "1rem", "1.5rem"]}>
+                        <Text $fontSize="clamp(0.75rem, 2vw, 1.5rem)">Opey Adeyemi</Text>
+                        <StyledTitle>Designer & Developer</StyledTitle>
+                    </TitleWrapper>
+                    <ItemWrapper>
+                        <ButtonWrapper>
+                            <Button onClick={scrollToProjectsSection}>
+                                <Text $fontSize={["1rem", "1rem", "1.25rem"]} $fontWeight={600}>
+                                    See my work
                                 </Text>
-                                <Text $maxWidth="44ch">
-                                    I’m Opey, I like building things that matter with people who are
-                                    curious like me. Purpose-driven software engineer, graphic/motion/UX designer, communicator.
-                                </Text>
-                            </FlexColumn>
-                            <FlexColumn gap="12px">
-                                <FlexRow gap="16px" wrap="wrap">
-                                    {Array(10).fill(0).map((_, index) => {
-                                        return <DummyIcon key={`skill-icon-${index}`} size={64}/>
-                                    })}
-                                </FlexRow>
-                            </FlexColumn>
-                        </FlexColumn>
-                    </MainContent>
-                    <StampStack>
-                        <OverlapStampButton orientationOffset="-4deg" hoverColor="var(--color-orange)">
-                            <Text $fontSize="24px" $fontWeight={600}>
-                                Resume
-                            </Text>
-                        </OverlapStampButton>
-                        <OverlapStampButton orientationOffset="6deg" hoverColor="var(--color-blue)" $alignSelf="flex-end">
-                            <Text $fontSize="24px" $fontWeight={600}>
-                                My Work
-                            </Text>
-                        </OverlapStampButton>
-                        <OverlapStampButton orientationOffset="-1deg" hoverColor="var(--color-green)">
-                            <Text $fontSize="24px" $fontWeight={600}>
-                                Contact
-                            </Text>
-                        </OverlapStampButton>
-                        {/*<div style={{*/}
-                        {/*    height: "100%",*/}
-                        {/*    borderRight: "3px dashed rgb(0 0 0 / 1)",*/}
-                        {/*    margin: "-36px 0 36px 0",*/}
-                        {/*}}/>*/}
-                        {/*<div style={{*/}
-                        {/*    opacity: 0.25,*/}
-                        {/*}}>Wait, there's more</div>*/}
-                    </StampStack>
-                </ContentWrapper>
+                            </Button>
+                            <Button onClick={showEmail} $variant="secondary">
+                                <MaybeText on={[false, true, true]} $fontSize={["1rem", "1rem", "1.25rem"]}
+                                           $fontWeight={600}>
+                                    Contact me
+                                </MaybeText>
+                                <MaybeEmailIcon />
+                            </Button>
+                        </ButtonWrapper>
+                        <MaybeLine on={[false, true, true]}/>
+                        <ButtonWrapper>
+                            <IconLink href={LINKEDIN_LINK} target="_blank">
+                                <LinkedInIcon/>
+                            </IconLink>
+                            <IconLink href={GITHUB_LINK} target="_blank">
+                                <GithubIcon/>
+                            </IconLink>
+                        </ButtonWrapper>
+                    </ItemWrapper>
+                </MainContent>
             </Section>
-        </div>
+        </FullWidthDiv>
     );
 };
 
 export default LandingSection;
 
 
-const Section = styled.section`
-  min-height: calc(100vh - 192px);
-  margin: 96px 0;
+const IconLink = styled(Link)`
+  svg {
+    height: clamp(2.5rem, 5vw, 3.5rem);
+
+    path, circle, rect {
+      ${smoothTargetTransition("fill")};
+      fill: var(--color-dark);
+    }
+
+    &:hover {
+      path, circle, rect {
+        fill: var(--color-primary);
+      }
+    }
+  }
 `
 
-const ContentWrapper = styled(FlexRow)`
-  justify-content: space-between;
-  min-height: inherit;
-  gap: 48px;
+const StyledTitle = styled(Title)`
+  max-width: 10ch;
+  line-height: 100%;
+  
+  ${mobileOnly} {
+    text-align: center;
+  }
+`
+
+const Section = styled.section`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const ItemWrapper = styled(FlexRow)`
+  align-items: center;
+  gap: 1.5rem;
+
+  ${mobileOnly} {
+    flex-direction: column;
+  }
+`
+
+const ButtonWrapper = styled(FlexRow)`
+  align-items: center;
+  gap: 1.5rem;
 `
 
 const MainContent = styled(FlexColumn)`
-  gap: 84px;
-  flex: 2;
-`
+  gap: 6rem;
+  margin-bottom: 1.5rem;
 
-const OverlapStampButton = styled(StampButton)<{ $alignSelf?: string }>`
-  align-self: ${({$alignSelf}) => $alignSelf ? $alignSelf : null};
-  margin-top: -16px;
-`
-
-const StampStack = styled(FlexColumn)`
-  ${smoothTransition};
-  flex: 1;
-  min-height: 100%;
-  margin-top: 10%;
-  gap: 0;
-  align-items: center;
-
-  &:hover {
-    gap: 24px;
+  ${mobileOnly} {
+    gap: 3rem;
   }
+`
+
+const MaybeEmailIcon = styled(EmailIcon)`
+  width: 1.5rem;
+  height: 1.5rem;
+  display: none;
+  fill: var(--color-dark);
+  
+  ${mobileOnly} {
+    display: initial;
+  }
+`
+
+const TitleWrapper = styled(FlexColumn)`
+    ${mobileOnly} {
+      align-items: center;
+    }
 `

@@ -1,26 +1,45 @@
-const hoverUnderlineStyles = {
-    display: "inline-block",
-    textDecoration: "none",
+const _hoverUnderlineStyles = (color: string) => {
+    return {
+        display: "inline-block",
+        textDecoration: "none",
 
-    "&::after": {
-        content: "''",
-        display: "block",
-        width: "0",
-        height: "var(--width-standard)",
-        background: "#000",
-        transition: "width .3s",
-    },
+        "&::after": {
+            content: "''",
+            display: "block",
+            width: "0",
+            height: "var(--width-standard)",
+            background: color,
+            transition: "width .3s",
+        },
 
-    "&:hover::after": {
-        width: "100%",
-    },
+        "&:hover::after": {
+            width: "100%",
+        },
+    }
 }
 
-const smoothTransition = {
-    transition: "all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95)"
+const hoverUnderlineStyles = {
+    ..._hoverUnderlineStyles("rgb(var(--base-color-not-black))")
+}
+
+const smoothTargetTransition = (property: string) => {
+    return {
+        transitionProperty: property,
+        transitionDuration: "0.3s",
+        transitionTimingFunction: "cubic-bezier(0.445, 0.05, 0.55, 0.95)",
+    }
+}
+
+const smoothTransitionStyles =  "300ms cubic-bezier(0.445, 0.05, 0.55, 0.95)"
+
+const chillTransition = {
+    transition: "all 0.5s ease-in-out"
 }
 
 export {
+    _hoverUnderlineStyles,
     hoverUnderlineStyles,
-    smoothTransition
+    smoothTargetTransition,
+    smoothTransitionStyles,
+    chillTransition,
 }

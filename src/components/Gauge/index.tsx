@@ -34,7 +34,6 @@ const BlockWrapper = styled(FlexColumn)`
 `
 
 const Block = styled.div<{ color: string, value: number }>`
-  ${smoothTransition};
   ${({value}) => `flex: ${value}`};
   ${({color}) => `background-color: ${color}`};
 
