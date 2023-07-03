@@ -24,31 +24,31 @@ import {mobileOnly} from "@/util";
 const SkillIcons = () => {
     return (
         <SVGWrapper>
-            <NextJsIcon />
-            <ReactJsIcon />
-            <TypeScriptIcon />
-            <JavaScriptIcon />
+            <NextJsIcon/>
+            <ReactJsIcon/>
+            <TypeScriptIcon/>
+            <JavaScriptIcon/>
 
-            <GraphQlIcon />
-            <PythonIcon />
-            <DjangoIcon />
+            <GraphQlIcon/>
+            <PythonIcon/>
+            <DjangoIcon/>
 
-            <Html5Icon />
-            <Css3Icon />
-            <SassIcon />
+            <Html5Icon/>
+            <Css3Icon/>
+            <SassIcon/>
 
-            <PostgresSqlIcon />
+            <PostgresSqlIcon/>
 
-            <CircleCiIcon />
-            <DockerIcon />
+            <CircleCiIcon/>
+            <DockerIcon/>
 
-            <YarnIcon />
-            <NpmIcon />
+            <YarnIcon/>
+            <NpmIcon/>
 
-            <AfterEffectsIcon />
-            <FigmaIcon />
+            <AfterEffectsIcon/>
+            <FigmaIcon/>
 
-            <JetBrainsIcon />
+            <JetBrainsIcon/>
         </SVGWrapper>
     );
 };
@@ -64,22 +64,20 @@ const SVGWrapper = styled(FlexRow)`
     ${smoothTargetTransition("opacity")};
     height: 3rem;
     opacity: 0.5;
-    
+
     ${mobileOnly} {
       height: 2rem;
     }
 
-    path, circle, rect {
-      ${smoothTargetTransition("fill")};
-      fill: var(--color-dark);
+    &:not(:hover) {
+      path, circle, rect {
+        ${smoothTargetTransition("fill")};
+        fill: var(--color-dark);
+      }
     }
 
     &:hover {
       opacity: 1;
-
-      path, circle, rect {
-        fill: var(--color-primary);
-      }
     }
   }
 `

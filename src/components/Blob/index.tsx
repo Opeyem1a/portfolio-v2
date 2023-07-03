@@ -21,10 +21,10 @@ const Blob = ({size}: BlobProps) => {
 
         if (shouldExpandOnHover(e.target)) {
             ref.current.style.transform = `scale(1)`
-            ref.current.style.backdropFilter = `hue-rotate(-15deg)`
+            ref.current.style.borderWidth = `1rem`
         } else {
-            ref.current.style.transform = `scale(0.1)`
-            ref.current.style.backdropFilter = `invert(100%)`
+            ref.current.style.transform = `scale(0.5)`
+            ref.current.style.borderWidth = `0rem`
         }
 
     }, [ref, size])
@@ -42,7 +42,7 @@ const Blob = ({size}: BlobProps) => {
 export default Blob;
 
 const BlobWrapper = styled.div<BlobProps>`
-  transition: transform ${smoothTransitionStyles}, backdrop-filter ${smoothTransitionStyles}, top 180ms ease-out, left 180ms ease-out;
+  transition: transform ${smoothTransitionStyles}, backdrop-filter ${smoothTransitionStyles}, border ${smoothTransitionStyles}, background-color ${smoothTransitionStyles}, top 180ms ease-out, left 180ms ease-out;
   z-index: 2;
   position: fixed;
   background-color: rgb(0 0 0 / 0);
@@ -50,8 +50,9 @@ const BlobWrapper = styled.div<BlobProps>`
   border-radius: ${(props: BlobProps) => `${props.size}px`};
   height: ${(props: BlobProps) => `${props.size}px`};
   width: ${(props: BlobProps) => `${props.size}px`};
-  transform: scale(0.1);
+  transform: scale(0.5);
   backdrop-filter: invert(100%);
+  border: 0 solid rgb(var(--color-primary-core) / 0.25);
 
   ${mobileOnly} {
     visibility: hidden;

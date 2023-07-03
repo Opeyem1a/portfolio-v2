@@ -10,7 +10,7 @@ const Footer = () => {
             <FooterLine/>
             <TextContainer>
                 <Text $fontSize="1rem">
-                    Made ✨by Opey
+                    ✨&nbsp;by Opey
                 </Text>
                 <Text $fontSize="0.6rem" style={{opacity: 0.5}}>
                     (naturally)

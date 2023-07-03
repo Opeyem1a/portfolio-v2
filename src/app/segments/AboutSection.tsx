@@ -48,7 +48,10 @@ const AboutSection = ({...props}) => {
                             </FlexColumn>
 
                             <FlexColumn gap="16px">
-                                <Text $fontSize="1rem" $fontWeight={700} $isUppercase>Working with</Text>
+                                <Text $fontSize="1rem" $fontWeight={700} $color="rgb(var(--color-dark-core) / 0.5)"
+                                      $isUppercase>
+                                    Working with
+                                </Text>
                                 <SkillIcons/>
                             </FlexColumn>
                         </Left>

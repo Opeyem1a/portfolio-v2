@@ -35,6 +35,7 @@ type TextProps = {
     $fontWeight?: number | number[];
     $lineHeight?: string | string[];
     $maxWidth?: string | string[];
+    $color?: string | string[];
     $hoverUnderline?: string;
     $isHeading?: boolean;
     $isUppercase?: boolean;
@@ -47,6 +48,7 @@ const Text = styled.p<TextProps>`
       ...mqValue("line-height", props.$lineHeight, null),
       ...mqValue("font-weight", props.$fontWeight, "normal"),
       ...mqValue("max-width", props.$maxWidth, "initial"),
+      ...mqValue("color", props.$color, "inherit"),
     }
   }}
   ${(props: TextProps) => {
@@ -64,7 +66,6 @@ const MaybeText = Display(Text)
 
 export {
     Title,
-    Subtitle,
     Heading,
     Text,
     MaybeText,
