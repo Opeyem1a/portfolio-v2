@@ -1,4 +1,4 @@
-const _hoverUnderlineStyles = (color: string) => {
+const _hoverUnderlineStyles = (color?: string) => {
     return {
         display: "inline-block",
         textDecoration: "none",

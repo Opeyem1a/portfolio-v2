@@ -4,16 +4,16 @@ import SmileIcon from "@/static/smile.svg"
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
 
 const SmileBlock = () => {
-    const ref = useRef(null)
-    const topFlexRef = useRef(null)
-    const bottomFlexRef = useRef(null)
-    const leftFlexRef = useRef(null)
-    const rightFlexRef = useRef(null)
+    const ref = useRef<HTMLDivElement | null>(null)
+    const topFlexRef = useRef<HTMLDivElement | null>(null)
+    const bottomFlexRef = useRef<HTMLDivElement | null>(null)
+    const leftFlexRef = useRef<HTMLDivElement | null>(null)
+    const rightFlexRef = useRef<HTMLDivElement | null>(null)
 
     const followCursor = useCallback((e: MouseEvent) => {
-        if (!ref.current) return
+        if (!ref.current || !leftFlexRef.current || !rightFlexRef.current || !topFlexRef.current || !bottomFlexRef.current) return
 
-        const boundingClientRect = ref.current.getBoundingClientRect()
+        const boundingClientRect = ref.current?.getBoundingClientRect()
         const [blockX, blockY] = [
             boundingClientRect.left + boundingClientRect.width / 2,
             boundingClientRect.top + boundingClientRect.height / 2,
@@ -33,11 +33,11 @@ const SmileBlock = () => {
         const ratioX = distX / maxWidth
         const ratioY = distY / maxHeight
 
-        topFlexRef.current.style.flex = ratioY + 0.5
-        bottomFlexRef.current.style.flex = -ratioY + 0.5
+        topFlexRef.current.style.flex = `${ratioY + 0.5}`
+        bottomFlexRef.current.style.flex = `${-ratioY + 0.5}`
 
-        leftFlexRef.current.style.flex = ratioX + 0.5
-        rightFlexRef.current.style.flex = -ratioX + 0.5
+        leftFlexRef.current.style.flex = `${ratioX + 0.5}`
+        rightFlexRef.current.style.flex = `${-ratioX + 0.5}`
 
     }, [ref])
 

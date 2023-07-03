@@ -4,10 +4,10 @@ export type Project = {
     title: string
     subtitle: string
     description: string[]
-    link: Url | string
+    link: URL | string
     contributions?: {
         title: string
-        link?: Url | string
+        link?: URL | string
     }[]
     skills?: string[]
     isCreative?: boolean
