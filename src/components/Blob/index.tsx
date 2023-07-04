@@ -23,7 +23,7 @@ const Blob = ({size}: BlobProps) => {
 
         if (shouldExpandOnHover(e.target)) {
             ref.current.style.transform = `scale(1)`
-            ref.current.style.borderWidth = `1rem`
+            ref.current.style.borderWidth = `2rem`
         } else {
             ref.current.style.transform = `scale(0.5)`
             ref.current.style.borderWidth = `0rem`
@@ -53,8 +53,8 @@ const BlobWrapper = styled.div<BlobProps>`
   width: ${(props: BlobProps) => `${props.size}px`};
   transform: scale(0.5);
   backdrop-filter: invert(100%);
-  border: 0 solid rgb(var(--color-primary-core) / 0.25);
-
+  border: 0 solid rgb(var(--base-color-not-white) / 0.5);
+  
   ${mobileOnly} {
     visibility: hidden;
   }
