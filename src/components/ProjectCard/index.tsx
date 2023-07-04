@@ -108,8 +108,8 @@ const CardWrapper = styled(FlexColumn)`
   }
 
   ${mobileOnly} {
-    border-top: 1rem solid var(--color-dark);
-    padding-top: 1.25rem;
+    border-top: 0.5rem solid var(--color-dark);
+    padding-top: 1.75rem;
 
     @media (prefers-color-scheme: dark) {
       border-top-color: var(--color-primary);
