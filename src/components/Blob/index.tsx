@@ -23,7 +23,7 @@ const Blob = ({size}: BlobProps) => {
 
         if (shouldExpandOnHover(e.target)) {
             ref.current.style.transform = `scale(1)`
-            ref.current.style.borderWidth = `1rem`
+            ref.current.style.borderWidth = `2rem`
         } else {
             ref.current.style.transform = `scale(0.5)`
             ref.current.style.borderWidth = `0rem`
