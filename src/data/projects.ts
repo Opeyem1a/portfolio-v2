@@ -1,5 +1,3 @@
-import {Url} from "url";
-
 export type Project = {
     title: string
     subtitle: string
@@ -17,7 +15,7 @@ const PROJECTS: Project[] = [
     {
         title: "Teamable Analytics",
         subtitle: "Dynamic student team generation",
-        description: ["A SaaS tool that allows educators to create teams of students based on complex pedagogical goals using a published AI algorithm approach. The tool is integrated with Canvas' LMS API and is currently used in 12+ courses with 1000+ students."],
+        description: ["A SaaS tool that allows educators to create teams based on complex pedagogical goals using a published AI algorithm approach. The tool is integrated with Canvas' LMS API and is currently used in 12+ courses with 1000+ students."],
         contributions: [
             {
                 title: "Algorithm Development",
@@ -61,7 +59,7 @@ const PROJECTS: Project[] = [
     {
         title: "Pallet Recruiter",
         subtitle: "Community-based talent marketplace",
-        description: ["A hub for recruiters to source and manage relevant, vetted candidates, while empowering leaders to better connect their communities to opportunities. Used by 450+ startups and 100+ communities."],
+        description: ["A hub for recruiters to source and manage relevant, vetted candidates while empowering leaders to better connect their communities to opportunities. Used by 450+ startups and 100+ communities."],
         contributions: [
             {
                 title: "Freemium Subscription Tier",
@@ -85,8 +83,8 @@ const PROJECTS: Project[] = [
     },
     {
         title: "Course Gamification",
-        subtitle: "Gamified e-learning for computer science majors.",
-        description: ["A Canvas-integrated platform offers an in-depth question bank allowing students to practice and receive feedback on a range of introductory computer science concepts while integrating challenges, leaderboards, and a grade-based reward system."],
+        subtitle: "Gamified e-learning for computer science majors",
+        description: ["A Canvas-integrated platform offering an in-depth question bank allowing students to practice and receive feedback on a range of introductory computer science concepts while integrating challenges, leaderboards, and a grade-based reward system."],
 
         link: "https://gamification.ok.ubc.ca/",
         skills: [
