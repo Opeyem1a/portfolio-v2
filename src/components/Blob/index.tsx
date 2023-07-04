@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import {useCallback, useEffect, useRef} from "react";
 import {smoothTransitionStyles} from "@/styles/transitions";
@@ -8,7 +10,7 @@ type BlobProps = {
 }
 
 const Blob = ({size}: BlobProps) => {
-    const ref = useRef<HTMLDivElement>(null)
+    const ref = useRef<HTMLDivElement | null>(null)
 
     const shouldExpandOnHover = (element: any) => {
         return !!element?.["dataset"]?.hoverable || !!element.closest("[data-hoverable]")
@@ -26,7 +28,6 @@ const Blob = ({size}: BlobProps) => {
             ref.current.style.transform = `scale(0.5)`
             ref.current.style.borderWidth = `0rem`
         }
-
     }, [ref, size])
 
     useEffect(() => {

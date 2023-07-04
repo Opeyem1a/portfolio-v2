@@ -12,7 +12,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
     return (
         <main>
-            <Blob size={48}/>
             <Wrapper>
                 <LandingSection id="section-landing"/>
                 <AboutSection id="section-about"/>

@@ -2,6 +2,7 @@ import 'src/static/globals.css'
 import React from "react";
 import {Manrope} from 'next/font/google'
 import StyledComponentsRegistry from "@/lib/registry";
+import Blob from "@/components/Blob";
 
 const manrope = Manrope({subsets: ['latin']})
 
@@ -20,6 +21,7 @@ export default function RootLayout({children}: RootLayoutProps) {
         <body className={manrope.className}>
         <StyledComponentsRegistry>
             {children}
+            <Blob size={48}/>
         </StyledComponentsRegistry>
         </body>
         </html>
