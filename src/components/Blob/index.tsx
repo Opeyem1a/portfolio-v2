@@ -53,8 +53,8 @@ const BlobWrapper = styled.div<BlobProps>`
   width: ${(props: BlobProps) => `${props.size}px`};
   transform: scale(0.5);
   backdrop-filter: invert(100%);
-  border: 0 solid rgb(var(--color-dark-core) / 0.5);
-
+  border: 0 solid rgb(var(--base-color-not-white) / 0.5);
+  
   ${mobileOnly} {
     visibility: hidden;
   }
