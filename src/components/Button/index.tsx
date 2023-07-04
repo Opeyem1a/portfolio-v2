@@ -12,7 +12,7 @@ type ButtonProps = CustomButtonProps & HTMLProps<HTMLButtonElement>
 
 const Button = ({$variant = "primary", children, ...props}: ButtonProps) => {
     return (
-        <StyledButton $variant={$variant} {...props}>
+        <StyledButton $variant={$variant} {...props} data-hoverable>
             {children}
         </StyledButton>
     );
