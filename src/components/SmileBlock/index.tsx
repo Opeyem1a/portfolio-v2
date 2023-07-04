@@ -71,7 +71,7 @@ const SmileBlockWrapper = styled(FlexColumn)`
 `
 
 const StyledSmileIcon = styled(SmileIcon)`
-  width: clamp(2.5rem, 10vw, 15rem);
+  width: clamp(1.5rem, 100%, 13rem);
   aspect-ratio: 1 / 1;
 `
 

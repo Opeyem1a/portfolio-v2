@@ -27,10 +27,10 @@ const AboutSection = ({...props}) => {
                                         Designing code & architecting design
                                     </Text>
                                     <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $maxWidth="48ch">
-                                        I want to tackle novel problems with people who are curious like me.
-                                        My experience as a designer fuels my advantage as an engineer and vice-versa.
-                                        You{"'"}ll find me consistently looking at the bigger picture to ensure
-                                        solutions are holistic.
+                                        I want to tackle novel problems with people who are curious like me. My
+                                        experience as a designer fuels my edge as an engineer and vice-versa. You{"'"}ll
+                                        find me consistently looking at the bigger picture to keep projects focused and
+                                        holistic.
                                     </Text>
                                 </FlexColumn>
                                 <ButtonRow>
