@@ -3,6 +3,7 @@ import {_hoverUnderlineStyles} from "@/styles/transitions";
 import {Montserrat} from "next/font/google";
 import {mobileOnly, mqValue} from "@/util";
 import {Display} from "@/components/styled-elements/display";
+import React from "react";
 
 const titleTypeface = Montserrat({
     style: ['normal'],
@@ -62,7 +63,7 @@ const Text = styled.p<TextProps>`
   }}
 `
 
-const MaybeText = Display(Text)
+const MaybeText: any = Display(Text)
 
 export {
     Title,

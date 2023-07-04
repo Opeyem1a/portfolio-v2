@@ -17,11 +17,11 @@ export const desktopOnly = mq(DESKTOP_MIN_WIDTH, undefined)
 
 export const BREAKPOINTS = [mobileOnly, tabletOnly, desktopOnly]
 
-export const mqValue = (property, maybeArray, defaultValue) => {
+export const mqValue = (property: string, maybeArray: any | any[], defaultValue: any) => {
     if (!Array.isArray(maybeArray)) return {[property]: `${maybeArray ?? defaultValue}`}
     if (maybeArray.length !== 3) throw Error("Not 3")
 
-    const result = {}
+    const result: {[key: string]: {}} = {}
     BREAKPOINTS.forEach(
         (breakpoint, index) => {
             result[breakpoint] = {

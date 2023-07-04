@@ -12,19 +12,21 @@ type SectionHeadingProps = {
 }
 
 const SectionHeading = ({title, symbol}: SectionHeadingProps) => {
-    const ref = useRef(null)
-    const lineRef1 = useRef(null)
-    const lineRef2 = useRef(null)
-    const symbolWrapperRef = useRef(null)
+    const ref = useRef<HTMLDivElement | null>(null)
+    const lineRef1 = useRef<HTMLDivElement | null>(null)
+    const lineRef2 = useRef<HTMLDivElement | null>(null)
+    const symbolWrapperRef = useRef<HTMLDivElement | null>(null)
 
     const updateScrollPercentage = useCallback(() => {
-        const headingTopOffset = ref.current.getBoundingClientRect().top
+        if(!ref.current || !symbolWrapperRef.current || !lineRef1.current || !lineRef2.current) return
+
+        const headingTopOffset = ref.current?.getBoundingClientRect()?.top
         const completionRatio = (window.screen.availHeight - headingTopOffset) / window.screen.availHeight
         const scroll = headingTopOffset > 0 ? roundTo(completionRatio, 3) : 1
 
         symbolWrapperRef.current.style.transform = `rotateZ(${scroll * 360}deg)`
-        lineRef1.current.style.flex = scroll * 100;
-        lineRef2.current.style.flex = (1 - scroll) * 100;
+        lineRef1.current.style.flex = `${scroll * 100}`;
+        lineRef2.current.style.flex = `${(1 - scroll) * 100}`;
     }, []);
 
     useEffect(() => {

@@ -19,7 +19,7 @@ const Line = styled.div<LineProps>`
   border-radius: var(--width-standard);
 `
 
-const MaybeLine = Display(Line)
+const MaybeLine: any = Display(Line)
 
 export {
     DummyIcon,
