@@ -34,12 +34,12 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-    /*:root {*/
-    /*    --color-light-core: var(--base-color-not-black);*/
-    /*    --color-dark-core: var(--base-color-not-white);*/
-    /*}*/
+    :root {
+        --color-light-core: var(--base-color-not-black);
+        --color-dark-core: var(--base-color-not-white);
+    }
 
-    /*html {*/
-    /*    color-scheme: dark;*/
-    /*}*/
+    html {
+        color-scheme: dark;
+    }
 }
