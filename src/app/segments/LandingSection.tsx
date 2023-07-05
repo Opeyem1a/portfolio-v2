@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
-import {MaybeText, Text, Title} from "@/components/styled-elements/text";
+import {Text, Title} from "@/components/styled-elements/text";
 import Button from "@/components/Button";
 import {MaybeLine} from "@/components/styled-elements/artifacts";
 import {FullWidthDiv} from "@/components/styled-elements/base";
@@ -8,20 +8,22 @@ import {useClickHandlers} from "@/app/segments/clickHandlers";
 import Link from "next/link"
 import LinkedInIcon from "@/static/icons/linkedin.svg"
 import GithubIcon from "@/static/icons/github.svg"
-import {GITHUB_LINK, LINKEDIN_LINK} from "@/data/links";
+import {EMAIL, GITHUB_LINK, LINKEDIN_LINK} from "@/data/links";
 import {smoothTargetTransition} from "@/styles/transitions";
 import {mobileOnly} from "@/util";
 import EmailIcon from "@/static/email.svg"
 
 const LandingSection = ({...props}) => {
-    const {scrollToProjectsSection, showEmail} = useClickHandlers()
+    const {scrollToProjectsSection, showResume} = useClickHandlers()
 
     return (
         <FullWidthDiv {...props}>
             <Section>
                 <MainContent>
                     <TitleWrapper gap={["1rem", "1rem", "1.5rem"]}>
-                        <Text $fontSize="clamp(0.75rem, 2vw, 1.5rem)" style={{paddingLeft: "0.45rem"}}>Opey Adeyemi</Text>
+                        <Text $fontSize="clamp(0.75rem, 2vw, 1.5rem)" style={{paddingLeft: "0.45rem"}}>
+                            Opey Adeyemi
+                        </Text>
                         <StyledTitle>Designer & Developer</StyledTitle>
                     </TitleWrapper>
                     <ItemWrapper>
@@ -31,16 +33,17 @@ const LandingSection = ({...props}) => {
                                     See my work
                                 </Text>
                             </Button>
-                            <Button onClick={showEmail} $variant="secondary">
-                                <MaybeText on={[false, true, true]} $fontSize={["1rem", "1rem", "1.25rem"]}
-                                           $fontWeight={600}>
-                                    Contact me
-                                </MaybeText>
-                                <MaybeEmailIcon/>
+                            <Button onClick={showResume} $variant="secondary">
+                                <Text $fontSize={["1rem", "1rem", "1.25rem"]} $fontWeight={600}>
+                                    Resume
+                                </Text>
                             </Button>
                         </ButtonWrapper>
                         <MaybeLine on={[false, true, true]}/>
                         <ButtonWrapper>
+                            <IconLink href={`mailto:${EMAIL}`} target="_blank">
+                                <EmailIcon/>
+                            </IconLink>
                             <IconLink href={LINKEDIN_LINK} target="_blank">
                                 <LinkedInIcon/>
                             </IconLink>
@@ -96,7 +99,7 @@ const ItemWrapper = styled(FlexRow)`
   align-items: center;
   gap: 1.5rem;
   padding: 0 2.5rem 0 0.5rem;
-  
+
   ${mobileOnly} {
     flex-direction: column;
     padding: unset;
@@ -114,17 +117,6 @@ const MainContent = styled(FlexColumn)`
 
   ${mobileOnly} {
     gap: 3rem;
-  }
-`
-
-const MaybeEmailIcon = styled(EmailIcon)`
-  width: 1.5rem;
-  height: 1.5rem;
-  display: none;
-  fill: var(--color-dark);
-
-  ${mobileOnly} {
-    display: initial;
   }
 `
 

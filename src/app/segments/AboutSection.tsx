@@ -3,16 +3,12 @@ import SectionHeading from "@/components/SectionHeading";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
 import {FullWidthDiv} from "@/components/styled-elements/base";
 import {Text} from "@/components/styled-elements/text";
-import {useClickHandlers} from "@/app/segments/clickHandlers";
 import SkillIcons from "@/app/segments/SkillIcons";
 import Star from "@/static/star.svg"
 import SmileBlock from "@/components/SmileBlock";
-import Button from "@/components/Button";
 import {desktopOnly, mobileOnly, mq} from "@/util";
 
 const AboutSection = ({...props}) => {
-    const {showResume, showEmail} = useClickHandlers()
-
     return (
         <FullWidthDiv {...props}>
             <Section>
@@ -33,18 +29,6 @@ const AboutSection = ({...props}) => {
                                         holistic.
                                     </Text>
                                 </FlexColumn>
-                                <ButtonRow>
-                                    <Button onClick={showResume}>
-                                        <Text $fontSize={["1rem", "1rem", "1.25rem"]} $fontWeight={600}>
-                                            Resume {">"}
-                                        </Text>
-                                    </Button>
-                                    <Button onClick={showEmail} $variant="secondary">
-                                        <Text $fontSize={["1rem", "1rem", "1.25rem"]} $fontWeight={600}>
-                                            Say hi {">"}
-                                        </Text>
-                                    </Button>
-                                </ButtonRow>
                             </FlexColumn>
 
                             <FlexColumn gap="16px">
@@ -75,10 +59,6 @@ const MainContent = styled(FlexColumn)`
   }
 
   min-height: calc(100vh - 4.5rem); // - Section.yPaddingTop - Section.yPaddingBottom
-`
-
-const ButtonRow = styled(FlexRow)`
-  gap: 1.5rem;
 `
 
 const Wrapper = styled(FlexRow)`

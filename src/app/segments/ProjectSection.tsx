@@ -8,6 +8,8 @@ import Star from "@/static/star.svg";
 import {mq} from "@/util";
 
 const ProjectSection = ({...props}) => {
+    const displayedProjects = PROJECTS.filter(project => !project?.hidden)
+
     return (
         <FullWidthDiv {...props}>
             <Section>
@@ -15,17 +17,17 @@ const ProjectSection = ({...props}) => {
                     <SectionHeading title={"Projects"} symbol={<Star/>}/>
                     <ProjectsContainer>
                         <FlexColumn gap="2rem" flex={1}>
-                            {PROJECTS
+                            {displayedProjects
                                 .filter((_, index) => index % 2 === 0)
                                 .map((project, index) => {
-                                    return <ProjectCard {...project} key={`project-card-${index}`}/>
+                                    return <ProjectCard {...project} key={`project-card-a-${index}`}/>
                                 })}
                         </FlexColumn>
                         <FlexColumn gap="2rem" flex={1}>
-                            {PROJECTS
+                            {displayedProjects
                                 .filter((_, index) => index % 2 !== 0)
                                 .map((project, index) => {
-                                    return <ProjectCard {...project} key={`project-card-${index}`}/>
+                                    return <ProjectCard {...project} key={`project-card-b-${index}`}/>
                                 })}
                         </FlexColumn>
                     </ProjectsContainer>

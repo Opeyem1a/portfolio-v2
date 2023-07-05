@@ -15,7 +15,7 @@ const Title = styled.h1`
   ${titleTypeface.style};
   word-break: break-all;
   font-size: clamp(12px, 12vw, 8.5rem);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
 `
 
