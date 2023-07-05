@@ -9,6 +9,7 @@ export type Project = {
     }[]
     skills?: string[]
     isCreative?: boolean
+    hidden?: boolean
 }
 
 const PROJECTS: Project[] = [
@@ -31,29 +32,6 @@ const PROJECTS: Project[] = [
             "Python",
             "Django",
             "Docker",
-        ],
-    },
-    {
-        title: "JUnit++",
-        subtitle: "Custom JUnit testing library",
-        description: [
-            "This library enables the quick creation and modification of unit tests written specifically to validate that student-submitted code meets the requirements of a given introductory programming question.",
-        ],
-        contributions: [
-            {
-                title: "Modern Docs",
-                link: "https://canvas-gamification.github.io/docs/docs/junit-framework/introduction/overview",
-            },
-            {
-                title: "Library Co-author",
-                link: "https://github.com/canvas-gamification/canvas-gamification-junit-tests",
-            },
-        ],
-        link: "https://github.com/canvas-gamification/canvas-gamification-junit-tests",
-        skills: [
-            "React.js",
-            "Python",
-            "Django",
         ],
     },
     {
@@ -82,6 +60,29 @@ const PROJECTS: Project[] = [
         ],
     },
     {
+        title: "JUnit++",
+        subtitle: "Custom JUnit testing library",
+        description: [
+            "This library enables the quick creation and modification of unit tests written specifically to validate that student-submitted code meets the requirements of a given introductory programming question.",
+        ],
+        contributions: [
+            {
+                title: "Modern Docs",
+                link: "https://canvas-gamification.github.io/docs/docs/junit-framework/introduction/overview",
+            },
+            {
+                title: "Library Co-author",
+                link: "https://github.com/canvas-gamification/canvas-gamification-junit-tests",
+            },
+        ],
+        link: "https://github.com/canvas-gamification/canvas-gamification-junit-tests",
+        skills: [
+            "React.js",
+            "Python",
+            "Django",
+        ],
+    },
+    {
         title: "Course Gamification",
         subtitle: "Gamified e-learning for computer science majors",
         description: ["A Canvas-integrated platform offering an in-depth question bank allowing students to practice and receive feedback on a range of introductory computer science concepts while integrating challenges, leaderboards, and a grade-based reward system."],
@@ -92,6 +93,7 @@ const PROJECTS: Project[] = [
             "Python",
             "Django",
         ],
+        hidden: true,
     },
     {
         title: "Finite",
@@ -103,6 +105,7 @@ const PROJECTS: Project[] = [
             "HTML5",
             "CSS"
         ],
+        hidden: true,
     },
 ]
 

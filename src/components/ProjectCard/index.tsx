@@ -27,7 +27,7 @@ const ProjectCard = ({title, subtitle, description, skills, contributions, link}
                         })}
                         {contributions &&
                             <ContributionsWrapper>
-                                <Text $fontSize="1rem" $fontWeight={700} $isUppercase>Key Contributions</Text>
+                                <Text $fontSize="1rem" $fontWeight={700} $isUppercase>Responsibilities</Text>
                                 <FlexColumn gap="4px">
                                     {contributions.map((contribution, index) => {
                                         return !!contribution?.link ? (

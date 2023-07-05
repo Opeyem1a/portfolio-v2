@@ -1,7 +1,7 @@
 import {HTMLProps, ReactNode} from "react";
 import styled from "styled-components";
 import {smoothTargetTransition} from "@/styles/transitions";
-import {mobileOnly} from "@/util";
+import {mobileOnly, tabletOnly} from "@/util";
 
 type CustomButtonProps = {
     $variant?: "primary" | "secondary";
@@ -30,15 +30,19 @@ export const StyledButton = styled.button<CustomButtonProps>`
   background-color: ${(props: CustomButtonProps) => props.$variant === "primary" ? "var(--color-dark)" : "rgb(var(--color-dark-core) / 0.05);"};
   color: ${(props: CustomButtonProps) => props.$variant === "primary" ? "var(--color-light)" : "var(--color-dark)"};
 
+  ${tabletOnly} {
+    padding: 1.25rem 1.75rem;
+  }
+  
   ${mobileOnly} {
     padding: 1rem 1.5rem;
   }
 
-  ${smoothTargetTransition("background-color, color")};
+  ${smoothTargetTransition("background-color, color, border")};
 
   &:hover {
     cursor: pointer;
-    background-color: ${(props: CustomButtonProps) => props.$variant === "primary" ? "var(--color-primary)" : "var(--color-light)"};
-    color: ${(props: CustomButtonProps) => props.$variant === "primary" ? "rgb(var(--base-color-not-black))" : "var(--color-dark)"};
+    background-color: var(--color-primary);
+    color: rgb(var(--base-color-not-black));
   }
 `
