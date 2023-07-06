@@ -7,7 +7,7 @@ import Blob from "@/components/Blob";
 const manrope = Manrope({subsets: ['latin']})
 
 export const metadata = {
-    title: "Opey's Playground",
+    title: "Opey - Portfolio",
     description: 'A portfolio of my work.',
 }
 
