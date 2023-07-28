@@ -37,16 +37,17 @@ const UnstyledLink = styled(Link)`
 const InlineLinkWrapper = styled.span`
   ${smoothTargetTransition("background-color, color, border-color")};
   text-transform: capitalize;
+  font-size: 0.9em;
   font-weight: 700;
   display: inline-flex;
   gap: 0.35rem;
   align-items: center;
-  padding: 0.05rem 0.5rem 0.125rem 0.5rem;
+  padding: 0 0.5rem;
   margin: 0 0.2rem;
   border-radius: 0.25em;
   background-color: rgb(var(--color-dark-core) / 0.05);
   color: var(--color-dark);
-  border: 1px solid var(--color-dark);
+  border: 1px solid rgb(var(--color-dark-core) / 0.05);
 
   &::after {
     content: ">";
