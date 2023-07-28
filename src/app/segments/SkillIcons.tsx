@@ -23,7 +23,7 @@ import {mobileOnly} from "@/util";
 
 const SkillIcons = () => {
     return (
-        <SVGWrapper>
+        <SVGWrapper data-hover-none>
             <NextJsIcon data-hover-base />
             <ReactJsIcon/>
             <TypeScriptIcon/>
