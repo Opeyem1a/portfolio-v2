@@ -7,8 +7,12 @@ import SkillIcons from "@/app/segments/SkillIcons";
 import Star from "@/static/star.svg"
 import SmileBlock from "@/components/SmileBlock";
 import {desktopOnly, mobileOnly, mq} from "@/util";
+import InlineLink from "@/components/InlineLink";
+import {useClickHandlers} from "@/app/segments/clickHandlers";
 
 const AboutSection = ({...props}) => {
+    const {scrollToProjectsSection, showResume} = useClickHandlers()
+
     return (
         <FullWidthDiv {...props}>
             <Section>
@@ -25,8 +29,12 @@ const AboutSection = ({...props}) => {
                                     <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $maxWidth="48ch">
                                         I want to tackle novel problems with people who are curious like me. My
                                         experience as a designer fuels my edge as an engineer and vice-versa. You{"'"}ll
-                                        find me consistently looking at the bigger picture to keep projects focused and
+                                        find me consistently looking at the bigger picture to
+                                        keep my <InlineLink onClick={scrollToProjectsSection}>projects</InlineLink> focused and
                                         holistic.
+                                    </Text>
+                                    <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $maxWidth="48ch">
+                                        See my <InlineLink onClick={showResume}>resume</InlineLink> for more details.
                                     </Text>
                                 </FlexColumn>
                             </FlexColumn>
