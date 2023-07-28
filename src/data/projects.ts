@@ -77,9 +77,9 @@ const PROJECTS: Project[] = [
         ],
         link: "https://github.com/canvas-gamification/canvas-gamification-junit-tests",
         skills: [
-            "React.js",
-            "Python",
-            "Django",
+            "Java",
+            "JUnit5",
+            "Judge0",
         ],
     },
     {
