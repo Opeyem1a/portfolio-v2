@@ -27,7 +27,7 @@ const LandingSection = ({...props}) => {
                         <StyledTitle>Designer & Developer</StyledTitle>
                     </TitleWrapper>
                     <ItemWrapper>
-                        <ButtonWrapper>
+                        <ButtonWrapper data-hover-none>
                             <Button onClick={scrollToProjectsSection}>
                                 <Text $fontSize={["1rem", "1rem", "1.25rem"]} $fontWeight={600}>
                                     See my work
@@ -40,7 +40,7 @@ const LandingSection = ({...props}) => {
                             </Button>
                         </ButtonWrapper>
                         <MaybeLine on={[false, true, true]}/>
-                        <ButtonWrapper>
+                        <ButtonWrapper data-hover-none>
                             <IconLink href={`mailto:${EMAIL}`} target="_blank">
                                 <EmailIcon/>
                             </IconLink>

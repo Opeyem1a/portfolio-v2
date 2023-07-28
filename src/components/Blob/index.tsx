@@ -16,8 +16,18 @@ const Blob = ({size}: BlobProps) => {
         return !!element?.["dataset"]?.hoverable || !!element.closest("[data-hoverable]")
     }
 
+    const shouldHideOnHover = (element: any) => {
+        return !!element?.["dataset"]?.hoverNone || !!element.closest("[data-hover-none]")
+    }
+
     const followCursor = useCallback((e: MouseEvent) => {
         if (!ref.current) return
+
+        if(shouldHideOnHover(e.target)) {
+            ref.current.style.transform = `scale(0)`
+            return
+        }
+
         ref.current.style.top = `${e.clientY - size / 2}px`
         ref.current.style.left = `${e.clientX - size / 2}px`
 
