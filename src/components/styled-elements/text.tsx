@@ -14,8 +14,8 @@ const titleTypeface = Montserrat({
 const Title = styled.h1`
   ${titleTypeface.style};
   word-break: break-all;
-  font-size: clamp(12px, 12vw, 8.5rem);
-  font-weight: 500;
+  font-size: clamp(20px, 15vw, 8.5rem);
+  font-weight: 400;
   text-transform: uppercase;
 `
 

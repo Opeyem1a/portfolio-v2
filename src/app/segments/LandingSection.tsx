@@ -1,57 +1,33 @@
 import styled from "styled-components";
 import {FlexColumn, FlexRow} from "@/components/styled-elements/flex";
 import {Text, Title} from "@/components/styled-elements/text";
-import Button from "@/components/Button";
-import {MaybeLine} from "@/components/styled-elements/artifacts";
 import {FullWidthDiv} from "@/components/styled-elements/base";
-import {useClickHandlers} from "@/app/segments/clickHandlers";
 import Link from "next/link"
-import LinkedInIcon from "@/static/icons/linkedin.svg"
-import GithubIcon from "@/static/icons/github.svg"
-import {EMAIL, GITHUB_LINK, LINKEDIN_LINK} from "@/data/links";
 import {smoothTargetTransition} from "@/styles/transitions";
 import {mobileOnly} from "@/util";
-import EmailIcon from "@/static/email.svg"
+import ActionRow from "@/components/ActionRow";
 
 const LandingSection = ({...props}) => {
-    const {scrollToProjectsSection, showResume} = useClickHandlers()
 
     return (
         <FullWidthDiv {...props}>
             <Section>
                 <MainContent>
-                    <TitleWrapper gap={["1rem", "1rem", "1.5rem"]}>
-                        <Text $fontSize="clamp(0.75rem, 2vw, 1.5rem)" style={{paddingLeft: "0.45rem"}}>
-                            Opey Adeyemi
+                    <TitleWrapper gap={["1rem", "2rem", "2rem"]}>
+                        <Text $fontSize="clamp(0.6rem, 2vw, 1rem)" $color="rgb(var(--color-dark-core) / 0.25)">
+                            Designer & Developer
                         </Text>
-                        <StyledTitle>Designer & Developer</StyledTitle>
+                        <FlexColumn gap="0rem">
+                            <TitleFragmentWrapper>
+                                <StyledTitle>Opey</StyledTitle>
+                                <Spacer/>
+                            </TitleFragmentWrapper>
+                            <TitleFragmentWrapper>
+                                <StyledTitle>Adeyemi</StyledTitle>
+                            </TitleFragmentWrapper>
+                        </FlexColumn>
                     </TitleWrapper>
-                    <ItemWrapper>
-                        <ButtonWrapper data-hover-none>
-                            <Button onClick={scrollToProjectsSection}>
-                                <Text $fontSize={["1rem", "1rem", "1.25rem"]} $fontWeight={600}>
-                                    See my work
-                                </Text>
-                            </Button>
-                            <Button onClick={showResume} $variant="secondary">
-                                <Text $fontSize={["1rem", "1rem", "1.25rem"]} $fontWeight={600}>
-                                    Resume
-                                </Text>
-                            </Button>
-                        </ButtonWrapper>
-                        <MaybeLine on={[false, true, true]}/>
-                        <ButtonWrapper data-hover-none>
-                            <IconLink href={`mailto:${EMAIL}`} target="_blank">
-                                <EmailIcon/>
-                            </IconLink>
-                            <IconLink href={LINKEDIN_LINK} target="_blank">
-                                <LinkedInIcon/>
-                            </IconLink>
-                            <IconLink href={GITHUB_LINK} target="_blank">
-                                <GithubIcon/>
-                            </IconLink>
-                        </ButtonWrapper>
-                    </ItemWrapper>
+                    <ActionRow/>
                 </MainContent>
             </Section>
         </FullWidthDiv>
@@ -63,7 +39,7 @@ export default LandingSection;
 
 const IconLink = styled(Link)`
   svg {
-    height: clamp(2.5rem, 5vw, 3.5rem);
+    height: clamp(2rem, 5vw, 3rem);
 
     path, circle, rect {
       ${smoothTargetTransition("fill")};
@@ -78,13 +54,26 @@ const IconLink = styled(Link)`
   }
 `
 
+const TitleFragmentWrapper = styled(FlexRow)`
+  gap: clamp(0.5rem, 3vw, 0.75rem);
+  align-items: baseline;
+`
+
 const StyledTitle = styled(Title)`
-  max-width: 10ch;
-  line-height: 100%;
+  flex-shrink: 0;
+  line-height: 95%;
 
   ${mobileOnly} {
     text-align: center;
   }
+`
+
+const Spacer = styled.div`
+  display: inline-flex;
+  border-radius: clamp(20px, 11vw, 6rem);
+  width: 100%;
+  height: clamp(20px, 11vw, 6rem);
+  background-color: #1b1b1b;
 `
 
 const Section = styled.section`
@@ -95,25 +84,10 @@ const Section = styled.section`
   align-items: center;
 `
 
-const ItemWrapper = styled(FlexRow)`
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0 2.5rem 0 0.5rem;
-
-  ${mobileOnly} {
-    flex-direction: column;
-    padding: unset;
-  }
-`
-
-const ButtonWrapper = styled(FlexRow)`
-  align-items: center;
-  gap: 1.5rem;
-`
-
 const MainContent = styled(FlexColumn)`
   gap: 6rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3.5rem;
+  align-items: center;
 
   ${mobileOnly} {
     gap: 3rem;
@@ -121,7 +95,5 @@ const MainContent = styled(FlexColumn)`
 `
 
 const TitleWrapper = styled(FlexColumn)`
-  ${mobileOnly} {
-    align-items: center;
-  }
+  align-items: center;
 `
