@@ -33,7 +33,8 @@ const FooterWrapper = styled(FlexRow)`
 `
 
 const FooterLine = styled(Line)`
-  height: 0.1rem;
+  height: 1rem;
+  background-color: rgb(var(--color-dark-core) / 0.05);
 `
 
 const TextContainer = styled(FlexRow)`
