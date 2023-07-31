@@ -22,16 +22,17 @@ const AboutSection = ({...props}) => {
                         <Left>
                             <FlexColumn gap="80px">
                                 <FlexColumn gap="32px">
-                                    <Text $fontSize={["2.75rem", "2.75rem", "3.5rem"]} $fontWeight={700}
+                                    <Text $fontSize={["2.75rem", "2.75rem", "3.5rem"]} $fontWeight={500}
                                           $lineHeight={"125%"}>
                                         Designing code & architecting design
                                     </Text>
-                                    <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $maxWidth="48ch">
+                                    <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $fontWeight={300}
+                                          $maxWidth="48ch">
                                         I want to tackle novel problems with people who are curious like me. My
-                                        experience as a designer fuels my edge as an engineer and vice-versa. You{"'"}ll
-                                        find me consistently looking at the bigger picture to
-                                        keep my <InlineLink onClick={scrollToProjectsSection}>projects</InlineLink> focused and
-                                        holistic.
+                                        experience as a designer fuels my edge as an engineer and vice-versa.
+                                        You{"'"}ll find me consistently looking at the bigger picture to keep my
+                                        <InlineLink onClick={scrollToProjectsSection}>projects</InlineLink>
+                                        focused and holistic.
                                     </Text>
                                 </FlexColumn>
                             </FlexColumn>

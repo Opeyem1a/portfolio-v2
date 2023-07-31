@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import {smoothTargetTransition} from "@/styles/transitions";
 import {InlineCornerArrow} from "@/components/styled-elements/artifacts";
+import {mobileOnly} from "@/util";
 
 type InlineLinkProps = {
     children: ReactNode;
@@ -69,5 +70,9 @@ const InlineLinkWrapper = styled.span`
     }
 
     cursor: pointer;
+  }
+  
+  ${mobileOnly} {
+    margin: 0 0.25rem;
   }
 `
