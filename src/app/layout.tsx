@@ -7,8 +7,8 @@ import Blob from "@/components/Blob";
 const manrope = Manrope({subsets: ['latin']})
 
 export const metadata = {
-    title: "Opey - Portfolio",
-    description: 'A portfolio of my work.',
+    title: "Opey Adeyemi",
+    description: 'A selection of thoughts and work.',
 }
 
 type RootLayoutProps = {
