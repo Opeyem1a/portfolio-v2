@@ -31,13 +31,7 @@ const Blob = ({size}: BlobProps) => {
         ref.current.style.top = `${e.clientY - size / 2}px`
         ref.current.style.left = `${e.clientX - size / 2}px`
 
-        if (shouldExpandOnHover(e.target)) {
-            ref.current.style.transform = `scale(1)`
-            ref.current.style.borderWidth = `2rem`
-        } else {
-            ref.current.style.transform = `scale(0.5)`
-            ref.current.style.borderWidth = `0rem`
-        }
+        ref.current.style.transform = shouldExpandOnHover(e.target) ? `scale(1)` : `scale(0.5)`
     }, [ref, size])
 
     useEffect(() => {
@@ -56,16 +50,16 @@ const BlobWrapper = styled.div<BlobProps>`
   transition: transform ${smoothTransitionStyles}, backdrop-filter ${smoothTransitionStyles}, border ${smoothTransitionStyles}, background-color ${smoothTransitionStyles}, top 180ms ease-out, left 180ms ease-out;
   z-index: 2;
   position: fixed;
-  background-color: rgb(0 0 0 / 0);
+  background-color: rgb(var(--base-color-not-white) / 0.5);
   pointer-events: none;
   border-radius: ${(props: BlobProps) => `${props.size}px`};
   height: ${(props: BlobProps) => `${props.size}px`};
   width: ${(props: BlobProps) => `${props.size}px`};
   transform: scale(0.5);
   backdrop-filter: invert(100%);
-  border: 0 solid rgb(var(--base-color-not-white) / 0.5);
-  
-  ${mobileOnly} {
+  -webkit-backdrop-filter: invert(100%);
+
+  @media (hover: none) {
     visibility: hidden;
   }
 `
