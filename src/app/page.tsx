@@ -5,7 +5,6 @@ import LandingSection from "@/app/segments/LandingSection";
 import ProjectSection from "@/app/segments/ProjectSection";
 import {FlexColumn} from "@/components/styled-elements/flex";
 import AboutSection from "@/app/segments/AboutSection";
-import Blob from "@/components/Blob";
 import {mq} from "@/util";
 import Footer from "@/components/Footer";
 
