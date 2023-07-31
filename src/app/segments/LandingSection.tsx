@@ -37,23 +37,6 @@ const LandingSection = ({...props}) => {
 export default LandingSection;
 
 
-const IconLink = styled(Link)`
-  svg {
-    height: clamp(2rem, 5vw, 3rem);
-
-    path, circle, rect {
-      ${smoothTargetTransition("fill")};
-      fill: var(--color-dark);
-    }
-
-    &:hover {
-      path, circle, rect {
-        fill: var(--color-primary);
-      }
-    }
-  }
-`
-
 const TitleFragmentWrapper = styled(FlexRow)`
   gap: clamp(0.5rem, 3vw, 0.75rem);
   align-items: baseline;
@@ -93,6 +76,10 @@ const MainContent = styled(FlexColumn)`
   gap: 6rem;
   margin-bottom: 7rem;
   align-items: center;
+
+  @media (max-height: 500px) {
+    margin-top: 2rem;
+  }
 
   ${mobileOnly} {
     gap: 3rem;
