@@ -20,7 +20,7 @@ const LandingSection = ({...props}) => {
                         <FlexColumn gap="0rem">
                             <TitleFragmentWrapper>
                                 <StyledTitle>Opey</StyledTitle>
-                                <Spacer/>
+                                <Spacer data-hover-none/>
                             </TitleFragmentWrapper>
                             <TitleFragmentWrapper>
                                 <StyledTitle>Adeyemi</StyledTitle>
@@ -69,11 +69,16 @@ const StyledTitle = styled(Title)`
 `
 
 const Spacer = styled.div`
+  ${smoothTargetTransition("background-color")};
   display: inline-flex;
   border-radius: clamp(20px, 11vw, 6rem);
   width: 100%;
   height: clamp(20px, 11vw, 6rem);
-  background-color: #1b1b1b;
+  background-color: rgb(var(--color-dark-core) / 0.03);
+  
+  &:hover {
+    background-color: var(--color-primary);
+  }
 `
 
 const Section = styled.section`
