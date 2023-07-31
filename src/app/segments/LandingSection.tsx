@@ -91,7 +91,7 @@ const Section = styled.section`
 
 const MainContent = styled(FlexColumn)`
   gap: 6rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 7rem;
   align-items: center;
 
   ${mobileOnly} {
