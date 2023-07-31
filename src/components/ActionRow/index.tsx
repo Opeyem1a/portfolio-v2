@@ -49,9 +49,14 @@ const ActionRowWrapper = styled(FlexRow)`
   background-color: rgb(var(--color-dark-core) / 0.02);
   border-radius: 0.75rem;
   width: fit-content;
+
   position: absolute;
   bottom: 5rem;
-
+  @media (max-height: 500px) {
+    position: initial;
+    bottom: 0;
+  }
+  
   ${mobileOnly} {
     flex-direction: column;
     gap: 0.5rem;
