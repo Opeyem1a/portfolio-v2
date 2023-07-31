@@ -44,9 +44,9 @@ const InlineLinkWrapper = styled.span`
   gap: 0.35rem;
   align-items: baseline;
   padding: 0 0.5rem;
-  margin: 0 0.2rem;
+  margin: 0 0.4rem;
   border-radius: 0.25em;
-  background-color: rgb(var(--color-dark-core) / 0.05);
+  background-color: rgb(var(--color-dark-core) / 0.07);
   color: var(--color-dark);
   border: 1px solid rgb(var(--color-dark-core) / 0.05);
 
