@@ -46,7 +46,7 @@ const Text = styled.p<TextProps>`
   ${(props: TextProps) => {
     return {
       ...mqValue("font-size", props.$fontSize, "1.25rem"),
-      ...mqValue("line-height", props.$lineHeight, null),
+      ...mqValue("line-height", props.$lineHeight, "160%"),
       ...mqValue("font-weight", props.$fontWeight, "normal"),
       ...mqValue("max-width", props.$maxWidth, "initial"),
       ...mqValue("color", props.$color, "inherit"),

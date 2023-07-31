@@ -7,48 +7,49 @@ import Link from "next/link";
 import {_hoverUnderlineStyles, smoothTargetTransition} from "@/styles/transitions";
 import Pill, {PillWrapper} from "@/components/Pill";
 import {desktopOnly, mobileOnly, notDesktop} from "@/util";
-import CornerArrow from "@/static/corner-arrow.svg"
+import {InlineCornerArrow} from "@/components/styled-elements/artifacts";
 
 type ProjectRowProps = Project
 
 const ProjectRow = ({title, subtitle, description, skills, links, category}: ProjectRowProps) => {
-    return (
-        <ProjectRowWrapper>
-            <TitleBlockWrapper>
-                <ProjectTitle $isHeading>{title}</ProjectTitle>
-                <Subtitle>{subtitle}</Subtitle>
-            </TitleBlockWrapper>
-            <ContentBlockWrapper>
-                <OverviewBlockWrapper>
-                    <CategoryText>{category}</CategoryText>
-                    <FlexColumn gap={["0.5rem", "0.25rem", "0.25rem"]} data-hover-none>
-                        {links?.map((link, index) => {
-                            return (
-                                <Text key={`link-${index}`} $fontSize="1rem">
-                                    <StyledLink href={link.link} target="_blank">
-                                        {link.title}&nbsp;&nbsp;<InlineCornerArrow/>
-                                    </StyledLink>
-                                </Text>
-                            )
-                        })}
-                    </FlexColumn>
-                </OverviewBlockWrapper>
-                <DetailsBlockWrapper>
-                    <Text $fontSize="1rem" $maxWidth="45ch">{description}</Text>
-                    {skills && <SkillPillWrapper>
-                        {skills.map((skill, index) => {
-                            return <Pill key={`skill-${index}`}>
-                                <Text $fontSize="0.75rem">
-                                    {skill}
-                                </Text>
-                            </Pill>
-                        })}
-                    </SkillPillWrapper>}
-                </DetailsBlockWrapper>
-            </ContentBlockWrapper>
-        </ProjectRowWrapper>
-    );
-};
+        return (
+            <ProjectRowWrapper>
+                <TitleBlockWrapper>
+                    <ProjectTitle $isHeading>{title}</ProjectTitle>
+                    <Subtitle>{subtitle}</Subtitle>
+                </TitleBlockWrapper>
+                <ContentBlockWrapper>
+                    <OverviewBlockWrapper>
+                        <CategoryText>{category}</CategoryText>
+                        <FlexColumn gap={["0.5rem", "0.25rem", "0.25rem"]} data-hover-none>
+                            {links?.map((link, index) => {
+                                return (
+                                    <Text key={`link-${index}`} $fontSize="1rem">
+                                        <StyledLink href={link.link} target="_blank">
+                                            {link.title}&nbsp;&nbsp;<InlineCornerArrow $height="0.75em"/>
+                                        </StyledLink>
+                                    </Text>
+                                )
+                            })}
+                        </FlexColumn>
+                    </OverviewBlockWrapper>
+                    <DetailsBlockWrapper>
+                        <Text $fontSize="1rem" $maxWidth="45ch">{description}</Text>
+                        {skills && <SkillPillWrapper>
+                            {skills.map((skill, index) => {
+                                return <Pill key={`skill-${index}`}>
+                                    <Text $fontSize="0.75rem">
+                                        {skill}
+                                    </Text>
+                                </Pill>
+                            })}
+                        </SkillPillWrapper>}
+                    </DetailsBlockWrapper>
+                </ContentBlockWrapper>
+            </ProjectRowWrapper>
+        );
+    }
+;
 
 export default ProjectRow;
 
@@ -151,16 +152,5 @@ const StyledLink = styled(Link)`
   @media (prefers-color-scheme: light) {
     color: var(--color-dark);
     ${_hoverUnderlineStyles("var(--color-primary)")};
-  }
-`
-
-const InlineCornerArrow = styled(CornerArrow)`
-  height: 0.75em;
-
-  * {
-    fill: var(--color-dark);
-    @media (prefers-color-scheme: light) {
-      fill: var(--color-primary);
-    }
   }
 `
