@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react';
 import styled from "styled-components";
 import Link from "next/link";
 import {smoothTargetTransition} from "@/styles/transitions";
+import {InlineCornerArrow} from "@/components/styled-elements/artifacts";
 
 type InlineLinkProps = {
     children: ReactNode;
@@ -15,7 +16,7 @@ const InlineLink = ({children, href, onClick}: InlineLinkProps) => {
         return (
             <UnstyledLink href={href} target="_blank">
                 <InlineLinkWrapper data-hover-none>
-                    {children}
+                    {children}<InlineCornerArrow $height="0.7em"/>
                 </InlineLinkWrapper>
             </UnstyledLink>
         )
@@ -23,7 +24,7 @@ const InlineLink = ({children, href, onClick}: InlineLinkProps) => {
 
     return (
         <InlineLinkWrapper data-hover-none onClick={onClick}>
-            {children}
+            {children}<InlineCornerArrow $height="0.7em"/>
         </InlineLinkWrapper>
     );
 };
@@ -41,7 +42,7 @@ const InlineLinkWrapper = styled.span`
   font-weight: 700;
   display: inline-flex;
   gap: 0.35rem;
-  align-items: center;
+  align-items: baseline;
   padding: 0 0.5rem;
   margin: 0 0.2rem;
   border-radius: 0.25em;
@@ -49,13 +50,7 @@ const InlineLinkWrapper = styled.span`
   color: var(--color-dark);
   border: 1px solid rgb(var(--color-dark-core) / 0.05);
 
-  &::after {
-    content: ">";
-  }
-
   svg {
-    height: 0.8em;
-
     * {
       ${smoothTargetTransition("fill")};
       fill: var(--color-dark);

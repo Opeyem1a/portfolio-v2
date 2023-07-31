@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Display} from "@/components/styled-elements/display";
+import CornerArrow from "@/static/corner-arrow.svg";
 
 const DummyIcon = styled.div<{size: number}>`
   height: ${props => `${props.size}px`};
@@ -19,10 +20,19 @@ const Line = styled.div<LineProps>`
   border-radius: var(--width-standard);
 `
 
-const MaybeLine: any = Display(Line)
+const InlineCornerArrow = styled(CornerArrow)<{$height: string}>`
+  height: ${({$height}) => $height};
+
+  * {
+    fill: var(--color-dark);
+    @media (prefers-color-scheme: light) {
+      fill: var(--color-primary);
+    }
+  }
+`
 
 export {
     DummyIcon,
     Line,
-    MaybeLine,
+    InlineCornerArrow,
 }

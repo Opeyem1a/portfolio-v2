@@ -33,9 +33,6 @@ const AboutSection = ({...props}) => {
                                         keep my <InlineLink onClick={scrollToProjectsSection}>projects</InlineLink> focused and
                                         holistic.
                                     </Text>
-                                    <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $maxWidth="48ch">
-                                        See my <InlineLink onClick={showResume}>resume</InlineLink> for more.
-                                    </Text>
                                 </FlexColumn>
                             </FlexColumn>
 
