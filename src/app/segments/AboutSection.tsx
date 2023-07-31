@@ -24,15 +24,19 @@ const AboutSection = ({...props}) => {
                                 <FlexColumn gap="32px">
                                     <Text $fontSize={["3rem", "3rem", "3.5rem"]} $fontWeight={500}
                                           $lineHeight={"125%"}>
-                                        Designing code & architecting design
+                                        Humane design, effective execution.
                                     </Text>
                                     <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $fontWeight={300}
                                           $maxWidth="48ch">
-                                        I want to tackle novel problems with people who are curious like me. My
-                                        experience as a designer fuels my edge as an engineer and vice-versa.
-                                        You{"'"}ll find me consistently looking at the bigger picture to keep my
-                                        <InlineLink onClick={scrollToProjectsSection}>projects</InlineLink>
-                                        focused and holistic.
+                                        I believe in a world where the integration of technology does not damage our
+                                        communities or humanity -- I&apos;m passionate about finding, executing, and
+                                        demonstrating this path.
+                                    </Text>
+                                    <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $fontWeight={300}
+                                          $maxWidth="48ch">
+                                        I do this by working as a designer, as an engineer, as whatever is necessary,
+                                        to infuse my <InlineLink onClick={scrollToProjectsSection}>projects</InlineLink>
+                                        with compassion and purpose.
                                     </Text>
                                 </FlexColumn>
                             </FlexColumn>

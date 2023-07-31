@@ -57,15 +57,16 @@ export default SkillIcons;
 
 
 const SVGWrapper = styled(FlexRow)`
-  gap: 12px;
+  gap: 0.75rem;
   flex-wrap: wrap;
+  max-width: 40ch;
   
   svg {
-    height: 3rem;
+    height: 2rem;
     opacity: 0.5;
 
     ${mobileOnly} {
-      height: 2rem;
+      height: 1.5rem;
     }
 
     &:not(:hover) {
