@@ -19,9 +19,9 @@ export default Pill;
 
 export const PillWrapper = styled(FlexRow)`
   ${smoothTargetTransition("background-color, color")};
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 16px;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 1rem;
   background-color: var(--color-dark);
   color: var(--color-light);
 `
