@@ -35,7 +35,7 @@ const AboutSection = ({...props}) => {
                                     <Text $fontSize={["1.1rem", "1.25rem", "1.25rem"]} $fontWeight={300}
                                           $maxWidth="48ch">
                                         I do this by working as a designer, as an engineer, as whatever is necessary,
-                                        to infuse my <InlineLink onClick={scrollToProjectsSection}>projects</InlineLink>
+                                        to infuse my<InlineLink onClick={scrollToProjectsSection}>projects</InlineLink>
                                         with compassion and purpose.
                                     </Text>
                                 </FlexColumn>

@@ -31,7 +31,9 @@ const Blob = ({size}: BlobProps) => {
         ref.current.style.top = `${e.clientY - size / 2}px`
         ref.current.style.left = `${e.clientX - size / 2}px`
 
-        ref.current.style.transform = shouldExpandOnHover(e.target) ? `scale(1)` : `scale(0.5)`
+        const shouldExpand = shouldExpandOnHover(e.target)
+        ref.current.style.transform = shouldExpand ? `scale(1)` : `scale(0.5)`
+        ref.current.style.backgroundColor = shouldExpand ? `rgb(var(--base-color-not-white) / 0.5)` : `rgb(0 0 0 / 0)`
     }, [ref, size])
 
     useEffect(() => {
@@ -50,7 +52,7 @@ const BlobWrapper = styled.div<BlobProps>`
   transition: transform ${smoothTransitionStyles}, backdrop-filter ${smoothTransitionStyles}, border ${smoothTransitionStyles}, background-color ${smoothTransitionStyles}, top 180ms ease-out, left 180ms ease-out;
   z-index: 2;
   position: fixed;
-  background-color: rgb(var(--base-color-not-white) / 0.5);
+  background-color: rgb(0 0 0 / 0);
   pointer-events: none;
   border-radius: ${(props: BlobProps) => `${props.size}px`};
   height: ${(props: BlobProps) => `${props.size}px`};
