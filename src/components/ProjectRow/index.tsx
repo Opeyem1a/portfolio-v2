@@ -61,8 +61,6 @@ const ProjectRowWrapper = styled(FlexRow)`
 
   &:hover {
     border-bottom-color: rgb(var(--color-dark-core) / 1);
-    background: -webkit-radial-gradient(bottom left, rgb(var(--color-dark-core) / 0.01) 0%, rgb(var(--color-dark-core) / 0) 100%);
-    background: radial-gradient(at bottom left, rgb(var(--color-dark-core) / 0.01) 0%, rgb(var(--color-dark-core) / 0) 100%);
   }
 
   ${notDesktop} {
