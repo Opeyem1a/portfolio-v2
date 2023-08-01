@@ -86,8 +86,8 @@ const PROJECTS: Project[] = [
             "Apollo GraphQL",
             "Python",
             "Django",
+            "Sentry",
             "Google Cloud Platform",
-            "HTML5",
         ],
     },
     {
