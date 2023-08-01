@@ -15,7 +15,7 @@ const ProjectSection = ({...props}) => {
     return (
         <FullWidthDiv {...props}>
             <Section>
-                <FlexColumn gap="2rem">
+                <FlexColumn gap={["0", "0", "1rem"]}>
                     <SectionHeading title={"Projects"} symbol={<Star/>}/>
                     {isActive(FLAG_NEW_PROJECT_ROWS) ? (
                         <FlexColumn>

@@ -22,7 +22,7 @@ const AboutSection = ({...props}) => {
                         <Left>
                             <FlexColumn gap="80px">
                                 <FlexColumn gap="32px">
-                                    <Text $fontSize={["3rem", "3rem", "3.5rem"]} $fontWeight={500}
+                                    <Text $fontSize={["2.75rem", "3rem", "3.5rem"]} $fontWeight={500}
                                           $lineHeight={"125%"}>
                                         Humane design, effective execution.
                                     </Text>
