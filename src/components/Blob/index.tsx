@@ -61,7 +61,8 @@ const BlobWrapper = styled.div<BlobProps>`
   backdrop-filter: invert(100%);
   -webkit-backdrop-filter: invert(100%);
 
-  @media (hover: none) {
-    visibility: hidden;
+  visibility: hidden;
+  @media (hover: hover) {
+    visibility: visible;
   }
 `
