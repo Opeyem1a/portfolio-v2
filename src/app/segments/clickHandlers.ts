@@ -12,7 +12,7 @@ const useClickHandlers = () => {
     }
 
     const showResume = () => {
-        window.open("/assets/Resume_Opey_Adeyemi.pdf","_blank");
+        window.open("/assets/Opey_Adeyemi-Resume.pdf","_blank");
     }
 
     const showEmail = () => {
