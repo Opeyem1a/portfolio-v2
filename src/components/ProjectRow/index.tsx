@@ -60,7 +60,7 @@ const ProjectRowWrapper = styled(FlexRow)`
   gap: 1rem;
 
   &:hover {
-    border-bottom-color: rgb(var(--color-dark-core) / 1);
+    border-bottom-color: rgb(var(--color-dark-core) / 0.5);
   }
 
   ${notDesktop} {
