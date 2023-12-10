@@ -73,6 +73,14 @@ const SmileBlockWrapper = styled(FlexColumn)`
 const StyledSmileIcon = styled(SmileIcon)`
   width: clamp(1.5rem, 100%, 13rem);
   aspect-ratio: 1 / 1;
+  & > * {
+    &[fill] {
+      fill: rgb(var(--base-color-not-black));
+    }
+    &[stroke] {
+      stroke: rgb(var(--base-color-not-black));
+    }
+  }
 `
 
 const SpaceFlex = styled.div<{ flex: number }>`
