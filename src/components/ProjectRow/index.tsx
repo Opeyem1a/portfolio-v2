@@ -73,6 +73,7 @@ const ProjectRowWrapper = styled(FlexRow)`
 `
 
 
+
 const CategoryText = styled(Text)`
   font-size: 1.25rem;
 
