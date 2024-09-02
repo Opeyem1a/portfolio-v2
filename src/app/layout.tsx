@@ -3,6 +3,7 @@ import React from "react";
 import {Manrope} from 'next/font/google'
 import StyledComponentsRegistry from "@/lib/registry";
 import Blob from "@/components/Blob";
+import { Analytics } from "@vercel/analytics/react"
 
 const manrope = Manrope({subsets: ['latin']})
 
@@ -23,6 +24,7 @@ export default function RootLayout({children}: RootLayoutProps) {
             {children}
             <Blob size={48}/>
         </StyledComponentsRegistry>
+        <Analytics />
         </body>
         </html>
     )
