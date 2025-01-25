@@ -111,7 +111,7 @@ const TitleBlockWrapper = styled(FlexColumn)`
 `;
 
 const ProjectTitle = styled(Text)`
-    font-size: 4rem;
+    font-size: 3.6rem;
     line-height: 125%;
 
     ${mobileOnly} {

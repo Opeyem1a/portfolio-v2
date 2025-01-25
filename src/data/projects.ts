@@ -13,6 +13,55 @@ export type Project = {
 
 const PROJECTS: Project[] = [
     {
+        title: 'Something to ask',
+        subtitle: 'My repository of good questions',
+        category: 'Web Application',
+        description: [
+            'I like to collect good questions and these are my favourite. I always love to chat about them.',
+        ],
+        links: [
+            {
+                title: 'See it live',
+                link: 'https://whatdoyouthink.vercel.app/questions',
+            },
+        ],
+        skills: ['Node.js', 'Tailwind CSS', 'Parcel'],
+    },
+    {
+        title: 'Times Up',
+        subtitle: 'Present with peace of mind',
+        category: 'Web Application',
+        description: [
+            "Times up is a timer. You can use it and know how much time is left in your presentation and how much time is left in the current section you're speaking through. An experiment to prototype something fast.",
+        ],
+        links: [
+            {
+                title: 'See it live',
+                link: 'https://timesupnow.vercel.app',
+            },
+        ],
+        skills: ['Next.js', 'React.js', 'Tailwind CSS'],
+    },
+    {
+        title: 'Tacit',
+        subtitle: 'Automating boring work',
+        category: 'Browser Extension',
+        description: [
+            'I built a tool to help me quickly go through the standard Shopify purchase flow. I was feeling rebellious against dependencies, so only Node.js and HTML was used for the UI.',
+        ],
+        links: [
+            {
+                title: 'See it live',
+                link: 'https://addons.mozilla.org/en-CA/firefox/addon/tacit/',
+            },
+            {
+                title: 'See on GitHub',
+                link: 'https://github.com/Opeyem1a/tacit',
+            },
+        ],
+        skills: ['Node.js', 'Tailwind CSS', 'Parcel'],
+    },
+    {
         title: 'Teamable Analytics',
         subtitle: 'Dynamic student team generation',
         category: 'Web Application',
