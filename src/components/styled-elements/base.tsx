@@ -1,9 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const FullWidthDiv = styled.div`
-  width: 100%;
-`
+    width: 100%;
+`;
 
-export {
-    FullWidthDiv,
-}
+export { FullWidthDiv };
