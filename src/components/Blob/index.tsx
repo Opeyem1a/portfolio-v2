@@ -1,68 +1,85 @@
-"use client";
+'use client';
 
-import styled from "styled-components";
-import {useCallback, useEffect, useRef} from "react";
-import {smoothTransitionStyles} from "@/styles/transitions";
-import {mobileOnly} from "@/util";
+import styled from 'styled-components';
+import { useCallback, useEffect, useRef } from 'react';
+import { smoothTransitionStyles } from '@/styles/transitions';
+import { mobileOnly } from '@/util';
 
 type BlobProps = {
-    size: number
-}
+    size: number;
+};
 
-const Blob = ({size}: BlobProps) => {
-    const ref = useRef<HTMLDivElement | null>(null)
+const Blob = ({ size }: BlobProps) => {
+    const ref = useRef<HTMLDivElement | null>(null);
 
     const shouldExpandOnHover = (element: any) => {
-        return !!element?.["dataset"]?.hoverable || !!element.closest("[data-hoverable]")
-    }
+        return (
+            !!element?.['dataset']?.hoverable ||
+            !!element.closest('[data-hoverable]')
+        );
+    };
 
     const shouldHideOnHover = (element: any) => {
-        return !!element?.["dataset"]?.hoverNone || !!element.closest("[data-hover-none]")
-    }
+        return (
+            !!element?.['dataset']?.hoverNone ||
+            !!element.closest('[data-hover-none]')
+        );
+    };
 
-    const followCursor = useCallback((e: MouseEvent) => {
-        if (!ref.current) return
+    const followCursor = useCallback(
+        (e: MouseEvent) => {
+            if (!ref.current) return;
 
-        if(shouldHideOnHover(e.target)) {
-            ref.current.style.transform = `scale(0)`
-            return
-        }
+            if (shouldHideOnHover(e.target)) {
+                ref.current.style.transform = `scale(0)`;
+                return;
+            }
 
-        ref.current.style.top = `${e.clientY - size / 2}px`
-        ref.current.style.left = `${e.clientX - size / 2}px`
+            ref.current.style.top = `${e.clientY - size / 2}px`;
+            ref.current.style.left = `${e.clientX - size / 2}px`;
 
-        const shouldExpand = shouldExpandOnHover(e.target)
-        ref.current.style.transform = shouldExpand ? `scale(1)` : `scale(0.5)`
-        ref.current.style.backgroundColor = shouldExpand ? `rgb(var(--base-color-not-white) / 0.5)` : `rgb(0 0 0 / 0)`
-    }, [ref, size])
+            const shouldExpand = shouldExpandOnHover(e.target);
+            ref.current.style.transform = shouldExpand
+                ? `scale(1)`
+                : `scale(0.5)`;
+            ref.current.style.backgroundColor = shouldExpand
+                ? `rgb(var(--base-color-not-white) / 0.5)`
+                : `rgb(0 0 0 / 0)`;
+        },
+        [ref, size]
+    );
 
     useEffect(() => {
-        window.addEventListener("mousemove", followCursor);
-        return () => window.removeEventListener("mousemove", followCursor);
-    }, [followCursor, ref])
+        window.addEventListener('mousemove', followCursor);
+        return () => window.removeEventListener('mousemove', followCursor);
+    }, [followCursor, ref]);
 
-    return (
-        <BlobWrapper ref={ref} size={size}/>
-    );
+    return <BlobWrapper ref={ref} size={size} />;
 };
 
 export default Blob;
 
 const BlobWrapper = styled.div<BlobProps>`
-  transition: transform ${smoothTransitionStyles}, backdrop-filter ${smoothTransitionStyles}, border ${smoothTransitionStyles}, background-color ${smoothTransitionStyles}, top 180ms ease-out, left 180ms ease-out;
-  z-index: 2;
-  position: fixed;
-  background-color: rgb(0 0 0 / 0);
-  pointer-events: none;
-  border-radius: ${(props: BlobProps) => `${props.size}px`};
-  height: ${(props: BlobProps) => `${props.size}px`};
-  width: ${(props: BlobProps) => `${props.size}px`};
-  transform: scale(0.5);
-  backdrop-filter: invert(100%);
-  -webkit-backdrop-filter: invert(100%);
+    transition:
+        transform ${smoothTransitionStyles},
+        backdrop-filter ${smoothTransitionStyles},
+        border ${smoothTransitionStyles},
+        background-color ${smoothTransitionStyles},
+        top 180ms ease-out,
+        left 180ms ease-out;
+    z-index: 2;
+    position: fixed;
+    background-color: rgb(0 0 0 / 0);
+    pointer-events: none;
+    border-radius: ${(props: BlobProps) => `${props.size}px`};
+    height: ${(props: BlobProps) => `${props.size}px`};
+    width: ${(props: BlobProps) => `${props.size}px`};
+    transform: scale(0.5);
+    backdrop-filter: invert(100%);
+    -webkit-backdrop-filter: invert(100%);
 
-  visibility: hidden;
-  @media (hover: hover) {
-    visibility: visible;
-  }
-`
+    visibility: hidden;
+    @media (hover: hover) {
+        visibility: visible;
+    }
+`;
