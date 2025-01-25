@@ -3,17 +3,11 @@ export type Project = {
     subtitle: string
     category: string
     description: string[]
-    link: URL | string
     links: {
         title: string
         link: URL | string
     }[]
-    contributions?: {
-        title: string
-        link?: URL | string
-    }[]
     skills?: string[]
-    isCreative?: boolean
     hidden?: boolean
 }
 
@@ -23,17 +17,6 @@ const PROJECTS: Project[] = [
         subtitle: "Dynamic student team generation",
         category: "Web Application",
         description: ["A SaaS tool that allows educators to create teams based on complex pedagogical goals using a published AI algorithm approach. The tool is integrated with Canvas' LMS API and is currently used in 12+ courses with 1000+ students."],
-        contributions: [
-            {
-                title: "Algorithm Development",
-                link: "https://www.researchgate.net/publication/360229063_Design_Guidelines_for_a_Team_Formation_and_Analytics_Software",
-            },
-            {
-                title: "Full-Stack Lead",
-                link: "https://provost.ok.ubc.ca/2022/11/29/teamable-analytics/"
-            },
-        ],
-        link: "https://teamableanalytics.ok.ubc.ca/homepage/",
         links: [
             {
                 title: "See it live",
@@ -59,27 +42,7 @@ const PROJECTS: Project[] = [
         subtitle: "Community-based talent marketplace",
         category: "Web Application",
         description: ["A hub for recruiters to source and manage relevant, vetted candidates while empowering leaders to better connect their communities to opportunities. Used by 450+ startups and 100+ communities."],
-        contributions: [
-            {
-                title: "Freemium Subscription Tier",
-                link: "https://www.pallet.com/pricing",
-            },
-            {
-                title: "Partnership Plans",
-                link: "https://www.pallet.com/blog/acceptance-rates-on-pallet",
-            },
-        ],
-        link: "https://www.pallet.com/",
-        links: [
-            {
-                title: "See it live",
-                link: "https://app.pallet.com",
-            },
-            {
-                title: "Learn more",
-                link: "https://www.pallet.com/",
-            },
-        ],
+        links: [],
         skills: [
             "Next.js",
             "React.js",
@@ -97,17 +60,6 @@ const PROJECTS: Project[] = [
         description: [
             "This library enables the quick creation and modification of unit tests written specifically to validate that student-submitted code meets the requirements of a given introductory programming question.",
         ],
-        contributions: [
-            {
-                title: "Modern Docs",
-                link: "https://canvas-gamification.github.io/docs/docs/junit-framework/introduction/overview",
-            },
-            {
-                title: "Library Co-author",
-                link: "https://github.com/canvas-gamification/canvas-gamification-junit-tests",
-            },
-        ],
-        link: "https://github.com/canvas-gamification/canvas-gamification-junit-tests",
         links: [
             {
                 title: "Read the docs",
@@ -129,7 +81,6 @@ const PROJECTS: Project[] = [
         subtitle: "Gamified e-learning for computer science majors",
         category: "Web Application",
         description: ["A Canvas-integrated platform offering an in-depth question bank allowing students to practice and receive feedback on a range of introductory computer science concepts while integrating challenges, leaderboards, and a grade-based reward system."],
-        link: "https://gamification.ok.ubc.ca/",
         links: [
             {
                 title: "See it live",
@@ -148,7 +99,6 @@ const PROJECTS: Project[] = [
         subtitle: "Website blocking browser extension",
         category: "Browser Extension",
         description: ["I built myself a productivity-oriented website blocker to help me focus. The goal of Finite is to combat my \"infinite scroll\" tendencies when using certain websites."],
-        link: "https://addons.mozilla.org/en-CA/firefox/addon/finite/",
         links: [
             {
                 title: "See it live",

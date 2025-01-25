@@ -6,8 +6,6 @@ import {FullWidthDiv} from "@/components/styled-elements/base";
 import Star from "@/static/star.svg";
 import {mq} from "@/util";
 import ProjectRow from "@/components/ProjectRow";
-import {FLAG_NEW_PROJECT_ROWS, isActive} from "@/data/flags";
-import ProjectCard from "@/components/ProjectCard";
 
 const ProjectSection = ({...props}) => {
     const displayedProjects = PROJECTS.filter(project => !project?.hidden)
@@ -17,32 +15,12 @@ const ProjectSection = ({...props}) => {
             <Section>
                 <FlexColumn gap={["0", "0", "1rem"]}>
                     <SectionHeading title={"Projects"} symbol={<Star/>}/>
-                    {isActive(FLAG_NEW_PROJECT_ROWS) ? (
                         <FlexColumn>
                             {displayedProjects
                                 .map((project, index) => {
                                     return <ProjectRow key={`project-row-${index}`} {...project} />
                                 })}
                         </FlexColumn>
-                    ) : (
-                        <ProjectsContainer>
-                            <FlexColumn gap="2rem" flex={1}>
-                                {displayedProjects
-                                    .filter((_, index) => index % 2 === 0)
-                                    .map((project, index) => {
-                                        return <ProjectCard {...project} key={`project-card-a-${index}`}/>
-                                    })}
-                            </FlexColumn>
-                            <FlexColumn gap="2rem" flex={1}>
-                                {displayedProjects
-                                    .filter((_, index) => index % 2 !== 0)
-                                    .map((project, index) => {
-                                        return <ProjectCard {...project} key={`project-card-b-${index}`}/>
-                                    })}
-                            </FlexColumn>
-                        </ProjectsContainer>
-                    )
-                    }
                 </FlexColumn>
             </Section>
         </FullWidthDiv>
