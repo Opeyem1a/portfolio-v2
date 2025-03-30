@@ -1,15 +1,14 @@
 'use client';
 
 import styled from 'styled-components';
-import { useCallback, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import { smoothTransitionStyles } from '@/styles/transitions';
-import { mobileOnly } from '@/util';
 
 type BlobProps = {
     size: number;
 };
 
-const Blob = ({ size }: BlobProps) => {
+const Blob = memo(({ size }: BlobProps) => {
     const ref = useRef<HTMLDivElement | null>(null);
 
     const shouldExpandOnHover = (element: any) => {
@@ -55,7 +54,7 @@ const Blob = ({ size }: BlobProps) => {
     }, [followCursor, ref]);
 
     return <BlobWrapper ref={ref} size={size} />;
-};
+});
 
 export default Blob;
 
