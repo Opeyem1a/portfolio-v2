@@ -1,4 +1,3 @@
-import 'src/static/globals.css';
 import React from 'react';
 import { Manrope } from 'next/font/google';
 import StyledComponentsRegistry from '@/lib/registry';
