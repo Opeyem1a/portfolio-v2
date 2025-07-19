@@ -1,5 +1,6 @@
 'use client';
 
+import '../static/globals.css';
 import styled from 'styled-components';
 import LandingSection from '@/app/segments/LandingSection';
 import ProjectSection from '@/app/segments/ProjectSection';
