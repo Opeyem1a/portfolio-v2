@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { FlexColumn, FlexRow } from '@/components/styled-elements/flex';
 import { Text, Title } from '@/components/styled-elements/text';
 import { FullWidthDiv } from '@/components/styled-elements/base';
-import Link from 'next/link';
 import { smoothTargetTransition } from '@/styles/transitions';
 import { mobileOnly } from '@/util';
 import ActionRow from '@/components/ActionRow';

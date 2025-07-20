@@ -13,6 +13,25 @@ export type Project = {
 
 const PROJECTS: Project[] = [
     {
+        title: 'Exact',
+        subtitle: 'Making distracting websites less fun',
+        category: 'Browser extension',
+        description: [
+            "Finite wasn't enough, so I built this to make using those websites less enjoyable instead of making it more difficult to use. Exact greys out images and videos on certain websites until you hover over them. You can still do everything, but you have to do so on purpose.",
+        ],
+        links: [
+            {
+                title: 'See it live',
+                link: 'https://addons.mozilla.org/en-US/firefox/addon/exact-browse-with-intention/',
+            },
+            {
+                title: 'See on GitHub',
+                link: 'https://github.com/Opeyem1a/exact',
+            },
+        ],
+        skills: ['Node.js', 'React.js', 'Tailwind CSS', 'Vite'],
+    },
+    {
         title: 'Something to ask',
         subtitle: 'My repository of good questions',
         category: 'Web Application',
@@ -25,7 +44,7 @@ const PROJECTS: Project[] = [
                 link: 'https://whatdoyouthink.vercel.app/questions',
             },
         ],
-        skills: ['Node.js', 'Tailwind CSS', 'Parcel'],
+        skills: ['Next.js', 'React.js', 'Tailwind CSS'],
     },
     {
         title: 'Times Up',
