@@ -25,9 +25,9 @@ const PROJECTS: Project[] = [
                 link: 'https://addons.mozilla.org/en-US/firefox/addon/exact-browse-with-intention/',
             },
             {
-                title: "See on GitHub",
-                link: "https://github.com/Opeyem1a/exact"
-            }
+                title: 'See on GitHub',
+                link: 'https://github.com/Opeyem1a/exact',
+            },
         ],
         skills: ['Node.js', 'React.js', 'Tailwind CSS', 'Vite'],
     },
