@@ -31,7 +31,7 @@ const AboutSection = ({ ...props }) => {
                                         $fontWeight={500}
                                         $lineHeight={'125%'}
                                     >
-                                        Humane design, effective execution.
+                                        I care about doing things well.
                                     </Text>
                                     <Text
                                         $fontSize={[
@@ -42,11 +42,13 @@ const AboutSection = ({ ...props }) => {
                                         $fontWeight={300}
                                         $maxWidth="48ch"
                                     >
-                                        I believe in a world where the
-                                        integration of technology does not
-                                        damage our communities or humanity --
-                                        I&apos;m passionate about finding,
-                                        executing, and demonstrating this path.
+                                        Technology is an art that I practice. I
+                                        want things to work in beautiful ways,
+                                        accomplishing their goals while adding
+                                        some fun. I&apos;m passionate about
+                                        finding novel solutions to problems and
+                                        building software that people love to
+                                        use.
                                     </Text>
                                     <Text
                                         $fontSize={[
@@ -65,7 +67,7 @@ const AboutSection = ({ ...props }) => {
                                         >
                                             projects
                                         </InlineLink>
-                                        with compassion and purpose.
+                                        with whimsy and purpose.
                                     </Text>
                                 </FlexColumn>
                             </FlexColumn>

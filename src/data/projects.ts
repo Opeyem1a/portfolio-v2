@@ -13,6 +13,21 @@ export type Project = {
 
 const PROJECTS: Project[] = [
     {
+        title: 'WDYT',
+        subtitle: 'My repository of good questions',
+        category: 'Web Application',
+        description: [
+            'I like to collect good questions and these are my favourite. I always love to chat about them. I spent a lot of time styling these.',
+        ],
+        links: [
+            {
+                title: 'See it live',
+                link: 'https://wdyt.site',
+            },
+        ],
+        skills: ['Next.js', 'React.js', 'Tailwind CSS'],
+    },
+    {
         title: 'Exact',
         subtitle: 'Making distracting websites less fun',
         category: 'Browser extension',
@@ -32,26 +47,11 @@ const PROJECTS: Project[] = [
         skills: ['Node.js', 'React.js', 'Tailwind CSS', 'Vite'],
     },
     {
-        title: 'Something to ask',
-        subtitle: 'My repository of good questions',
-        category: 'Web Application',
-        description: [
-            'I like to collect good questions and these are my favourite. I always love to chat about them.',
-        ],
-        links: [
-            {
-                title: 'See it live',
-                link: 'https://whatdoyouthink.vercel.app/questions',
-            },
-        ],
-        skills: ['Next.js', 'React.js', 'Tailwind CSS'],
-    },
-    {
         title: 'Times Up',
         subtitle: 'Present with peace of mind',
         category: 'Web Application',
         description: [
-            "Times up is a timer. You can use it and know how much time is left in your presentation and how much time is left in the current section you're speaking through. An experiment to prototype something fast.",
+            'Times up is a timer. You can use it and know how much time is left in your presentation sections while speaking. An experiment in software where the whole config is encoded in a URL.',
         ],
         links: [
             {
@@ -108,7 +108,7 @@ const PROJECTS: Project[] = [
         subtitle: 'Community-based talent marketplace',
         category: 'Web Application',
         description: [
-            'A hub for recruiters to source and manage relevant, vetted candidates while empowering leaders to better connect their communities to opportunities. Used by 450+ startups and 100+ communities.',
+            'Now shutdown, but Pallet was a hub for recruiters to source and manage vetted candidates while empowering leaders to better connect their communities to jobs. Used by 450+ startups and 100+ communities.',
         ],
         links: [],
         skills: [
@@ -117,7 +117,6 @@ const PROJECTS: Project[] = [
             'Apollo GraphQL',
             'Python',
             'Django',
-            'Sentry',
             'Google Cloud Platform',
         ],
     },
