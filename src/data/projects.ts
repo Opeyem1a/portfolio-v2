@@ -13,6 +13,42 @@ export type Project = {
 
 const PROJECTS: Project[] = [
     {
+        title: 'Aftersell Cart',
+        subtitle: 'Cart drawer for Shopify stores',
+        category: 'Shopify App',
+        description: [
+            "I'm the product manager and senior product engineer. The original version, Upcart, is used by 30,000+ Shopify stores. Aftersell Cart is a ground-up rebuild that's now scaling up, and we're building it to lead the category.",
+        ],
+        links: [
+            {
+                title: 'See it live',
+                link: 'https://apps.shopify.com/aftersell',
+            },
+        ],
+        skills: [
+            'React.js',
+            'Preact',
+            'Node.js',
+            'Google Cloud Platform',
+            'BigQuery',
+        ],
+    },
+    {
+        title: 'Something Lovely',
+        subtitle: 'A letter about big thoughts and small cool things',
+        category: 'Newsletter',
+        description: [
+            'A silly newsletter I send every so often, with thoughts and fun links.',
+        ],
+        links: [
+            {
+                title: 'See it live',
+                link: 'https://somethinglovely.vercel.app',
+            },
+        ],
+        skills: ['Next.js', 'React.js'],
+    },
+    {
         title: 'WDYT',
         subtitle: 'My repository of good questions',
         category: 'Web Application',
@@ -32,7 +68,7 @@ const PROJECTS: Project[] = [
         subtitle: 'Making distracting websites less fun',
         category: 'Browser extension',
         description: [
-            "Finite wasn't enough, so I built this to make using those websites less enjoyable instead of making it more difficult to use. Exact greys out images and videos on certain websites until you hover over them. You can still do everything, but you have to do so on purpose.",
+            'I built this to make using social media websites less enjoyable instead of making it more difficult to use. Exact greys out images and videos on certain websites until you hover over them. You can still do everything, but you have to do so on purpose.',
         ],
         links: [
             {
@@ -60,6 +96,7 @@ const PROJECTS: Project[] = [
             },
         ],
         skills: ['Next.js', 'React.js', 'Tailwind CSS'],
+        hidden: true,
     },
     {
         title: 'Tacit',
@@ -79,6 +116,7 @@ const PROJECTS: Project[] = [
             },
         ],
         skills: ['Node.js', 'Tailwind CSS', 'Parcel'],
+        hidden: true,
     },
     {
         title: 'Teamable Analytics',
@@ -138,6 +176,7 @@ const PROJECTS: Project[] = [
             },
         ],
         skills: ['Java', 'JUnit 5', 'Judge0'],
+        hidden: true,
     },
     {
         title: 'Course Gamification',
@@ -173,6 +212,7 @@ const PROJECTS: Project[] = [
             },
         ],
         skills: ['JavaScript', 'HTML5', 'CSS'],
+        hidden: true,
     },
 ];
 
