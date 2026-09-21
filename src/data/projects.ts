@@ -68,7 +68,7 @@ const PROJECTS: Project[] = [
         subtitle: 'Making distracting websites less fun',
         category: 'Browser extension',
         description: [
-            "I built this to make using social media websites less enjoyable instead of making it more difficult to use. Exact greys out images and videos on certain websites until you hover over them. You can still do everything, but you have to do so on purpose.",
+            'I built this to make using social media websites less enjoyable instead of making it more difficult to use. Exact greys out images and videos on certain websites until you hover over them. You can still do everything, but you have to do so on purpose.',
         ],
         links: [
             {
