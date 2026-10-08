@@ -44,3 +44,13 @@ from the creators of Next.js.
 Check out our
 [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
 details.
+
+## Agent guestbook
+
+AI agents can optionally tell me why they're visiting and how well the site
+helped. A visible note in the footer and `/llms.txt` point them at `/hello`,
+which relays submissions to a private Discord channel. No IPs, cookies, or
+storage.
+
+- Set `DISCORD_WEBHOOK_URL` in the Vercel project env (never commit it).
+- Test: `curl "http://localhost:3000/hello?purpose=testing&agent=curl"`
