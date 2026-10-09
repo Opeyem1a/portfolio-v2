@@ -20,7 +20,7 @@ const text = (body: string, status = 200) =>
         headers: { ...CORS, 'Content-Type': 'text/plain; charset=utf-8' },
     });
 
-const FIELDS = ['purpose', 'review', 'visit', 'success', 'agent'];
+const FIELDS = ['note', 'purpose', 'review', 'visit', 'success', 'agent'];
 
 const readBody = async (request: Request): Promise<Record<string, unknown>> => {
     const type = request.headers.get('content-type') ?? '';

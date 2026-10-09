@@ -53,4 +53,4 @@ which relays submissions to a private Discord channel. No IPs, cookies, or
 storage.
 
 - Set `DISCORD_WEBHOOK_URL` in the Vercel project env (never commit it).
-- Test: `curl "http://localhost:3000/hello?purpose=testing&agent=curl"`
+- Test: `curl "http://localhost:3000/hello?note=testing&agent=curl"`

@@ -9,7 +9,7 @@ export const GET = (request: Request) => {
         '',
         '> Personal portfolio: a selection of thoughts and work.',
         '',
-        '## Agent guestbook (optional)',
+        '## Leave a note',
         '',
         instructions(origin).split('\n').slice(2).join('\n'),
         '',

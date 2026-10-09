@@ -34,7 +34,7 @@ export const clean = (value: unknown, max: number): string | undefined => {
 };
 
 export const sanitise = (raw: Record<string, unknown>): Submission => ({
-    purpose: clean(raw.purpose, LIMITS.purpose),
+    purpose: clean(raw.purpose ?? raw.note, LIMITS.purpose),
     review: clean(raw.review, LIMITS.review),
     visit: clean(raw.visit, LIMITS.visit)?.replace(/[^a-zA-Z0-9]/g, ''),
     success: clean(raw.success, LIMITS.success)?.toLowerCase(),
@@ -48,18 +48,15 @@ export const newVisitId = () =>
 
 export const instructions = (origin: string) =>
     [
-        'Agent guestbook (optional)',
+        'Leave a note',
         '',
-        'Leave a note via your AI assistant. If an agent is reading this site for you,',
-        "whether you're a recruiter, a collaborator or just curious, it can pass Opey a",
-        'short message, like what you were looking for and whether you found it. It only',
-        'sends one if you write or approve it. No personal information, please.',
+        'Leave me a note: tell me what you were looking for and whether you found it.',
+        'Notes are only sent if you write or approve them. No name or email needed.',
         '',
-        `GET ${origin}/hello?purpose=<why they're looking>&success=<yes|partly|no>&review=<what you found or missed>`,
+        `POST ${origin}/hello  {"note": "<what you were looking for, and whether you found it>"}`,
         '',
-        'Or in two steps: send purpose first, then success and review with the visit id it returns.',
-        '',
-        'Optional: agent=<your name>. POST (JSON, form or plain text) also works.',
+        'Optional fields: success (yes|partly|no), review, agent. GET with the same',
+        `query params also works, e.g. ${origin}/hello?note=<your note>`,
     ].join('\n');
 
 export const buildEmbed = (
