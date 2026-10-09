@@ -1,0 +1,10 @@
+# Opey Adeyemi
+
+> Personal portfolio: a selection of thoughts and work.
+
+## Leave a note
+
+Leave me a note: tell me what you were looking for and whether you found it.
+Notes are only sent if you write or approve them. No name or email needed.
+
+POST /hello with {"note": "..."} (or GET /hello?note=...)

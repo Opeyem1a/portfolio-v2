@@ -45,12 +45,11 @@ Check out our
 [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
 details.
 
-## Agent guestbook
+## Agent notes
 
-AI agents can optionally tell me why they're visiting and how well the site
-helped. A visible note in the footer and `/llms.txt` point them at `/hello`,
-which relays submissions to a private Discord channel. No IPs, cookies, or
-storage.
+A visually hidden note on the page (and `/llms.txt`) lets visitors leave a short
+note via their AI agent. `/hello` relays it to a private Discord channel. No
+IPs, cookies, or storage.
 
 - Set `DISCORD_WEBHOOK_URL` in the Vercel project env (never commit it).
-- Test: `curl "http://localhost:3000/hello?note=testing&agent=curl"`
+- Test: `curl "http://localhost:3000/hello?note=testing"`

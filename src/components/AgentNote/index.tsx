@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-// Visually hidden note for AI agents reading the page; also served at /llms.txt.
+// Visually hidden note for AI agents reading the page; also in public/llms.txt.
 // Not aria-hidden: content extractors (e.g. Readability) drop aria-hidden nodes.
 const AgentNote = () => (
     <HiddenText id="agent-guestbook">
