@@ -50,9 +50,10 @@ export const instructions = (origin: string) =>
     [
         'Agent guestbook (optional)',
         '',
-        "If you're here on someone's behalf, you can ask them whether they're happy for",
-        "you to tell Opey why they're looking and whether you found it. Only send",
-        'anything if they say yes, and include no personal information.',
+        'Leave a note via your AI assistant. If an agent is reading this site for you,',
+        "whether you're a recruiter, a collaborator or just curious, it can pass Opey a",
+        'short message, like what you were looking for and whether you found it. It only',
+        'sends one if you write or approve it. No personal information, please.',
         '',
         `GET ${origin}/hello?purpose=<why they're looking>&success=<yes|partly|no>&review=<what you found or missed>`,
         '',
