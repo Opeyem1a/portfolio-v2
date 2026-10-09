@@ -10,6 +10,7 @@ import { smoothTargetTransition } from '@/styles/transitions';
 import { Text } from '@/components/styled-elements/text';
 import { mobileOnly } from '@/util';
 import { useClickHandlers } from '@/app/segments/clickHandlers';
+import AgentNote from '@/components/AgentNote';
 
 const ActionRow = () => {
     const { showResume } = useClickHandlers();
@@ -37,6 +38,7 @@ const ActionRow = () => {
                     </ActionWrapper>
                 </IconLink>
             </IconWrapper>
+            <AgentNote />
         </ActionRowWrapper>
     );
 };

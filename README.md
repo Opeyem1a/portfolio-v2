@@ -44,3 +44,12 @@ from the creators of Next.js.
 Check out our
 [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
 details.
+
+## Agent notes
+
+A visually hidden note on the page (and `/llms.txt`) lets visitors leave a short
+note via their AI agent. `/hello` relays it to a private Discord channel. No
+IPs, cookies, or storage.
+
+- Set `DISCORD_WEBHOOK_URL` in the Vercel project env (never commit it).
+- Test: `curl "http://localhost:3000/hello?note=testing"`
