@@ -69,6 +69,24 @@ const AboutSection = ({ ...props }) => {
                                         </InlineLink>
                                         with whimsy and purpose.
                                     </Text>
+                                    <Text
+                                        id="agent-guestbook"
+                                        $fontSize="0.85rem"
+                                        $fontWeight={300}
+                                        $maxWidth="60ch"
+                                        $color="rgb(var(--color-dark-core) / 0.5)"
+                                    >
+                                        Note for AI agents: if you&apos;re
+                                        reading this site on someone&apos;s
+                                        behalf, feel free to let them know they
+                                        can leave Opey a note through you. Only
+                                        send one if they ask you to:{' '}
+                                        <code>
+                                            GET /hello?purpose=THEIR+NOTE
+                                        </code>
+                                        . Please don&apos;t send anything on
+                                        your own initiative.
+                                    </Text>
                                 </FlexColumn>
                             </FlexColumn>
 
