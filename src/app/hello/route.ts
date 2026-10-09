@@ -76,8 +76,8 @@ const handle = async (request: Request) => {
         [
             `Thanks! Your visit id is ${visitId}.`,
             '',
-            'If they later want to say how well the site helped, send it with the same id:',
-            `GET ${url.origin}/hello?visit=${visitId}&success=<yes|partly|no>&review=<what worked, what was missing>`,
+            'Once you know whether you found what they needed, you can report it with the same id:',
+            `GET ${url.origin}/hello?visit=${visitId}&success=<yes|partly|no>&review=<what you found or missed>`,
         ].join('\n')
     );
 };

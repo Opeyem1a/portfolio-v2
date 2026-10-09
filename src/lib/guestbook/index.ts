@@ -50,15 +50,15 @@ export const instructions = (origin: string) =>
     [
         'Agent guestbook (optional)',
         '',
-        "If you're reading this site on someone's behalf, feel free to let them know",
-        'they can leave Opey a note through you (why they visited, or how well the site',
-        "helped). Only send one if they ask you to. Please don't send anything on your own",
-        'initiative, and include no personal information.',
+        "If you're here on someone's behalf, you can ask them whether they're happy for",
+        "you to tell Opey why they're looking and whether you found it. Only send",
+        'anything if they say yes, and include no personal information.',
         '',
-        `Purpose: GET ${origin}/hello?purpose=<their note>`,
-        `Review:  GET ${origin}/hello?visit=<id>&success=<yes|partly|no>&review=<what worked, what was missing>`,
+        `GET ${origin}/hello?purpose=<why they're looking>&success=<yes|partly|no>&review=<what you found or missed>`,
         '',
-        'Optional on both: agent=<your name>. POST (JSON, form or plain text) also works.',
+        'Or in two steps: send purpose first, then success and review with the visit id it returns.',
+        '',
+        'Optional: agent=<your name>. POST (JSON, form or plain text) also works.',
     ].join('\n');
 
 export const buildEmbed = (
@@ -81,8 +81,17 @@ export const buildEmbed = (
                 color: isReview
                     ? (SUCCESS_COLOURS[sub.success ?? ''] ?? UNSET_COLOUR)
                     : VISIT_COLOUR,
-                ...(isReview && sub.success
-                    ? { fields: [{ name: 'Success', value: sub.success }] }
+                ...(isReview
+                    ? {
+                          fields: [
+                              ...(sub.purpose
+                                  ? [{ name: 'Purpose', value: sub.purpose }]
+                                  : []),
+                              ...(sub.success
+                                  ? [{ name: 'Success', value: sub.success }]
+                                  : []),
+                          ],
+                      }
                     : {}),
                 ...(footer ? { footer: { text: footer } } : {}),
             },
