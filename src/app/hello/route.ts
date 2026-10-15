@@ -24,7 +24,6 @@ const readNote = async (request: Request): Promise<string | undefined> => {
             .catch(() => note);
     }
     if (typeof note !== 'string') return undefined;
-    // eslint-disable-next-line no-control-regex
     const cleaned = note.replace(/[\u0000-\u001f\u007f]/g, ' ').trim();
     return cleaned ? cleaned.slice(0, MAX_LENGTH) : undefined;
 };

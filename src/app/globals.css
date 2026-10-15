@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+@theme {
+    --breakpoint-*: initial;
+    --breakpoint-tablet: 750px;
+    --breakpoint-desktop: 1200px;
+
+    --color-*: initial;
+    --color-ink: rgb(15 15 15);
+    --color-paper: rgb(252 252 252);
+    --color-primary: rgb(255 196 45);
+    /* Swap with the colour scheme; see below. */
+    --color-fg: var(--color-ink);
+    --color-bg: var(--color-paper);
+
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --default-transition-duration: 200ms;
+    --default-transition-timing-function: ease;
+}
+
+@theme inline {
+    --font-sans: var(--font-manrope);
+    --font-heading: var(--font-montserrat);
+}
+
+@layer base {
+    :root {
+        color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-fg: var(--color-paper);
+            --color-bg: var(--color-ink);
+        }
+    }
+
+    html,
+    body {
+        margin: 0 auto;
+        max-width: 1328px;
+        overflow-x: hidden;
+        font-size: clamp(15px, 1.5vw, 16px);
+        line-height: normal;
+        color: var(--color-fg);
+        background-color: var(--color-bg);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html,
+        body {
+            scroll-behavior: smooth;
+        }
+    }
+}

@@ -1,34 +1,22 @@
-'use client';
-
-import '../static/globals.css';
-import styled from 'styled-components';
-import LandingSection from '@/app/segments/LandingSection';
-import ProjectSection from '@/app/segments/ProjectSection';
-import { FlexColumn } from '@/components/styled-elements/flex';
-import AboutSection from '@/app/segments/AboutSection';
-import { mq } from '@/util';
-import Footer from '@/components/Footer';
+import Landing from '@/app/_sections/landing';
+import About from '@/app/_sections/about';
+import Projects from '@/app/_sections/projects';
 
 export default function Home() {
     return (
-        <main>
-            <Wrapper>
-                <LandingSection id="section-landing" />
-                <AboutSection id="section-about" />
-                <ProjectSection id="section-projects" />
-                <Footer />
-            </Wrapper>
+        <main className="flex flex-col items-center gap-6 px-7 min-[1400px]:px-0">
+            <Landing />
+            <About />
+            <Projects />
+            <footer className="flex w-full items-center justify-end gap-4 py-12">
+                <div className="h-4 w-full rounded-[3px] bg-fg/5" />
+                <p className="flex shrink-0 items-baseline gap-1 leading-[160%]">
+                    ✨&nbsp;by Opey
+                    <span className="text-[0.6rem] leading-[160%] opacity-50">
+                        (naturally)
+                    </span>
+                </p>
+            </footer>
         </main>
     );
 }
-
-const Wrapper = styled(FlexColumn)`
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    padding: 0 1.75rem;
-
-    ${mq(`${1328 + 36 * 2}px`, undefined)} {
-        padding: unset;
-    }
-`;
