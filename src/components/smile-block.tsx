@@ -3,21 +3,14 @@
 import { useEffect, useRef } from 'react';
 import Smile from '@/assets/smile.svg';
 
+const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
+
 // The smile drifts towards the cursor. --x and --y place it within the block's
 // free space (0 = start, 1 = end).
-//
-// Mirrors the original flex-spacer implementation: each side has a weight, a
-// negative weight is ignored (the side keeps its last value), and weights
-// summing to less than 1 only use that share of the free space.
 export default function SmileBlock() {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const weights = { top: 0.1, bottom: 1, left: 1, right: 1 };
-        const setWeight = (side: keyof typeof weights, value: number) => {
-            if (value >= 0) weights[side] = value;
-        };
-
         const onMouseMove = (e: MouseEvent) => {
             const el = ref.current;
             if (!el) return;
@@ -26,15 +19,8 @@ export default function SmileBlock() {
                 (e.clientX - (rect.left + rect.width / 2)) / window.innerWidth;
             const ratioY =
                 (e.clientY - (rect.top + rect.height / 2)) / window.innerHeight;
-
-            setWeight('left', ratioX + 0.5);
-            setWeight('right', 0.5 - ratioX);
-            setWeight('top', ratioY + 0.5);
-            setWeight('bottom', 0.5 - ratioY);
-
-            const { top, bottom, left, right } = weights;
-            el.style.setProperty('--x', `${left / Math.max(1, left + right)}`);
-            el.style.setProperty('--y', `${top / Math.max(1, top + bottom)}`);
+            el.style.setProperty('--x', `${clamp(ratioX + 0.5)}`);
+            el.style.setProperty('--y', `${clamp(ratioY + 0.5)}`);
         };
 
         window.addEventListener('mousemove', onMouseMove, { passive: true });

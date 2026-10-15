@@ -62,7 +62,7 @@ export default function Landing() {
                                 href={href}
                                 target="_blank"
                                 aria-label={label}
-                                className={`${action} group self-start`}
+                                className={`${action} group`}
                             >
                                 <Icon className="h-6 w-auto [&_*]:fill-fg [&_*]:transition-[fill] group-hover:[&_*]:fill-ink" />
                             </a>
