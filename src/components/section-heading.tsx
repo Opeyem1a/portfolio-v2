@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Star from '@/assets/star.svg';
+import { t } from '@/lib/t';
 
 // The star rolls along the line as the heading scrolls into view.
 export default function SectionHeading({ title }: { title: string }) {
@@ -40,16 +41,31 @@ export default function SectionHeading({ title }: { title: string }) {
     return (
         <div
             ref={ref}
-            className="flex w-full items-center gap-3 rounded-[6px] bg-fg px-5 py-4 text-bg tablet:gap-4 tablet:py-5"
+            className={t({
+                layout: 'flex w-full items-center gap-3 tablet:gap-4',
+                padding: 'px-5 py-4 tablet:py-5',
+                color: 'rounded-[6px] bg-fg text-bg',
+            })}
         >
-            <h2 className="shrink-0 font-heading text-[1.5rem] font-semibold uppercase tablet:text-[2.25rem]">
+            <h2
+                className={t({
+                    layout: 'shrink-0',
+                    font: 'font-heading text-[1.5rem] font-semibold uppercase tablet:text-[2.25rem]',
+                })}
+            >
                 {title}
             </h2>
             <div
                 className={line}
                 style={{ flex: 'calc(max(var(--progress, 0), 0) * 100)' }}
             />
-            <Star className="size-8 rotate-[calc(var(--progress,0)*360deg)] tablet:size-12 [&_*]:fill-bg" />
+            <Star
+                className={t({
+                    size: 'size-8 tablet:size-12',
+                    rotate: 'rotate-[calc(var(--progress,0)*360deg)]',
+                    fill: '[&_*]:fill-bg',
+                })}
+            />
             <div
                 className={line}
                 style={{ flex: 'calc((1 - var(--progress, 0)) * 100)' }}

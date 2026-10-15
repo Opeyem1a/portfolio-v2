@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Smile from '@/assets/smile.svg';
+import { t } from '@/lib/t';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
@@ -31,9 +32,23 @@ export default function SmileBlock() {
         <div
             ref={ref}
             data-hoverable
-            className="[container-type:size] h-full rounded-[6px] bg-primary p-[clamp(0.5rem,4vw,2rem)] [--x:0.5] [--y:calc(1/11)]"
+            className={t({
+                shape: 'h-full rounded-[6px] bg-primary p-[clamp(0.5rem,4vw,2rem)]',
+                // Container units let the smile translate across the free space
+                container: '[container-type:size]',
+                start: '[--x:0.5] [--y:calc(1/11)]',
+            })}
         >
-            <Smile className="aspect-square w-[clamp(1.5rem,100%,13rem)] translate-x-[calc(var(--x)*(100cqw-100%))] translate-y-[calc(var(--y)*(100cqh-100%))] transition-[translate] duration-600 ease-out motion-reduce:transition-none [&>[fill]]:fill-ink [&>[stroke]]:stroke-ink" />
+            <Smile
+                className={t({
+                    size: 'aspect-square w-[clamp(1.5rem,100%,13rem)]',
+                    position:
+                        'translate-x-[calc(var(--x)*(100cqw-100%))] translate-y-[calc(var(--y)*(100cqh-100%))]',
+                    transition:
+                        'transition-[translate] duration-600 ease-out motion-reduce:transition-none',
+                    color: '[&>[fill]]:fill-ink [&>[stroke]]:stroke-ink',
+                })}
+            />
         </div>
     );
 }

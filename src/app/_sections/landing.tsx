@@ -3,6 +3,7 @@ import { EMAIL, GITHUB_LINK, LINKEDIN_LINK } from '@/data/links';
 import EmailIcon from '@/assets/email.svg';
 import GithubIcon from '@/assets/icons/github.svg';
 import LinkedInIcon from '@/assets/icons/linkedin.svg';
+import { t } from '@/lib/t';
 
 const SOCIALS: {
     label: string;
@@ -14,11 +15,18 @@ const SOCIALS: {
     { label: 'GitHub', href: GITHUB_LINK, Icon: GithubIcon },
 ];
 
-const action =
-    'flex items-center justify-center gap-1 rounded-[0.25rem] bg-bg px-[0.9rem] py-[0.6rem] transition-colors hover:bg-primary hover:text-ink tablet:gap-3 tablet:px-[1.2rem] tablet:py-[0.9rem]';
+const action = t({
+    layout: 'flex items-center justify-center gap-1 tablet:gap-3',
+    padding: 'px-[0.9rem] py-[0.6rem] tablet:px-[1.2rem] tablet:py-[0.9rem]',
+    shape: 'rounded-[0.25rem] bg-bg',
+    hover: 'transition-colors hover:bg-primary hover:text-ink',
+});
 
-const titleLine =
-    'shrink-0 font-heading text-[clamp(20px,15vw,8.5rem)] leading-[95%] break-all uppercase max-tablet:text-center';
+const titleLine = t({
+    layout: 'shrink-0',
+    font: 'font-heading text-[clamp(20px,15vw,8.5rem)] leading-[95%] uppercase',
+    wrap: 'break-all max-tablet:text-center',
+});
 
 export default function Landing() {
     return (
@@ -26,7 +34,12 @@ export default function Landing() {
             id="section-landing"
             className="flex min-h-screen w-full flex-col items-center justify-center"
         >
-            <div className="mb-28 flex flex-col items-center gap-12 tablet:gap-24 [@media(max-height:500px)]:mt-8">
+            <div
+                className={t({
+                    layout: 'flex flex-col items-center gap-12 tablet:gap-24',
+                    spacing: 'mb-28 [@media(max-height:500px)]:mt-8',
+                })}
+            >
                 <div className="flex flex-col items-center gap-4 tablet:gap-8">
                     <p className="text-[clamp(0.6rem,2vw,1rem)] leading-[160%] text-fg/25">
                         Designer & Developer
@@ -36,7 +49,11 @@ export default function Landing() {
                             <span className={titleLine}>Opey</span>
                             <span
                                 data-hover-none
-                                className="h-[clamp(20px,11vw,6rem)] w-full rounded-[clamp(20px,11vw,6rem)] bg-fg/3 transition-colors hover:bg-primary"
+                                className={t({
+                                    size: 'h-[clamp(20px,11vw,6rem)] w-full',
+                                    shape: 'rounded-[clamp(20px,11vw,6rem)] bg-fg/3',
+                                    hover: 'transition-colors hover:bg-primary',
+                                })}
                             />
                         </span>
                         <span className="flex">
@@ -46,7 +63,13 @@ export default function Landing() {
                 </div>
                 <div
                     data-hover-none
-                    className="absolute bottom-20 flex w-fit flex-col gap-2 rounded-[0.75rem] bg-fg/2 p-2 tablet:flex-row tablet:gap-3 tablet:p-3 [@media(max-height:500px)]:static"
+                    className={t({
+                        // Pinned to the bottom of the viewport unless it's too short
+                        position:
+                            'absolute bottom-20 [@media(max-height:500px)]:static',
+                        layout: 'flex w-fit flex-col gap-2 tablet:flex-row tablet:gap-3',
+                        shape: 'rounded-[0.75rem] bg-fg/2 p-2 tablet:p-3',
+                    })}
                 >
                     <a
                         href="/assets/Opey_Adeyemi-Resume.pdf"
@@ -64,7 +87,12 @@ export default function Landing() {
                                 aria-label={label}
                                 className={`${action} group`}
                             >
-                                <Icon className="h-6 w-auto [&_*]:fill-fg [&_*]:transition-[fill] group-hover:[&_*]:fill-ink" />
+                                <Icon
+                                    className={t({
+                                        size: 'h-6 w-auto',
+                                        fill: '[&_*]:fill-fg [&_*]:transition-[fill] group-hover:[&_*]:fill-ink',
+                                    })}
+                                />
                             </a>
                         ))}
                     </div>

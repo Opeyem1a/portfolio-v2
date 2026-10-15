@@ -1,5 +1,6 @@
 import type { Project } from '@/data/projects';
 import CornerArrow from '@/assets/corner-arrow.svg';
+import { t } from '@/lib/t';
 
 export default function ProjectRow({
     title,
@@ -10,9 +11,25 @@ export default function ProjectRow({
     skills,
 }: Project) {
     return (
-        <div className="flex flex-col gap-4 border-b border-fg/10 px-2 py-10 transition-[border-color] hover:border-fg/50 tablet:py-16 desktop:flex-row">
-            <div className="flex flex-1 flex-col-reverse justify-between gap-2 desktop:flex-col desktop:gap-6">
-                <p className="w-fit font-heading text-[3rem] leading-[125%] tablet:text-[3.6rem] desktop:max-w-[10ch]">
+        <div
+            className={t({
+                layout: 'flex flex-col gap-4 desktop:flex-row',
+                padding: 'px-2 py-10 tablet:py-16',
+                border: 'border-b border-fg/10 transition-[border-color] hover:border-fg/50',
+            })}
+        >
+            <div
+                className={t({
+                    // Subtitle sits above the title until desktop
+                    layout: 'flex flex-1 flex-col-reverse justify-between gap-2 desktop:flex-col desktop:gap-6',
+                })}
+            >
+                <p
+                    className={t({
+                        width: 'w-fit desktop:max-w-[10ch]',
+                        font: 'font-heading text-[3rem] leading-[125%] tablet:text-[3.6rem]',
+                    })}
+                >
                     {title}
                 </p>
                 <p className="leading-[160%] opacity-50">{subtitle}</p>
@@ -31,10 +48,22 @@ export default function ProjectRow({
                                 key={href}
                                 href={href}
                                 target="_blank"
-                                className="w-fit leading-[160%] text-fg uppercase after:block after:h-[3px] after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:ease-out hover:after:scale-x-100 motion-reduce:after:transition-none dark:text-primary dark:after:bg-fg"
+                                className={t({
+                                    font: 'w-fit leading-[160%] text-fg uppercase dark:text-primary',
+                                    // Underline grows in from the left on hover
+                                    underline:
+                                        'after:block after:h-[3px] after:origin-left after:scale-x-0 after:bg-primary hover:after:scale-x-100 dark:after:bg-fg',
+                                    transition:
+                                        'after:transition-transform after:ease-out motion-reduce:after:transition-none',
+                                })}
                             >
                                 {label}&nbsp;&nbsp;
-                                <CornerArrow className="inline h-[0.75em] w-auto align-baseline [&_*]:fill-primary dark:[&_*]:fill-fg" />
+                                <CornerArrow
+                                    className={t({
+                                        size: 'inline h-[0.75em] w-auto align-baseline',
+                                        fill: '[&_*]:fill-primary dark:[&_*]:fill-fg',
+                                    })}
+                                />
                             </a>
                         ))}
                     </div>
@@ -46,7 +75,10 @@ export default function ProjectRow({
                             {skills.map((skill) => (
                                 <li
                                     key={skill}
-                                    className="rounded-2xl bg-fg/10 px-3 py-1.5 text-[0.75rem] leading-[160%]"
+                                    className={t({
+                                        shape: 'rounded-2xl bg-fg/10 px-3 py-1.5',
+                                        font: 'text-[0.75rem] leading-[160%]',
+                                    })}
                                 >
                                     {skill}
                                 </li>

@@ -20,6 +20,7 @@ import ReactJsIcon from '@/assets/icons/react.svg';
 import SassIcon from '@/assets/icons/sass.svg';
 import TypeScriptIcon from '@/assets/icons/typescript.svg';
 import YarnIcon from '@/assets/icons/yarn.svg';
+import { t } from '@/lib/t';
 
 // `mono` icons have no brand colour, so they stay monochrome on hover.
 const SKILLS: {
@@ -47,8 +48,10 @@ const SKILLS: {
     { name: 'JetBrains', Icon: JetBrainsIcon, mono: true },
 ];
 
-const paragraph =
-    'max-w-[48ch] text-[1.1rem] leading-[160%] font-light tablet:text-[1.25rem]';
+const paragraph = t({
+    width: 'max-w-[48ch]',
+    font: 'text-[1.1rem] leading-[160%] font-light tablet:text-[1.25rem]',
+});
 
 export default function About() {
     return (
@@ -58,7 +61,12 @@ export default function About() {
                 <div className="flex grow gap-10 desktop:gap-21">
                     <div className="flex w-full flex-col justify-between gap-8">
                         <div className="flex flex-col gap-[32px]">
-                            <p className="text-[2.75rem] leading-[125%] font-medium tablet:text-[3rem] desktop:text-[3.5rem]">
+                            <p
+                                className={t({
+                                    size: 'text-[2.75rem] tablet:text-[3rem] desktop:text-[3.5rem]',
+                                    font: 'leading-[125%] font-medium',
+                                })}
+                            >
                                 I care about doing things well.
                             </p>
                             <p className={paragraph}>
@@ -75,10 +83,21 @@ export default function About() {
                                 <a
                                     href="#section-projects"
                                     data-hover-none
-                                    className="group mx-1 inline-flex items-baseline gap-[0.35rem] rounded-[0.25em] border border-fg/5 bg-fg/7 px-2 text-[0.9em] font-bold capitalize transition-colors hover:border-primary hover:bg-primary hover:text-ink tablet:mx-[0.4rem]"
+                                    className={t({
+                                        layout: 'group inline-flex items-baseline gap-[0.35rem]',
+                                        spacing: 'mx-1 px-2 tablet:mx-[0.4rem]',
+                                        shape: 'rounded-[0.25em] border border-fg/5 bg-fg/7',
+                                        font: 'text-[0.9em] font-bold capitalize',
+                                        hover: 'transition-colors hover:border-primary hover:bg-primary hover:text-ink',
+                                    })}
                                 >
                                     projects
-                                    <CornerArrow className="h-[0.7em] w-auto [&_*]:fill-fg [&_*]:transition-[fill] group-hover:[&_*]:fill-ink" />
+                                    <CornerArrow
+                                        className={t({
+                                            size: 'h-[0.7em] w-auto',
+                                            fill: '[&_*]:fill-fg [&_*]:transition-[fill] group-hover:[&_*]:fill-ink',
+                                        })}
+                                    />
                                 </a>
                                 with whimsy and purpose.
                             </p>
@@ -96,7 +115,16 @@ export default function About() {
                                         <Icon
                                             role="img"
                                             aria-label={name}
-                                            className={`h-6 w-auto opacity-50 hover:opacity-100 tablet:h-8 [&_:is(path,circle,rect)]:transition-[fill] [&:not(:hover)_:is(path,circle,rect)]:fill-fg ${mono ? 'hover:fill-fg hover:[&_*]:fill-fg' : ''}`}
+                                            className={t({
+                                                size: 'h-6 w-auto tablet:h-8',
+                                                opacity:
+                                                    'opacity-50 hover:opacity-100',
+                                                // Monochrome until hovered
+                                                fill: '[&_:is(path,circle,rect)]:transition-[fill] [&:not(:hover)_:is(path,circle,rect)]:fill-fg',
+                                                mono: mono
+                                                    ? 'hover:fill-fg hover:[&_*]:fill-fg'
+                                                    : '',
+                                            })}
                                         />
                                     </li>
                                 ))}

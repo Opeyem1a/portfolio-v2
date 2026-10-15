@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { t } from '@/lib/t';
 
 // Elements opt in to an expanded blob with `data-hoverable`, or hide it with
 // `data-hover-none`.
@@ -45,7 +46,17 @@ export default function CursorBlob({ size }: { size: number }) {
             aria-hidden
             data-state="hidden"
             style={{ width: size, height: size }}
-            className="pointer-events-none invisible fixed top-0 left-0 z-2 rounded-full backdrop-invert transition-[translate,scale,opacity,background-color] duration-[180ms,200ms,200ms,200ms] ease-out data-[state=expanded]:bg-paper/50 data-[state=hidden]:scale-25 data-[state=hidden]:opacity-0 data-[state=idle]:scale-50 motion-reduce:transition-[opacity,background-color] [@media(hover:hover)]:visible"
+            className={t({
+                position: 'pointer-events-none fixed top-0 left-0 z-2',
+                // Only shown on devices with a real cursor
+                visibility: 'invisible [@media(hover:hover)]:visible',
+                shape: 'rounded-full backdrop-invert',
+                idle: 'data-[state=idle]:scale-50',
+                expanded: 'data-[state=expanded]:bg-paper/50',
+                hidden: 'data-[state=hidden]:scale-25 data-[state=hidden]:opacity-0',
+                transition:
+                    'transition-[translate,scale,opacity,background-color] duration-[180ms,200ms,200ms,200ms] ease-out motion-reduce:transition-[opacity,background-color]',
+            })}
         />
     );
 }
