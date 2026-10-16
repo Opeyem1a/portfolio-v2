@@ -44,28 +44,101 @@
         drop-shadow(0 4px 4px rgb(17 17 17 / 0.22));
 }
 
-/* Shrinks and fades a block slightly as it scrolls out the top of the viewport. */
-@utility recede {
-    @media (prefers-reduced-motion: no-preference) {
-        @supports (animation-timeline: view()) {
-            transform-origin: 50% 100%;
-            animation: recede linear both;
-            animation-timeline: view();
-            animation-range: exit 0% exit 100%;
-        }
+/*
+ Sections are dimmed by SectionFocus (src/components/section-focus.tsx) unless
+ they're the one in the middle of the viewport, hovered, or holding focus.
+ */
+@utility focus-section {
+    transition:
+        filter 400ms var(--ease-out),
+        opacity 400ms var(--ease-out),
+        scale 400ms var(--ease-out);
+
+    &[data-dimmed]:not(:hover, :focus-within) {
+        filter: blur(2px);
+        opacity: 0.5;
+        scale: 0.98;
     }
 }
 
-@keyframes recede {
-    to {
-        scale: 0.95;
-        opacity: 0.4;
+/*
+ Highly adapted from https://www.chloeyan.me/
+ */
+#grain-filter:before {
+    content: '';
+    z-index: 200;
+    top: -10rem;
+    left: -10rem;
+    width: calc(200% + 20rem);
+    height: calc(200% + 20rem);
+    position: fixed;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+    opacity: var(--grain-opacity);
+    pointer-events: none;
+    animation:
+        animation-grain-filter 2s steps(2) infinite,
+        animation-grain-load 2s forwards;
+    transition: 0s;
+}
+
+@keyframes animation-grain-load {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: var(--grain-opacity);
+    }
+}
+
+@keyframes animation-grain-filter {
+    0% {
+        transform: translate3d(0, 2rem, 0);
+    }
+    10% {
+        transform: translate3d(-1rem, -2rem, 0);
+    }
+    20% {
+        transform: translate3d(-4rem, 1rem, 0);
+    }
+    30% {
+        transform: translate3d(4.5rem, -4.5rem, 0);
+    }
+    40% {
+        transform: translate3d(-1rem, 3.5rem, 0);
+    }
+    50% {
+        transform: translate3d(-4.5rem, -2rem, 0);
+    }
+    60% {
+        transform: translate3d(1rem, 3rem, 0);
+    }
+    70% {
+        transform: translate3d(3.5rem, -4rem, 0);
+    }
+    80% {
+        transform: translate3d(-4.5rem, 0.5rem, 0);
+    }
+    90% {
+        transform: translate3d(3rem, -2.5rem, 0);
+    }
+    100% {
+        transform: translate3d(-3.5rem, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #grain-filter:before {
+        animation: none;
     }
 }
 
 @layer base {
     :root {
         color-scheme: light dark;
+        --grain-opacity: 0.11;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -81,6 +154,8 @@
             --color-surface: #1c1c1a;
             --color-surface-2: #262624;
             --color-highlight: #2a2412;
+            /* Grey noise lightens a dark ground, so it reads much heavier */
+            --grain-opacity: 0.05;
         }
     }
 

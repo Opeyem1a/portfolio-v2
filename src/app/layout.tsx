@@ -33,8 +33,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             lang="en"
             className={`${archivo.variable} ${instrumentSerif.variable}`}
         >
+            <head>
+                <link
+                    rel="preload"
+                    href="https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png"
+                    as="image"
+                />
+            </head>
             <body className="font-sans">
                 {children}
+                {/* Film grain, as on wdyt.site; styled in globals.css */}
+                <div id="grain-filter" />
                 <Analytics />
             </body>
         </html>
