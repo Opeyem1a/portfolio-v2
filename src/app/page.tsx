@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Guestbook from '@/components/guestbook';
 import NoteForm from '@/components/note-form';
 import Projects from '@/components/projects';
+import RecedeFallback from '@/components/recede-fallback';
 import EmailMe from '@/components/email-me';
 import { STICKERS } from '@/components/stickers';
 import { GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
@@ -60,6 +61,7 @@ export default function Home() {
                     </div>
                 </div>
 
+                <RecedeFallback />
                 <Projects />
 
                 <div className="flex flex-col gap-5">
