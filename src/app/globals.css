@@ -44,6 +44,25 @@
         drop-shadow(0 4px 4px rgb(17 17 17 / 0.22));
 }
 
+/* Shrinks and fades a block slightly as it scrolls out the top of the viewport. */
+@utility recede {
+    @media (prefers-reduced-motion: no-preference) {
+        @supports (animation-timeline: view()) {
+            transform-origin: 50% 100%;
+            animation: recede linear both;
+            animation-timeline: view();
+            animation-range: exit 0% exit 100%;
+        }
+    }
+}
+
+@keyframes recede {
+    to {
+        scale: 0.95;
+        opacity: 0.4;
+    }
+}
+
 @layer base {
     :root {
         color-scheme: light dark;

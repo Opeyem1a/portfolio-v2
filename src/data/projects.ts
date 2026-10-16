@@ -4,7 +4,7 @@ export type Project = {
     summary: string;
     kind: string;
     description: string;
-    facts: string;
+    stack: string;
     links: { label: string; href: string }[];
 };
 
@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
         kind: 'work · now',
         description:
             'A ground-up rebuild of Upcart, the cart drawer used by 30,000+ Shopify stores. We’re building it to lead the category.',
-        facts: 'Product manager & senior product engineer · React, Preact, Node.js, GCP, BigQuery',
+        stack: 'React, Preact, Node.js, GCP, BigQuery',
         links: [
             {
                 label: 'Shopify App Store',
@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
         kind: 'side project',
         description:
             'I collect good questions and these are my favourites. I always love to chat about them, and I spent a lot of time styling these.',
-        facts: 'Design & build · Next.js, React, Tailwind CSS',
+        stack: 'Next.js, React, Tailwind CSS',
         links: [{ label: 'wdyt.site', href: 'https://wdyt.site' }],
     },
     {
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
         kind: 'side project',
         description:
             'A silly newsletter I send every so often, with big thoughts and small cool links.',
-        facts: 'Writing · Next.js, React',
+        stack: 'Next.js, React',
         links: [
             { label: 'Read it', href: 'https://somethinglovely.vercel.app' },
         ],
@@ -53,7 +53,7 @@ export const PROJECTS: Project[] = [
         kind: 'side project',
         description:
             'Greys out images and videos on distracting sites until you hover. You can still do everything, you just have to do it on purpose. Built after Finite didn’t work that well.',
-        facts: 'Design & build · React, Tailwind CSS, Vite',
+        stack: 'React, Tailwind CSS, Vite',
         links: [
             {
                 label: 'Firefox add-on',
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
         kind: 'work',
         description:
             'Pallet Recruiter: A hub for recruiters to source and manage vetted candidates, while helping community leaders connect their members to jobs. Used by 450+ startups and 100+ communities before it closed.',
-        facts: 'Next.js, React, Apollo GraphQL, Python, Django, GCP',
+        stack: 'Next.js, React, Apollo GraphQL, Python, Django, GCP',
         links: [{ label: 'pallet.com', href: 'https://www.pallet.com' }],
     },
     {
@@ -79,7 +79,7 @@ export const PROJECTS: Project[] = [
         kind: 'research',
         description:
             'A tool that lets educators build student teams around pedagogical goals, using a published algorithm. Integrated with Canvas; used in 12+ courses with 1000+ students.',
-        facts: 'Research · Python, Django, Docker',
+        stack: 'Python, Django, Docker',
         links: [
             { label: 'Live', href: 'https://teamableanalytics.ok.ubc.ca/' },
             {

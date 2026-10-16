@@ -104,7 +104,7 @@ export default function Projects() {
                                 >
                                     <p>{project.description}</p>
                                     <p className="text-[0.8125rem] text-muted">
-                                        {project.facts}
+                                        {project.stack}
                                     </p>
                                     <span className="flex flex-wrap gap-2">
                                         {project.links.map(

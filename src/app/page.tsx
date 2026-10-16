@@ -2,12 +2,16 @@ import type { ReactNode } from 'react';
 import Guestbook from '@/components/guestbook';
 import NoteForm from '@/components/note-form';
 import Projects from '@/components/projects';
-import SayHi from '@/components/say-hi';
+import EmailMe from '@/components/email-me';
 import { STICKERS } from '@/components/stickers';
 import { GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
 import { t } from '@/lib/t';
 
-const heading = 'text-[0.875rem] leading-[1.5] font-medium text-muted';
+const quickLink = t({
+    layout: 'inline-flex min-h-11 cursor-pointer items-center px-2',
+    font: 'text-[0.9375rem] font-medium text-muted',
+    hover: 'transition-colors duration-160 ease-(--ease-out) hover:text-fg',
+});
 
 export default function Home() {
     return (
@@ -25,28 +29,8 @@ export default function Home() {
                     <p className="font-normal text-muted">Product engineer</p>
                 </header>
 
-                <section className="flex flex-col gap-2.5">
-                    <h2 className={heading}>Current vibe</h2>
-                    <ul className="grid max-w-[360px] grid-cols-3 gap-2.5 max-sm:max-w-none">
-                        <VibeTile word="Solid" not="Gradients">
-                            <span className="block size-[34px] bg-sun" />
-                        </VibeTile>
-                        <VibeTile word="Sharp" not="Rounded">
-                            <span className="block size-[34px] border-2 border-fg" />
-                        </VibeTile>
-                        <VibeTile
-                            word="Sans"
-                            not={<span className="font-serif">Serif</span>}
-                        >
-                            <span className="block text-[1.875rem] leading-none font-semibold tracking-[-0.02em]">
-                                Aa
-                            </span>
-                        </VibeTile>
-                    </ul>
-                </section>
-
                 <div className="flex flex-col gap-6 text-[1.125rem] leading-[1.75] font-normal">
-                    <p>
+                    <p className="recede">
                         Howdy, I’m Opey. I’m a problem solver and I work as a
                         product engineer. I care about doing things well, with
                         whimsy and purpose. My favourite project is my garden of
@@ -57,7 +41,7 @@ export default function Home() {
                         that well, so I built Exact to be&nbsp;better.
                         <Ref id="exact">Exact</Ref>
                     </p>
-                    <p>
+                    <p className="recede">
                         I’m currently solving ecommerce with Rokt Aftersell (I
                         lead product on Aftersell Cart
                         <Ref id="aftersell">Aftersell Cart</Ref>). I used to
@@ -68,8 +52,8 @@ export default function Home() {
                         <Ref id="teamable">Teamable</Ref>
                     </p>
 
-                    <div className="flex flex-wrap items-center gap-2.5">
-                        <SayHi />
+                    <div className="-ml-2 flex flex-wrap items-center gap-2.5">
+                        <EmailMe className={quickLink} />
                         <QuickLink href={GITHUB_LINK}>GitHub</QuickLink>
                         <QuickLink href={LINKEDIN_LINK}>LinkedIn</QuickLink>
                         <QuickLink href={RESUME_LINK}>Resume ↗</QuickLink>
@@ -78,7 +62,27 @@ export default function Home() {
 
                 <Projects />
 
-                <Guestbook />
+                <div className="flex flex-col gap-5">
+                    <section className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-[0.875rem] leading-[1.5] font-normal text-muted">
+                        <h2 className="font-medium">Current vibe</h2>
+                        <ul className="contents">
+                            <Vibe word="Solid" not="Gradients">
+                                <span className="inline-block size-[0.7em] bg-sun" />
+                            </Vibe>
+                            <Vibe word="Sharp" not="Rounded">
+                                <span className="inline-block size-[0.7em] border-[1.5px] border-current" />
+                            </Vibe>
+                            <Vibe
+                                word="Sans"
+                                not={<span className="font-serif">Serif</span>}
+                            >
+                                <span className="font-semibold">Aa</span>
+                            </Vibe>
+                        </ul>
+                    </section>
+
+                    <Guestbook />
+                </div>
 
                 <footer className="flex flex-col gap-5 border-t border-line pt-6 font-normal">
                     <div className="flex flex-col gap-2.5 leading-[1.4]">
@@ -106,7 +110,7 @@ export default function Home() {
     );
 }
 
-function VibeTile({
+function Vibe({
     word,
     not,
     children,
@@ -116,25 +120,13 @@ function VibeTile({
     children: ReactNode;
 }) {
     return (
-        <li
-            className={t({
-                layout: 'flex aspect-square flex-col items-start justify-between px-3 pt-4 pb-3',
-                shape: 'bg-surface',
-            })}
-        >
-            <span
-                aria-hidden="true"
-                className="origin-top-left max-sm:scale-75"
-            >
-                {children}
-            </span>
-            <span className="flex min-w-0 flex-col gap-1">
-                <span className="text-[0.9375rem] leading-none">{word}</span>
-                <span className="text-[0.75rem] leading-[1.1] font-normal whitespace-nowrap text-faint">
-                    <span className="sr-only">not </span>
-                    <s>{not}</s>
-                </span>
-            </span>
+        <li className="inline-flex items-baseline gap-1.5 whitespace-nowrap">
+            <span aria-hidden="true">{children}</span>
+            {word}
+            <s className="text-faint">
+                <span className="sr-only">not </span>
+                {not}
+            </s>
         </li>
     );
 }
@@ -179,14 +171,7 @@ function Ref({
 
 function QuickLink({ href, children }: { href: string; children: ReactNode }) {
     return (
-        <a
-            href={href}
-            className={t({
-                layout: 'inline-flex min-h-11 items-center px-2',
-                font: 'text-[0.9375rem] font-medium text-muted',
-                hover: 'transition-colors duration-160 ease-(--ease-out) hover:text-fg',
-            })}
-        >
+        <a href={href} className={quickLink}>
             {children}
         </a>
     );
