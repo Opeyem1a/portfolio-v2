@@ -118,7 +118,7 @@ function VibeTile({
     return (
         <li
             className={t({
-                layout: 'flex aspect-square flex-col items-start justify-between p-3',
+                layout: 'flex aspect-square flex-col items-start justify-between px-3 pt-4 pb-3',
                 shape: 'bg-surface',
             })}
         >
