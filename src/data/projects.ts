@@ -2,27 +2,23 @@ export type Project = {
     title: string;
     subtitle: string;
     category: string;
-    description: string[];
-    links: {
-        title: string;
-        link: URL | string;
-    }[];
+    description: string;
+    links: { label: string; href: string }[];
     skills?: string[];
     hidden?: boolean;
 };
 
-const PROJECTS: Project[] = [
+export const PROJECTS: Project[] = [
     {
         title: 'Aftersell Cart',
         subtitle: 'Cart drawer for Shopify stores',
         category: 'Shopify App',
-        description: [
+        description:
             "I'm the product manager and senior product engineer. The original version, Upcart, is used by 30,000+ Shopify stores. Aftersell Cart is a ground-up rebuild that's now scaling up, and we're building it to lead the category.",
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://apps.shopify.com/aftersell',
+                label: 'See it live',
+                href: 'https://apps.shopify.com/aftersell',
             },
         ],
         skills: [
@@ -37,13 +33,12 @@ const PROJECTS: Project[] = [
         title: 'Something Lovely',
         subtitle: 'A letter about big thoughts and small cool things',
         category: 'Newsletter',
-        description: [
+        description:
             'A silly newsletter I send every so often, with thoughts and fun links.',
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://somethinglovely.vercel.app',
+                label: 'See it live',
+                href: 'https://somethinglovely.vercel.app',
             },
         ],
         skills: ['Next.js', 'React.js'],
@@ -52,13 +47,12 @@ const PROJECTS: Project[] = [
         title: 'WDYT',
         subtitle: 'My repository of good questions',
         category: 'Web Application',
-        description: [
+        description:
             'I like to collect good questions and these are my favourite. I always love to chat about them. I spent a lot of time styling these.',
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://wdyt.site',
+                label: 'See it live',
+                href: 'https://wdyt.site',
             },
         ],
         skills: ['Next.js', 'React.js', 'Tailwind CSS'],
@@ -67,17 +61,16 @@ const PROJECTS: Project[] = [
         title: 'Exact',
         subtitle: 'Making distracting websites less fun',
         category: 'Browser extension',
-        description: [
+        description:
             'I built this to make using social media websites less enjoyable instead of making it more difficult to use. Exact greys out images and videos on certain websites until you hover over them. You can still do everything, but you have to do so on purpose.',
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://addons.mozilla.org/en-US/firefox/addon/exact-browse-with-intention/',
+                label: 'See it live',
+                href: 'https://addons.mozilla.org/en-US/firefox/addon/exact-browse-with-intention/',
             },
             {
-                title: 'See on GitHub',
-                link: 'https://github.com/Opeyem1a/exact',
+                label: 'See on GitHub',
+                href: 'https://github.com/Opeyem1a/exact',
             },
         ],
         skills: ['Node.js', 'React.js', 'Tailwind CSS', 'Vite'],
@@ -86,13 +79,12 @@ const PROJECTS: Project[] = [
         title: 'Times Up',
         subtitle: 'Present with peace of mind',
         category: 'Web Application',
-        description: [
+        description:
             'Times up is a timer. You can use it and know how much time is left in your presentation sections while speaking. An experiment in software where the whole config is encoded in a URL.',
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://timesupnow.vercel.app',
+                label: 'See it live',
+                href: 'https://timesupnow.vercel.app',
             },
         ],
         skills: ['Next.js', 'React.js', 'Tailwind CSS'],
@@ -102,17 +94,16 @@ const PROJECTS: Project[] = [
         title: 'Tacit',
         subtitle: 'Automating boring work',
         category: 'Browser Extension',
-        description: [
+        description:
             'I built a tool to help me quickly go through the standard Shopify purchase flow. I was feeling rebellious against dependencies, so only Node.js and HTML was used for the UI.',
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://addons.mozilla.org/en-CA/firefox/addon/tacit/',
+                label: 'See it live',
+                href: 'https://addons.mozilla.org/en-CA/firefox/addon/tacit/',
             },
             {
-                title: 'See on GitHub',
-                link: 'https://github.com/Opeyem1a/tacit',
+                label: 'See on GitHub',
+                href: 'https://github.com/Opeyem1a/tacit',
             },
         ],
         skills: ['Node.js', 'Tailwind CSS', 'Parcel'],
@@ -122,21 +113,20 @@ const PROJECTS: Project[] = [
         title: 'Teamable Analytics',
         subtitle: 'Dynamic student team generation',
         category: 'Web Application',
-        description: [
+        description:
             "A SaaS tool that allows educators to create teams based on complex pedagogical goals using a published AI algorithm approach. The tool is integrated with Canvas' LMS API and is currently used in 12+ courses with 1000+ students.",
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://teamableanalytics.ok.ubc.ca/',
+                label: 'See it live',
+                href: 'https://teamableanalytics.ok.ubc.ca/',
             },
             {
-                title: 'Learn more',
-                link: 'https://teamableanalytics.ok.ubc.ca/homepage/',
+                label: 'Learn more',
+                href: 'https://teamableanalytics.ok.ubc.ca/homepage/',
             },
             {
-                title: 'See research',
-                link: 'https://www.researchgate.net/publication/360229063_Design_Guidelines_for_a_Team_Formation_and_Analytics_Software',
+                label: 'See research',
+                href: 'https://www.researchgate.net/publication/360229063_Design_Guidelines_for_a_Team_Formation_and_Analytics_Software',
             },
         ],
         skills: ['Python', 'Django', 'Docker'],
@@ -145,9 +135,8 @@ const PROJECTS: Project[] = [
         title: 'Pallet Recruiter',
         subtitle: 'Community-based talent marketplace',
         category: 'Web Application',
-        description: [
+        description:
             'Now shutdown, but Pallet was a hub for recruiters to source and manage vetted candidates while empowering leaders to better connect their communities to jobs. Used by 450+ startups and 100+ communities.',
-        ],
         links: [],
         skills: [
             'Next.js',
@@ -162,17 +151,16 @@ const PROJECTS: Project[] = [
         title: 'JUnit++',
         subtitle: 'Custom JUnit testing library',
         category: 'Unit Testing Library',
-        description: [
+        description:
             'This library enables the quick creation and modification of unit tests written specifically to validate that student-submitted code meets the requirements of a given introductory programming question.',
-        ],
         links: [
             {
-                title: 'Read the docs',
-                link: 'https://canvas-gamification.github.io/docs/docs/junit-framework/introduction/overview',
+                label: 'Read the docs',
+                href: 'https://canvas-gamification.github.io/docs/docs/junit-framework/introduction/overview',
             },
             {
-                title: 'See on GitHub',
-                link: 'https://github.com/canvas-gamification/canvas-gamification-junit-tests',
+                label: 'See on GitHub',
+                href: 'https://github.com/canvas-gamification/canvas-gamification-junit-tests',
             },
         ],
         skills: ['Java', 'JUnit 5', 'Judge0'],
@@ -182,13 +170,12 @@ const PROJECTS: Project[] = [
         title: 'Course Gamification',
         subtitle: 'Gamified e-learning for computer science majors',
         category: 'Web Application',
-        description: [
+        description:
             'A Canvas-integrated platform offering an in-depth question bank allowing students to practice and receive feedback on a range of introductory computer science concepts while integrating challenges, leaderboards, and a grade-based reward system.',
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://gamification.ok.ubc.ca/',
+                label: 'See it live',
+                href: 'https://gamification.ok.ubc.ca/',
             },
         ],
         skills: ['Angular', 'Python', 'Django'],
@@ -198,22 +185,19 @@ const PROJECTS: Project[] = [
         title: 'Finite',
         subtitle: 'Website blocking browser extension',
         category: 'Browser Extension',
-        description: [
+        description:
             'I built myself a productivity-oriented website blocker to help me focus. The goal of Finite is to combat my "infinite scroll" tendencies when using certain websites.',
-        ],
         links: [
             {
-                title: 'See it live',
-                link: 'https://addons.mozilla.org/en-CA/firefox/addon/finite/',
+                label: 'See it live',
+                href: 'https://addons.mozilla.org/en-CA/firefox/addon/finite/',
             },
             {
-                title: 'See on GitHub',
-                link: 'https://github.com/Opeyem1a/finite',
+                label: 'See on GitHub',
+                href: 'https://github.com/Opeyem1a/finite',
             },
         ],
         skills: ['JavaScript', 'HTML5', 'CSS'],
         hidden: true,
     },
 ];
-
-export { PROJECTS };
