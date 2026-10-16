@@ -3,6 +3,7 @@ import Guestbook from '@/components/guestbook';
 import NoteForm from '@/components/note-form';
 import Projects from '@/components/projects';
 import SectionFocus from '@/components/section-focus';
+import SmileBlock from '@/components/smile-block';
 import EmailMe from '@/components/email-me';
 import { STICKERS } from '@/components/stickers';
 import { GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
@@ -32,6 +33,8 @@ export default function Home() {
                             Product engineer
                         </p>
                     </header>
+
+                    <SmileBlock />
 
                     <div className="flex flex-col gap-6 text-[1.125rem] leading-[1.75] font-normal">
                         <p>
