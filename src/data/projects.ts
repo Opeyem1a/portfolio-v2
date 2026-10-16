@@ -1,203 +1,100 @@
 export type Project = {
-    title: string;
-    subtitle: string;
-    category: string;
+    id: string;
+    name: string;
+    summary: string;
+    /** Shown on the right of the row; `kind` stands in when there's no metric. */
+    metric?: string;
+    kind: string;
     description: string;
+    facts: string;
     links: { label: string; href: string }[];
-    skills?: string[];
-    hidden?: boolean;
 };
 
 export const PROJECTS: Project[] = [
     {
-        title: 'Aftersell Cart',
-        subtitle: 'Cart drawer for Shopify stores',
-        category: 'Shopify App',
+        id: 'aftersell',
+        name: 'Aftersell Cart',
+        summary: 'Product lead at Rokt',
+        metric: '30,000+ stores',
+        kind: 'work · now',
         description:
-            "I'm the product manager and senior product engineer. The original version, Upcart, is used by 30,000+ Shopify stores. Aftersell Cart is a ground-up rebuild that's now scaling up, and we're building it to lead the category.",
+            'A ground-up rebuild of Upcart, the cart drawer used by 30,000+ Shopify stores. We’re building it to lead the category.',
+        facts: 'Product manager & senior product engineer · React, Preact, Node.js, GCP, BigQuery',
         links: [
             {
-                label: 'See it live',
+                label: 'Shopify App Store',
                 href: 'https://apps.shopify.com/aftersell',
             },
         ],
-        skills: [
-            'React.js',
-            'Preact',
-            'Node.js',
-            'Google Cloud Platform',
-            'BigQuery',
+    },
+    {
+        id: 'wdyt',
+        name: 'WDYT',
+        summary: 'My garden of favourite questions',
+        kind: 'side project',
+        description:
+            'I collect good questions and these are my favourites. I always love to chat about them, and I spent a lot of time styling these.',
+        facts: 'Design & build · Next.js, React, Tailwind CSS',
+        links: [{ label: 'wdyt.site', href: 'https://wdyt.site' }],
+    },
+    {
+        id: 'lovely',
+        name: 'Something Lovely',
+        summary: 'A newsletter I write for fun',
+        kind: 'side project',
+        description:
+            'A silly newsletter I send every so often, with big thoughts and small cool links.',
+        facts: 'Writing · Next.js, React',
+        links: [
+            { label: 'Read it', href: 'https://somethinglovely.vercel.app' },
         ],
     },
     {
-        title: 'Something Lovely',
-        subtitle: 'A letter about big thoughts and small cool things',
-        category: 'Newsletter',
+        id: 'exact',
+        name: 'Exact',
+        summary: 'Browse distracting sites on purpose',
+        kind: 'side project',
         description:
-            'A silly newsletter I send every so often, with thoughts and fun links.',
+            'Greys out images and videos on distracting sites until you hover. You can still do everything, you just have to do it on purpose. Built after Finite didn’t work that well.',
+        facts: 'Design & build · React, Tailwind CSS, Vite',
         links: [
             {
-                label: 'See it live',
-                href: 'https://somethinglovely.vercel.app',
-            },
-        ],
-        skills: ['Next.js', 'React.js'],
-    },
-    {
-        title: 'WDYT',
-        subtitle: 'My repository of good questions',
-        category: 'Web Application',
-        description:
-            'I like to collect good questions and these are my favourite. I always love to chat about them. I spent a lot of time styling these.',
-        links: [
-            {
-                label: 'See it live',
-                href: 'https://wdyt.site',
-            },
-        ],
-        skills: ['Next.js', 'React.js', 'Tailwind CSS'],
-    },
-    {
-        title: 'Exact',
-        subtitle: 'Making distracting websites less fun',
-        category: 'Browser extension',
-        description:
-            'I built this to make using social media websites less enjoyable instead of making it more difficult to use. Exact greys out images and videos on certain websites until you hover over them. You can still do everything, but you have to do so on purpose.',
-        links: [
-            {
-                label: 'See it live',
+                label: 'Firefox add-on',
                 href: 'https://addons.mozilla.org/en-US/firefox/addon/exact-browse-with-intention/',
             },
-            {
-                label: 'See on GitHub',
-                href: 'https://github.com/Opeyem1a/exact',
-            },
+            { label: 'GitHub', href: 'https://github.com/Opeyem1a/exact' },
         ],
-        skills: ['Node.js', 'React.js', 'Tailwind CSS', 'Vite'],
     },
     {
-        title: 'Times Up',
-        subtitle: 'Present with peace of mind',
-        category: 'Web Application',
+        id: 'pallet',
+        name: 'Pallet',
+        summary: 'Community-based recruiting',
+        metric: '450+ startups',
+        kind: 'work',
         description:
-            'Times up is a timer. You can use it and know how much time is left in your presentation sections while speaking. An experiment in software where the whole config is encoded in a URL.',
-        links: [
-            {
-                label: 'See it live',
-                href: 'https://timesupnow.vercel.app',
-            },
-        ],
-        skills: ['Next.js', 'React.js', 'Tailwind CSS'],
-        hidden: true,
+            'Pallet Recruiter: A hub for recruiters to source and manage vetted candidates, while helping community leaders connect their members to jobs. Used by 450+ startups and 100+ communities before it closed.',
+        facts: 'Next.js, React, Apollo GraphQL, Python, Django, GCP',
+        links: [{ label: 'pallet.com', href: 'https://www.pallet.com' }],
     },
     {
-        title: 'Tacit',
-        subtitle: 'Automating boring work',
-        category: 'Browser Extension',
+        id: 'teamable',
+        name: 'Teamable',
+        summary: 'Team formation research, higher ed',
+        metric: '1,000+ students',
+        kind: 'research',
         description:
-            'I built a tool to help me quickly go through the standard Shopify purchase flow. I was feeling rebellious against dependencies, so only Node.js and HTML was used for the UI.',
+            'A tool that lets educators build student teams around pedagogical goals, using a published algorithm. Integrated with Canvas; used in 12+ courses with 1000+ students.',
+        facts: 'Research · Python, Django, Docker',
         links: [
-            {
-                label: 'See it live',
-                href: 'https://addons.mozilla.org/en-CA/firefox/addon/tacit/',
-            },
-            {
-                label: 'See on GitHub',
-                href: 'https://github.com/Opeyem1a/tacit',
-            },
-        ],
-        skills: ['Node.js', 'Tailwind CSS', 'Parcel'],
-        hidden: true,
-    },
-    {
-        title: 'Teamable Analytics',
-        subtitle: 'Dynamic student team generation',
-        category: 'Web Application',
-        description:
-            "A SaaS tool that allows educators to create teams based on complex pedagogical goals using a published AI algorithm approach. The tool is integrated with Canvas' LMS API and is currently used in 12+ courses with 1000+ students.",
-        links: [
-            {
-                label: 'See it live',
-                href: 'https://teamableanalytics.ok.ubc.ca/',
-            },
+            { label: 'Live', href: 'https://teamableanalytics.ok.ubc.ca/' },
             {
                 label: 'Learn more',
                 href: 'https://teamableanalytics.ok.ubc.ca/homepage/',
             },
             {
-                label: 'See research',
+                label: 'Paper',
                 href: 'https://www.researchgate.net/publication/360229063_Design_Guidelines_for_a_Team_Formation_and_Analytics_Software',
             },
         ],
-        skills: ['Python', 'Django', 'Docker'],
-    },
-    {
-        title: 'Pallet Recruiter',
-        subtitle: 'Community-based talent marketplace',
-        category: 'Web Application',
-        description:
-            'Now shutdown, but Pallet was a hub for recruiters to source and manage vetted candidates while empowering leaders to better connect their communities to jobs. Used by 450+ startups and 100+ communities.',
-        links: [],
-        skills: [
-            'Next.js',
-            'React.js',
-            'Apollo GraphQL',
-            'Python',
-            'Django',
-            'Google Cloud Platform',
-        ],
-    },
-    {
-        title: 'JUnit++',
-        subtitle: 'Custom JUnit testing library',
-        category: 'Unit Testing Library',
-        description:
-            'This library enables the quick creation and modification of unit tests written specifically to validate that student-submitted code meets the requirements of a given introductory programming question.',
-        links: [
-            {
-                label: 'Read the docs',
-                href: 'https://canvas-gamification.github.io/docs/docs/junit-framework/introduction/overview',
-            },
-            {
-                label: 'See on GitHub',
-                href: 'https://github.com/canvas-gamification/canvas-gamification-junit-tests',
-            },
-        ],
-        skills: ['Java', 'JUnit 5', 'Judge0'],
-        hidden: true,
-    },
-    {
-        title: 'Course Gamification',
-        subtitle: 'Gamified e-learning for computer science majors',
-        category: 'Web Application',
-        description:
-            'A Canvas-integrated platform offering an in-depth question bank allowing students to practice and receive feedback on a range of introductory computer science concepts while integrating challenges, leaderboards, and a grade-based reward system.',
-        links: [
-            {
-                label: 'See it live',
-                href: 'https://gamification.ok.ubc.ca/',
-            },
-        ],
-        skills: ['Angular', 'Python', 'Django'],
-        hidden: true,
-    },
-    {
-        title: 'Finite',
-        subtitle: 'Website blocking browser extension',
-        category: 'Browser Extension',
-        description:
-            'I built myself a productivity-oriented website blocker to help me focus. The goal of Finite is to combat my "infinite scroll" tendencies when using certain websites.',
-        links: [
-            {
-                label: 'See it live',
-                href: 'https://addons.mozilla.org/en-CA/firefox/addon/finite/',
-            },
-            {
-                label: 'See on GitHub',
-                href: 'https://github.com/Opeyem1a/finite',
-            },
-        ],
-        skills: ['JavaScript', 'HTML5', 'CSS'],
-        hidden: true,
     },
 ];

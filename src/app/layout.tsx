@@ -1,15 +1,18 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { Manrope, Montserrat } from 'next/font/google';
+import { Archivo, Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
-import CursorBlob from '@/components/cursor-blob';
 import './globals.css';
 
-const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
-const montserrat = Montserrat({
+const archivo = Archivo({
     subsets: ['latin'],
-    style: ['normal'],
-    variable: '--font-montserrat',
+    weight: ['400', '500', '600'],
+    variable: '--font-archivo',
+});
+const instrumentSerif = Instrument_Serif({
+    subsets: ['latin'],
+    weight: '400',
+    variable: '--font-instrument-serif',
 });
 
 export const metadata: Metadata = {
@@ -19,8 +22,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
     themeColor: [
-        { media: '(prefers-color-scheme: light)', color: 'rgb(252 252 252)' },
-        { media: '(prefers-color-scheme: dark)', color: 'rgb(15 15 15)' },
+        { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+        { media: '(prefers-color-scheme: dark)', color: '#121211' },
     ],
 };
 
@@ -28,11 +31,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html
             lang="en"
-            className={`${manrope.variable} ${montserrat.variable}`}
+            className={`${archivo.variable} ${instrumentSerif.variable}`}
         >
             <body className="font-sans">
                 {children}
-                <CursorBlob size={48} />
                 <Analytics />
             </body>
         </html>
