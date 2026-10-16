@@ -61,14 +61,8 @@ export default function Projects() {
                             <span className="max-sm:col-start-1">
                                 {project.summary}
                             </span>
-                            <span
-                                className={
-                                    project.metric
-                                        ? 'text-right text-[0.9375rem] font-semibold whitespace-nowrap tabular-nums max-sm:col-start-1 max-sm:text-left'
-                                        : 'text-[0.875rem] text-muted max-sm:col-start-1'
-                                }
-                            >
-                                {project.metric ?? project.kind}
+                            <span className="text-[0.875rem] text-muted max-sm:col-start-1">
+                                {project.kind}
                             </span>
                             <svg
                                 viewBox="0 0 12 12"
@@ -120,7 +114,7 @@ export default function Projects() {
                                                     href={href}
                                                     className={t({
                                                         layout: 'group/pill inline-flex items-center gap-0.5 px-2.5',
-                                                        shape: 'rounded-full border border-line bg-bg',
+                                                        shape: 'border border-line bg-bg',
                                                         font: 'text-[0.875rem] leading-[1.7]',
                                                         hover: 'transition-colors duration-160 ease-(--ease-out) hover:border-line-strong hover:bg-surface-2',
                                                     })}

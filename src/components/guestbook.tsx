@@ -55,7 +55,7 @@ export default function Guestbook() {
                     aria-expanded={composing}
                     className={t({
                         layout: 'inline-flex cursor-pointer items-center px-2.5',
-                        shape: 'rounded-full border border-line bg-bg',
+                        shape: 'border border-line bg-bg',
                         font: 'text-[0.875rem] leading-[1.7]',
                         hover: 'transition-colors duration-160 ease-(--ease-out) hover:border-line-strong hover:bg-surface-2',
                     })}
@@ -85,7 +85,7 @@ export default function Guestbook() {
                 <div
                     className={t({
                         layout: 'flex flex-col gap-3.5 p-4',
-                        shape: 'rounded-2xl border border-line bg-bg',
+                        shape: 'border border-line bg-bg',
                         font: 'leading-[1.4] font-normal',
                     })}
                 >
@@ -98,7 +98,7 @@ export default function Guestbook() {
                                 key={axis.key}
                                 role="group"
                                 aria-label={axis.label}
-                                className="inline-flex gap-0.5 rounded-full bg-surface p-[3px] max-sm:flex max-sm:basis-full"
+                                className="inline-flex gap-0.5 bg-surface p-[3px] max-sm:flex max-sm:basis-full"
                             >
                                 {axis.options.map((option) => {
                                     const on = vibe[axis.key] === option;
@@ -114,7 +114,6 @@ export default function Guestbook() {
                                             }
                                             className={t({
                                                 layout: 'inline-flex min-h-10 cursor-pointer items-center gap-1.5 px-2.5 max-sm:flex-1 max-sm:justify-center',
-                                                shape: 'rounded-full',
                                                 font: 'text-[0.875rem] capitalize',
                                                 color: on
                                                     ? 'bg-bg text-fg shadow-[0_1px_2px_rgb(17_17_17/0.08),0_0_0_1px_var(--color-line)]'
@@ -183,7 +182,7 @@ function Pill({
             className={t({
                 layout: 'inline-flex min-h-9 max-w-full items-center px-3.5',
                 fill: 'bg-sun text-ink',
-                corner: corner === 'sharp' ? 'rounded-[2px]' : 'rounded-full',
+                corner: corner === 'sharp' ? 'rounded-none' : 'rounded-full',
                 font:
                     type === 'serif'
                         ? 'font-serif text-[1.125rem] leading-none font-normal'
@@ -220,8 +219,8 @@ function Swatch({ option }: { option: string }) {
             className={t({
                 size: 'inline-block size-[13px] flex-none',
                 look: {
-                    solid: 'rounded-[3px] bg-sun',
-                    gradient: 'rounded-[3px]',
+                    solid: 'bg-sun',
+                    gradient: '',
                     sharp: 'border-[1.5px] border-current',
                     rounded: 'rounded-[5px] border-[1.5px] border-current',
                 }[option]!,

@@ -2,8 +2,6 @@ export type Project = {
     id: string;
     name: string;
     summary: string;
-    /** Shown on the right of the row; `kind` stands in when there's no metric. */
-    metric?: string;
     kind: string;
     description: string;
     facts: string;
@@ -15,7 +13,6 @@ export const PROJECTS: Project[] = [
         id: 'aftersell',
         name: 'Aftersell Cart',
         summary: 'Product lead at Rokt',
-        metric: '30,000+ stores',
         kind: 'work · now',
         description:
             'A ground-up rebuild of Upcart, the cart drawer used by 30,000+ Shopify stores. We’re building it to lead the category.',
@@ -69,7 +66,6 @@ export const PROJECTS: Project[] = [
         id: 'pallet',
         name: 'Pallet',
         summary: 'Community-based recruiting',
-        metric: '450+ startups',
         kind: 'work',
         description:
             'Pallet Recruiter: A hub for recruiters to source and manage vetted candidates, while helping community leaders connect their members to jobs. Used by 450+ startups and 100+ communities before it closed.',
@@ -80,7 +76,6 @@ export const PROJECTS: Project[] = [
         id: 'teamable',
         name: 'Teamable',
         summary: 'Team formation research, higher ed',
-        metric: '1,000+ students',
         kind: 'research',
         description:
             'A tool that lets educators build student teams around pedagogical goals, using a published algorithm. Integrated with Canvas; used in 12+ courses with 1000+ students.',

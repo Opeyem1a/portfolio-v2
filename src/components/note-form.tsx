@@ -5,14 +5,14 @@ import { t } from '@/lib/t';
 
 export const field = t({
     size: 'min-h-11 w-full px-3.5',
-    shape: 'rounded-[10px] border border-line bg-bg',
+    shape: 'border border-line bg-bg',
     font: 'text-[0.9375rem] font-normal text-fg',
 });
 
 export const button = (primary = false) =>
     t({
         size: 'min-h-11 cursor-pointer px-[18px]',
-        shape: 'rounded-[10px] border',
+        shape: 'border',
         font: 'text-[0.9375rem] font-semibold',
         color: primary
             ? 'border-fg bg-fg text-bg'

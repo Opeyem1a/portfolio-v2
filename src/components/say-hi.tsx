@@ -5,7 +5,7 @@ import { t } from '@/lib/t';
 
 const cta = t({
     layout: 'inline-flex min-h-11 cursor-pointer items-center gap-2.5 px-[18px]',
-    shape: 'rounded-[14px] bg-fg text-bg hover:bg-fg-hover',
+    shape: 'bg-fg text-bg hover:bg-fg-hover',
     font: 'text-[1rem] leading-none font-medium',
     motion: 'transition-[background-color,scale] duration-160 ease-(--ease-out) active:scale-97',
 });
