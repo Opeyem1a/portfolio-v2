@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-// Dims every `.focus-section` except the one in the middle of the viewport
+// Dims every `.focus-section` except the one under a moving focus line
 // (see the `focus-section` utility in globals.css). Without JS, or with reduced
 // motion, nothing is dimmed.
 export default function SectionFocus() {
@@ -15,23 +15,19 @@ export default function SectionFocus() {
         let frame = 0;
 
         const update = () => {
-            const atBottom =
-                innerHeight + scrollY >=
-                document.documentElement.scrollHeight - 2;
-            const middle = innerHeight / 2;
-            // The section crossing the middle, else the nearest one; the last
-            // section can't always reach the middle, so it wins at the bottom.
+            // The focus line sweeps from the top of the viewport to the bottom
+            // as the page scrolls, so every section crosses it in turn, even
+            // short ones near the end that could never reach the middle.
+            const max = document.documentElement.scrollHeight - innerHeight;
+            const line = max > 0 ? innerHeight * (scrollY / max) : 0;
+            // Distance from the line; 0 while the section spans it.
             const distance = (el: HTMLElement) => {
                 const { top, bottom } = el.getBoundingClientRect();
-                return top > middle
-                    ? top - middle
-                    : Math.max(middle - bottom, 0);
+                return Math.max(top - line, line - bottom, 0);
             };
-            const active = atBottom
-                ? sections.at(-1)
-                : sections.reduce((a, b) =>
-                      distance(b) < distance(a) ? b : a
-                  );
+            const active = sections.reduce((a, b) =>
+                distance(b) < distance(a) ? b : a
+            );
             for (const el of sections) {
                 el.toggleAttribute('data-dimmed', el !== active);
             }
