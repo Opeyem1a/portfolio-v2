@@ -79,7 +79,7 @@ export default function Home() {
                 <div className="flex flex-col gap-14 max-sm:gap-12">
                     <div className="flex flex-col gap-5">
                         <section className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-[0.875rem] leading-[1.5] font-normal text-muted">
-                            <h2 className="font-medium">Current vibe</h2>
+                            <h2 className="font-medium">My vibe</h2>
                             <ul className="contents">
                                 <Vibe word="Solid" not="Gradients">
                                     <span className="inline-block size-[0.7em] bg-sun" />
