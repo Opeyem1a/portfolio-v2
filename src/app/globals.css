@@ -126,7 +126,7 @@
 
     @media (prefers-color-scheme: dark) {
         :root {
-            --color-bg: #121211;
+            --color-bg: #0b0b0a;
             --color-fg: #ededea;
             --color-fg-hover: #d6d6d2;
             --color-muted: #a3a39e;
