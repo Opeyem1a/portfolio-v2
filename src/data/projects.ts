@@ -83,11 +83,6 @@ export const PROJECTS: Project[] = [
                 label: 'Read about it in The Pragmatic Engineer',
                 href: 'https://blog.pragmaticengineer.com/tech-jobs-board/',
             },
-            {
-                label: 'See it on Wellfound',
-                href: 'https://wellfound.com/company/pallet-5',
-            },
-            { label: 'Pallet on X', href: 'https://x.com/Pallet_HQ' },
         ],
     },
     {
