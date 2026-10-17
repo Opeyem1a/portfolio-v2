@@ -11,11 +11,10 @@ yarn lint   # tsc + eslint + prettier
 yarn fix
 ```
 
-- `src/app` — layout, page, page sections (`_sections`), and the `/hello` note
-  route
-- `src/components` — interactive pieces (cursor blob, section heading, smile)
-  and project rows
-- `src/data` — projects and links
-- `src/assets` — SVGs, imported as React components via SVGR
-- Theme tokens (colours, breakpoints, fonts, easing) live in
+- `src/app` — layout, the page, and the `/hello` note route (notes and guestbook
+  signatures are relayed to Discord)
+- `src/components` — client pieces (projects accordion, guestbook, note form,
+  smile block, section dividers) and the intro's stickers
+- `src/data` — projects, links, and approved guestbook signatures
+- Theme tokens (colours, breakpoint, fonts, easing) live in
   `src/app/globals.css`; colours swap with `prefers-color-scheme`

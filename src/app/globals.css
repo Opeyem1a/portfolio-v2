@@ -2,53 +2,171 @@
 
 @theme {
     --breakpoint-*: initial;
-    --breakpoint-tablet: 750px;
-    --breakpoint-desktop: 1200px;
+    --breakpoint-sm: 560px;
 
     --color-*: initial;
-    --color-ink: rgb(15 15 15);
-    --color-paper: rgb(252 252 252);
-    --color-primary: rgb(255 196 45);
     /* Swap with the colour scheme; see below. */
-    --color-fg: var(--color-ink);
-    --color-bg: var(--color-paper);
+    --color-bg: #ffffff;
+    --color-fg: #111111;
+    --color-fg-hover: #2a2a2a;
+    --color-muted: #6f6f6f;
+    --color-faint: #9a9a9a;
+    --color-link: #2b4bff;
+    --color-line: #e6e6e1;
+    --color-line-strong: #cfcfc9;
+    --color-surface: #f4f4f1;
+    --color-surface-2: #ecece8;
+    --color-highlight: #fff8db;
+    /* Fixed: sticker and pill colours don't change with the scheme. */
+    --color-ink: #111111;
+    --color-sun: #ffc42d;
+    --color-sun-ring: #e0a800;
 
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-    --default-transition-duration: 200ms;
-    --default-transition-timing-function: ease;
+    --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
 }
 
 @theme inline {
-    --font-sans: var(--font-manrope);
-    --font-heading: var(--font-montserrat);
+    --font-sans: var(--font-archivo);
+    --font-serif: var(--font-instrument-serif);
+}
+
+/* White sticker outline, plus a shadow that lifts on hover. */
+@utility sticker {
+    filter: drop-shadow(1.4px 0 0 #fff) drop-shadow(-1.4px 0 0 #fff)
+        drop-shadow(0 1.4px 0 #fff) drop-shadow(0 -1.4px 0 #fff)
+        drop-shadow(0 1.5px 1.5px rgb(17 17 17 / 0.28));
+}
+
+@utility sticker-lifted {
+    filter: drop-shadow(1.4px 0 0 #fff) drop-shadow(-1.4px 0 0 #fff)
+        drop-shadow(0 1.4px 0 #fff) drop-shadow(0 -1.4px 0 #fff)
+        drop-shadow(0 4px 4px rgb(17 17 17 / 0.22));
+}
+
+/*
+ Highly adapted from https://www.chloeyan.me/
+ */
+#grain-filter:before {
+    content: '';
+    z-index: 200;
+    top: -10rem;
+    left: -10rem;
+    width: calc(200% + 20rem);
+    height: calc(200% + 20rem);
+    position: fixed;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+    opacity: var(--grain-opacity);
+    pointer-events: none;
+    animation:
+        animation-grain-filter 2s steps(2) infinite,
+        animation-grain-load 2s forwards;
+    transition: 0s;
+}
+
+@keyframes animation-grain-load {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: var(--grain-opacity);
+    }
+}
+
+@keyframes animation-grain-filter {
+    0% {
+        transform: translate3d(0, 2rem, 0);
+    }
+    10% {
+        transform: translate3d(-1rem, -2rem, 0);
+    }
+    20% {
+        transform: translate3d(-4rem, 1rem, 0);
+    }
+    30% {
+        transform: translate3d(4.5rem, -4.5rem, 0);
+    }
+    40% {
+        transform: translate3d(-1rem, 3.5rem, 0);
+    }
+    50% {
+        transform: translate3d(-4.5rem, -2rem, 0);
+    }
+    60% {
+        transform: translate3d(1rem, 3rem, 0);
+    }
+    70% {
+        transform: translate3d(3.5rem, -4rem, 0);
+    }
+    80% {
+        transform: translate3d(-4.5rem, 0.5rem, 0);
+    }
+    90% {
+        transform: translate3d(3rem, -2.5rem, 0);
+    }
+    100% {
+        transform: translate3d(-3.5rem, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #grain-filter:before {
+        animation: none;
+    }
 }
 
 @layer base {
     :root {
         color-scheme: light dark;
+        --grain-opacity: 0.11;
     }
 
     @media (prefers-color-scheme: dark) {
         :root {
-            --color-fg: var(--color-paper);
-            --color-bg: var(--color-ink);
+            --color-bg: #0b0b0a;
+            --color-fg: #ededea;
+            --color-fg-hover: #d6d6d2;
+            --color-muted: #a3a39e;
+            --color-faint: #76766f;
+            --color-link: #8da2ff;
+            --color-line: #2b2b28;
+            --color-line-strong: #3a3a36;
+            --color-surface: #1c1c1a;
+            --color-surface-2: #262624;
+            --color-highlight: #2a2412;
+            /* Grey noise lightens a dark ground, so it reads much heavier */
+            --grain-opacity: 0.05;
         }
     }
 
     html,
     body {
-        margin: 0 auto;
-        max-width: 1328px;
-        overflow-x: hidden;
-        font-size: clamp(15px, 1.5vw, 16px);
-        line-height: normal;
         color: var(--color-fg);
         background-color: var(--color-bg);
     }
 
+    p {
+        text-wrap: pretty;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-link);
+        outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::after {
+            transition-duration: 0ms !important;
+            transition-delay: 0ms !important;
+        }
+    }
+
     @media (prefers-reduced-motion: no-preference) {
-        html,
-        body {
+        html {
             scroll-behavior: smooth;
         }
     }
