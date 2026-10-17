@@ -13,8 +13,8 @@ yarn fix
 
 - `src/app` — layout, the page, and the `/hello` note route (notes and guestbook
   signatures are relayed to Discord)
-- `src/components` — client pieces (projects accordion, Email me, guestbook,
-  note form) and the intro's stickers
+- `src/components` — client pieces (projects accordion, guestbook, note form,
+  smile block, section dividers) and the intro's stickers
 - `src/data` — projects, links, and approved guestbook signatures
 - Theme tokens (colours, breakpoint, fonts, easing) live in
   `src/app/globals.css`; colours swap with `prefers-color-scheme`
