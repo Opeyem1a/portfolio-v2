@@ -3,7 +3,6 @@ import Guestbook from '@/components/guestbook';
 import NoteForm from '@/components/note-form';
 import Projects from '@/components/projects';
 import SectionDivider from '@/components/section-divider';
-import SectionFocus from '@/components/section-focus';
 import SmileBlock from '@/components/smile-block';
 import EmailMe from '@/components/email-me';
 import { STICKERS } from '@/components/stickers';
@@ -20,7 +19,7 @@ export default function Home() {
     return (
         <div className="min-h-screen px-6 py-30 text-[1.25rem] leading-[1.7] font-medium">
             <main className="mx-auto flex max-w-[620px] flex-col gap-14 max-sm:gap-12">
-                <div className="flex focus-section flex-col gap-14 max-sm:gap-12">
+                <div className="flex flex-col gap-14 max-sm:gap-12">
                     <header
                         className={t({
                             layout: 'flex items-baseline justify-between gap-3 pb-1 max-sm:flex-col max-sm:gap-1.5',
@@ -72,13 +71,11 @@ export default function Home() {
 
                 <SectionDivider />
 
-                <div className="focus-section">
-                    <Projects />
-                </div>
+                <Projects />
 
                 <SectionDivider />
 
-                <div className="flex focus-section flex-col gap-14 max-sm:gap-12">
+                <div className="flex flex-col gap-14 max-sm:gap-12">
                     <div className="flex flex-col gap-5">
                         <section className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-[0.875rem] leading-[1.5] font-normal text-muted">
                             <h2 className="font-medium">Current vibe</h2>
@@ -128,7 +125,6 @@ export default function Home() {
                     </footer>
                 </div>
             </main>
-            <SectionFocus />
         </div>
     );
 }

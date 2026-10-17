@@ -45,26 +45,6 @@
 }
 
 /*
- Sections are dimmed by SectionFocus (src/components/section-focus.tsx) unless
- they're under the focus line, hovered, or holding focus.
- */
-@utility focus-section {
-    /* Short and ease-out, per Emil Kowalski; will-change keeps the blur on
-       the compositor instead of repainting the section every frame. */
-    transition:
-        filter 300ms var(--ease-out),
-        opacity 300ms var(--ease-out),
-        scale 300ms var(--ease-out);
-    will-change: filter, opacity, scale;
-
-    &[data-dimmed]:not(:hover, :focus-within) {
-        filter: blur(2px);
-        opacity: 0.5;
-        scale: 0.98;
-    }
-}
-
-/*
  Highly adapted from https://www.chloeyan.me/
  */
 #grain-filter:before {
