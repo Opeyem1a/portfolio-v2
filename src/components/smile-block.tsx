@@ -5,34 +5,73 @@ import { t } from '@/lib/t';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
-// The smile drifts towards the cursor. --x and --y place it within the block's
-// free space (0 = start, 1 = end).
+// How long the cursor must be still before the smile wanders off on its own.
+const IDLE_MS = 2500;
+
+// Soft edges so the block bleeds into the page instead of ending on a line.
+const FADE = '1.5rem';
+const fadeMask = [
+    `linear-gradient(to right, transparent, #000 ${FADE}, #000 calc(100% - ${FADE}), transparent)`,
+    `linear-gradient(to bottom, transparent, #000 ${FADE}, #000 calc(100% - ${FADE}), transparent)`,
+].join(', ');
+
+// The smile drifts towards the cursor. When the cursor is still, or there is
+// none (touch screens), it wanders slowly on its own. --x and --y place it
+// within the block's free space (0 = start, 1 = end).
 export default function SmileBlock() {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const onMouseMove = (e: MouseEvent) => {
-            const el = ref.current;
-            if (!el) return;
-            const rect = el.getBoundingClientRect();
-            const ratioX =
-                (e.clientX - (rect.left + rect.width / 2)) / window.innerWidth;
-            const ratioY =
-                (e.clientY - (rect.top + rect.height / 2)) / window.innerHeight;
-            el.style.setProperty('--x', `${clamp(ratioX + 0.5)}`);
-            el.style.setProperty('--y', `${clamp(ratioY + 0.5)}`);
+        const el = ref.current;
+        if (!el) return;
+        const place = (x: number, y: number) => {
+            el.style.setProperty('--x', `${clamp(x)}`);
+            el.style.setProperty('--y', `${clamp(y)}`);
         };
 
+        let lastMove = -Infinity;
+        const onMouseMove = (e: MouseEvent) => {
+            lastMove = performance.now();
+            const rect = el.getBoundingClientRect();
+            place(
+                (e.clientX - (rect.left + rect.width / 2)) / innerWidth + 0.5,
+                (e.clientY - (rect.top + rect.height / 2)) / innerHeight + 0.5
+            );
+        };
+
+        // A slow, never-repeating loop; the translate transition smooths the
+        // hand-off between following the cursor and wandering.
+        let frame = 0;
+        const wander = (now: number) => {
+            if (now - lastMove > IDLE_MS) {
+                place(
+                    0.5 + 0.5 * Math.sin(now / 3100),
+                    0.5 + 0.5 * Math.sin(now / 4700 + 1)
+                );
+            }
+            frame = requestAnimationFrame(wander);
+        };
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            frame = requestAnimationFrame(wander);
+        }
+
         window.addEventListener('mousemove', onMouseMove, { passive: true });
-        return () => window.removeEventListener('mousemove', onMouseMove);
+        return () => {
+            cancelAnimationFrame(frame);
+            window.removeEventListener('mousemove', onMouseMove);
+        };
     }, []);
 
     return (
         <div
             ref={ref}
             aria-hidden="true"
+            style={{
+                maskImage: fadeMask,
+                maskComposite: 'intersect',
+            }}
             className={t({
-                shape: 'h-48 bg-sun p-[clamp(0.5rem,4vw,2rem)] max-sm:h-40',
+                shape: 'h-48 bg-sun p-[clamp(1.75rem,5vw,2.5rem)] max-sm:h-40',
                 // Container units let the smile translate across the free space
                 container: '[container-type:size]',
                 start: '[--x:0.5] [--y:calc(1/11)]',
