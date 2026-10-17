@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
         stack: 'React, Preact, Node.js, GCP, BigQuery',
         links: [
             {
-                label: 'Shopify App Store',
+                label: 'See it on the Shopify App Store',
                 href: 'https://apps.shopify.com/aftersell',
             },
         ],
@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
         description:
             'I collect good questions and these are my favourites. I always love to chat about them, and I spent a lot of time styling these.',
         stack: 'Next.js, React, Tailwind CSS',
-        links: [{ label: 'wdyt.site', href: 'https://wdyt.site' }],
+        links: [{ label: 'Visit wdyt.site', href: 'https://wdyt.site' }],
     },
     {
         id: 'lovely',
@@ -43,7 +43,10 @@ export const PROJECTS: Project[] = [
             'A silly newsletter I send every so often, with big thoughts and small cool links.',
         stack: 'Next.js, React',
         links: [
-            { label: 'Read it', href: 'https://somethinglovely.vercel.app' },
+            {
+                label: 'Read the newsletter',
+                href: 'https://somethinglovely.vercel.app',
+            },
         ],
     },
     {
@@ -56,10 +59,13 @@ export const PROJECTS: Project[] = [
         stack: 'React, Tailwind CSS, Vite',
         links: [
             {
-                label: 'Firefox add-on',
+                label: 'Get the Firefox add-on',
                 href: 'https://addons.mozilla.org/en-US/firefox/addon/exact-browse-with-intention/',
             },
-            { label: 'GitHub', href: 'https://github.com/Opeyem1a/exact' },
+            {
+                label: 'See the code on GitHub',
+                href: 'https://github.com/Opeyem1a/exact',
+            },
         ],
     },
     {
@@ -70,7 +76,7 @@ export const PROJECTS: Project[] = [
         description:
             'Pallet Recruiter: A hub for recruiters to source and manage vetted candidates, while helping community leaders connect their members to jobs. Used by 450+ startups and 100+ communities before it closed.',
         stack: 'Next.js, React, Apollo GraphQL, Python, Django, GCP',
-        links: [{ label: 'pallet.com', href: 'https://www.pallet.com' }],
+        links: [{ label: 'Visit pallet.com', href: 'https://www.pallet.com' }],
     },
     {
         id: 'teamable',
@@ -81,13 +87,16 @@ export const PROJECTS: Project[] = [
             'A tool that lets educators build student teams around pedagogical goals, using a published algorithm. Integrated with Canvas; used in 12+ courses with 1000+ students.',
         stack: 'Python, Django, Docker',
         links: [
-            { label: 'Live', href: 'https://teamableanalytics.ok.ubc.ca/' },
             {
-                label: 'Learn more',
+                label: 'Try Teamable',
+                href: 'https://teamableanalytics.ok.ubc.ca/',
+            },
+            {
+                label: 'How it works',
                 href: 'https://teamableanalytics.ok.ubc.ca/homepage/',
             },
             {
-                label: 'Paper',
+                label: 'Read the paper',
                 href: 'https://www.researchgate.net/publication/360229063_Design_Guidelines_for_a_Team_Formation_and_Analytics_Software',
             },
         ],

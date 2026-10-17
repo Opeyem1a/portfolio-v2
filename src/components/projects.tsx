@@ -106,17 +106,18 @@ export default function Projects() {
                                     <p className="text-[0.8125rem] text-muted">
                                         {project.stack}
                                     </p>
-                                    <span className="flex flex-wrap gap-2">
+                                    <span className="flex flex-wrap gap-x-5 gap-y-1">
                                         {project.links.map(
                                             ({ label, href }) => (
                                                 <a
                                                     key={href}
                                                     href={href}
                                                     className={t({
-                                                        layout: 'inline-flex items-center gap-0.5 px-2.5',
-                                                        shape: 'border border-line bg-bg',
-                                                        font: 'text-[0.875rem] leading-[1.7]',
-                                                        hover: 'transition-colors duration-160 ease-(--ease-out) hover:border-line-strong hover:bg-surface-2',
+                                                        font: 'text-[0.9375rem] font-medium',
+                                                        // Underlined like a link, darkening on hover
+                                                        underline:
+                                                            'underline decoration-line-strong decoration-[1.5px] underline-offset-4 hover:decoration-fg',
+                                                        motion: 'transition-colors duration-160 ease-(--ease-out)',
                                                     })}
                                                 >
                                                     {label}
