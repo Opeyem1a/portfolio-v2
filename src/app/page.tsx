@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Guestbook from '@/components/guestbook';
 import NoteForm from '@/components/note-form';
 import Projects from '@/components/projects';
+import SectionDivider from '@/components/section-divider';
 import SectionFocus from '@/components/section-focus';
 import SmileBlock from '@/components/smile-block';
 import EmailMe from '@/components/email-me';
@@ -41,13 +42,13 @@ export default function Home() {
                             Howdy, I’m Opey. I’m a problem solver and I work as
                             a product engineer. I care about doing things well,
                             with whimsy and purpose. My favourite project is my
-                            garden of favourite questions to ask people.
-                            <Ref id="wdyt">WDYT</Ref> Close second is the
-                            newsletter I write for fun.
-                            <Ref id="lovely">Something Lovely</Ref> I built
+                            garden of favourite questions to ask people
+                            <Ref id="wdyt">WDYT</Ref>. Close second is the
+                            newsletter I write for fun
+                            <Ref id="lovely">Something Lovely</Ref>. I built
                             Finite to use social media less. Didn’t work that
-                            well, so I built Exact to be&nbsp;better.
-                            <Ref id="exact">Exact</Ref>
+                            well, so I built Exact to be&nbsp;better
+                            <Ref id="exact">Exact</Ref>.
                         </p>
                         <p>
                             I’m currently solving ecommerce with Rokt Aftersell
@@ -56,8 +57,8 @@ export default function Home() {
                             build community-based recruiting with Pallet
                             <Ref id="pallet">Pallet</Ref> (now closed) and I
                             researched how to build more effective team
-                            formation approaches for higher&nbsp;education.
-                            <Ref id="teamable">Teamable</Ref>
+                            formation approaches for higher&nbsp;education
+                            <Ref id="teamable">Teamable</Ref>.
                         </p>
 
                         <div className="-ml-2 flex flex-wrap items-center gap-2.5">
@@ -69,9 +70,13 @@ export default function Home() {
                     </div>
                 </div>
 
+                <SectionDivider />
+
                 <div className="focus-section">
                     <Projects />
                 </div>
+
+                <SectionDivider />
 
                 <div className="flex focus-section flex-col gap-14 max-sm:gap-12">
                     <div className="flex flex-col gap-5">

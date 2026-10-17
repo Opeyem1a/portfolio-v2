@@ -19,7 +19,7 @@
     --color-highlight: #fff8db;
     /* Fixed: sticker and pill colours don't change with the scheme. */
     --color-ink: #111111;
-    --color-sun: #ffe27a;
+    --color-sun: #ffc42d;
     --color-sun-ring: #e0a800;
 
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
