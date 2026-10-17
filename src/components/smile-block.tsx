@@ -10,7 +10,7 @@ const IDLE_MS = 2500;
 
 // Soft edges so the block bleeds into the page instead of ending on a line.
 // The `smile-edge` filter below then roughens and grains that fade.
-const FADE = '2rem';
+const FADE = '1.25rem';
 const fadeMask = [
     `linear-gradient(to right, transparent, #000 ${FADE}, #000 calc(100% - ${FADE}), transparent)`,
     `linear-gradient(to bottom, transparent, #000 ${FADE}, #000 calc(100% - ${FADE}), transparent)`,
@@ -116,7 +116,7 @@ export default function SmileBlock() {
                     <feDisplacementMap
                         in="SourceGraphic"
                         in2="wobble"
-                        scale="12"
+                        scale="6"
                         xChannelSelector="R"
                         yChannelSelector="G"
                         result="wobbly"
@@ -130,7 +130,7 @@ export default function SmileBlock() {
                     <feDisplacementMap
                         in="wobbly"
                         in2="grain"
-                        scale="16"
+                        scale="10"
                         xChannelSelector="R"
                         yChannelSelector="G"
                     />
