@@ -52,16 +52,16 @@ export default function Projects() {
                         >
                             <span
                                 className={t({
-                                    font: 'justify-self-start font-medium max-sm:col-start-1',
+                                    font: 'justify-self-start font-semibold tracking-[-0.01em] max-sm:col-start-1',
                                     hover: 'decoration-faint decoration-dotted decoration-[1.5px] underline-offset-4 group-hover/row:underline',
                                 })}
                             >
                                 {project.name}
                             </span>
-                            <span className="max-sm:col-start-1">
+                            <span className="text-muted max-sm:col-start-1">
                                 {project.summary}
                             </span>
-                            <span className="text-[0.875rem] text-muted max-sm:col-start-1">
+                            <span className="text-[0.875rem] text-faint max-sm:col-start-1">
                                 {project.kind}
                             </span>
                             <svg
