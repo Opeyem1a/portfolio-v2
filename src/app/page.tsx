@@ -4,13 +4,12 @@ import NoteForm from '@/components/note-form';
 import Projects from '@/components/projects';
 import SectionDivider from '@/components/section-divider';
 import SmileBlock from '@/components/smile-block';
-import EmailMe from '@/components/email-me';
 import { STICKERS } from '@/components/stickers';
-import { GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
+import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
 import { t } from '@/lib/t';
 
 const quickLink = t({
-    layout: 'inline-flex min-h-11 cursor-pointer items-center px-2',
+    layout: 'inline-flex min-h-11 items-center px-2',
     font: 'text-[0.9375rem] font-medium text-muted',
     hover: 'transition-colors duration-160 ease-(--ease-out) hover:text-fg',
 });
@@ -61,7 +60,9 @@ export default function Home() {
                         </p>
 
                         <div className="-ml-2 flex flex-wrap items-center gap-2.5">
-                            <EmailMe className={quickLink} />
+                            <QuickLink href={`mailto:${EMAIL}`}>
+                                Email me
+                            </QuickLink>
                             <QuickLink href={GITHUB_LINK}>GitHub</QuickLink>
                             <QuickLink href={LINKEDIN_LINK}>LinkedIn</QuickLink>
                             <QuickLink href={RESUME_LINK}>Resume</QuickLink>
