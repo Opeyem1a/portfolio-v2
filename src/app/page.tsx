@@ -65,7 +65,7 @@ export default function Home() {
                             <EmailMe className={quickLink} />
                             <QuickLink href={GITHUB_LINK}>GitHub</QuickLink>
                             <QuickLink href={LINKEDIN_LINK}>LinkedIn</QuickLink>
-                            <QuickLink href={RESUME_LINK}>Resume ↗</QuickLink>
+                            <QuickLink href={RESUME_LINK}>Resume</QuickLink>
                         </div>
                     </div>
                 </div>

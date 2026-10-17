@@ -113,14 +113,13 @@ export default function Projects() {
                                                     key={href}
                                                     href={href}
                                                     className={t({
-                                                        layout: 'group/pill inline-flex items-center gap-0.5 px-2.5',
+                                                        layout: 'inline-flex items-center gap-0.5 px-2.5',
                                                         shape: 'border border-line bg-bg',
                                                         font: 'text-[0.875rem] leading-[1.7]',
                                                         hover: 'transition-colors duration-160 ease-(--ease-out) hover:border-line-strong hover:bg-surface-2',
                                                     })}
                                                 >
                                                     {label}
-                                                    <Arrow />
                                                 </a>
                                             )
                                         )}
@@ -132,26 +131,5 @@ export default function Projects() {
                 );
             })}
         </section>
-    );
-}
-
-function Arrow() {
-    return (
-        <svg
-            viewBox="0 0 10 10"
-            aria-hidden="true"
-            className={t({
-                size: 'ml-[3px] inline-block size-[0.62em] align-[0.08em]',
-                hover: 'transition-transform duration-160 ease-(--ease-out) group-hover/pill:translate-x-0.5 group-hover/pill:-translate-y-0.5',
-            })}
-        >
-            <path
-                d="M2 8L8 2M3.5 2H8v4.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-            />
-        </svg>
     );
 }
