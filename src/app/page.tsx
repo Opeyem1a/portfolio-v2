@@ -119,7 +119,7 @@ export default function Home() {
                             <code>{'{"note": "..."}'}</code>)
                         </p>
                         <p className="text-[0.8125rem] text-muted">
-                            ✨ by Opey{' '}
+                            made with ✨ by opey{' '}
                             <span className="text-faint">(naturally)</span>
                         </p>
                     </footer>
