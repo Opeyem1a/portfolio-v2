@@ -41,9 +41,7 @@ export default function SectionDivider({ title }: { title: string }) {
 
     return (
         <div className="flex items-center gap-4">
-            <h2 className="shrink-0 text-[0.875rem] leading-[1.5] font-medium text-muted">
-                {title}
-            </h2>
+            <h2 className="shrink-0 text-sm font-medium text-muted">{title}</h2>
             <div
                 ref={ref}
                 aria-hidden="true"

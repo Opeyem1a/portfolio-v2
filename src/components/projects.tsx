@@ -28,7 +28,7 @@ export default function Projects() {
     }, []);
 
     return (
-        <section className="flex flex-col leading-[1.5]">
+        <section className="flex flex-col">
             <div className="mb-8">
                 <SectionDivider title="Work & projects" />
             </div>
@@ -48,12 +48,12 @@ export default function Projects() {
                             className={t({
                                 layout: 'group/row grid w-full cursor-pointer grid-cols-[180px_minmax(0,1fr)_auto_14px] items-baseline gap-4 py-2.5 text-left',
                                 mobile: 'max-sm:grid-cols-[minmax(0,1fr)_14px] max-sm:gap-x-3 max-sm:gap-y-0.5',
-                                font: 'text-[1rem] leading-[1.5] font-normal',
+                                font: 'text-base font-normal',
                             })}
                         >
                             <span
                                 className={t({
-                                    font: 'justify-self-start font-semibold tracking-[-0.01em] max-sm:col-start-1',
+                                    font: 'justify-self-start font-semibold tracking-tight max-sm:col-start-1',
                                     // Yellow while open; no underline, so it never reads as a link
                                     color: 'transition-colors duration-200 ease-(--ease-out) group-data-open:text-accent',
                                 })}
@@ -63,7 +63,7 @@ export default function Projects() {
                             <span className="text-muted transition-colors duration-200 ease-(--ease-out) group-data-open:text-fg max-sm:col-start-1">
                                 {project.summary}
                             </span>
-                            <span className="text-[0.875rem] text-faint max-sm:col-start-1">
+                            <span className="text-sm text-faint max-sm:col-start-1">
                                 {project.kind}
                             </span>
                             <svg
@@ -100,12 +100,12 @@ export default function Projects() {
                             >
                                 <div
                                     className={t({
-                                        layout: 'flex flex-col gap-2.5 pt-1.5 pb-4 pl-[196px] max-sm:pl-0',
-                                        font: 'text-[0.9375rem] leading-[1.55] font-normal text-pretty text-muted',
+                                        layout: 'flex flex-col gap-2.5 pt-1.5 pb-4 pl-49 max-sm:pl-0',
+                                        font: 'text-md font-normal text-pretty text-muted',
                                     })}
                                 >
                                     <p>{project.description}</p>
-                                    <p className="text-[0.8125rem] text-faint">
+                                    <p className="text-xs text-faint">
                                         {project.stack}
                                     </p>
                                     <span className="flex flex-wrap gap-x-5 gap-y-1">
@@ -115,7 +115,7 @@ export default function Projects() {
                                                     key={href}
                                                     href={href}
                                                     className={t({
-                                                        font: 'text-[0.9375rem] text-fg',
+                                                        font: 'text-md text-fg',
                                                         // Yellow underline; the text turns yellow on hover
                                                         underline:
                                                             'underline decoration-accent decoration-2 underline-offset-4 hover:text-accent',

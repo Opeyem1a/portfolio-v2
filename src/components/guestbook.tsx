@@ -12,14 +12,14 @@ import { t } from '@/lib/t';
 const field = t({
     size: 'min-h-11 w-full px-3.5',
     shape: 'border border-line bg-bg',
-    font: 'text-[0.9375rem] font-normal text-fg',
+    font: 'text-md font-normal text-fg',
 });
 
 const button = (primary = false) =>
     t({
-        size: 'min-h-11 cursor-pointer px-[18px]',
+        size: 'min-h-11 cursor-pointer px-4.5',
         shape: 'border',
-        font: 'text-[0.9375rem] font-semibold',
+        font: 'text-md font-semibold',
         color: primary
             ? 'border-fg bg-fg text-bg'
             : 'border-line bg-bg text-fg',
@@ -71,7 +71,7 @@ export default function Guestbook() {
     return (
         <section className="flex flex-col gap-3.5">
             <div className="flex items-center justify-between gap-3">
-                <p className="text-[0.875rem] leading-[1.5] font-medium text-muted">
+                <p className="text-sm font-medium text-muted">
                     {SIGNATURES.length + (signed ? 1 : 0)} signed
                 </p>
                 <button
@@ -80,7 +80,7 @@ export default function Guestbook() {
                     className={t({
                         layout: 'inline-flex cursor-pointer items-center px-2.5',
                         shape: 'border border-line bg-bg',
-                        font: 'text-[0.875rem] leading-[1.7]',
+                        font: 'text-sm leading-6',
                         hover: 'transition-colors duration-160 ease-(--ease-out) hover:border-line-strong hover:bg-surface-2',
                     })}
                 >
@@ -100,7 +100,7 @@ export default function Guestbook() {
                 ))}
             </ul>
             {signed && (
-                <p className="text-[0.875rem] font-normal text-muted">
+                <p className="text-sm font-normal text-muted">
                     Thanks, {signed.name}! The outlined pill is a preview;
                     you’ll be added for real once I check the list.
                 </p>
@@ -110,19 +110,17 @@ export default function Guestbook() {
                     className={t({
                         layout: 'flex flex-col gap-3.5 p-4',
                         shape: 'border border-line bg-bg',
-                        font: 'leading-[1.4] font-normal',
+                        font: 'font-normal',
                     })}
                 >
-                    <p className="text-[0.875rem] text-muted">
-                        What’s your vibe?
-                    </p>
+                    <p className="text-sm text-muted">What’s your vibe?</p>
                     <div className="flex flex-wrap gap-2">
                         {AXES.map((axis) => (
                             <div
                                 key={axis.key}
                                 role="group"
                                 aria-label={axis.label}
-                                className="inline-flex gap-0.5 bg-surface p-[3px] max-sm:flex max-sm:basis-full"
+                                className="inline-flex gap-0.5 bg-surface p-0.75 max-sm:flex max-sm:basis-full"
                             >
                                 {axis.options.map((option) => {
                                     const on = vibe[axis.key] === option;
@@ -138,7 +136,7 @@ export default function Guestbook() {
                                             }
                                             className={t({
                                                 layout: 'inline-flex min-h-10 cursor-pointer items-center gap-1.5 px-2.5 max-sm:flex-1 max-sm:justify-center',
-                                                font: 'text-[0.875rem] capitalize',
+                                                font: 'text-sm capitalize',
                                                 color: on
                                                     ? 'bg-bg text-fg shadow-[0_1px_2px_rgb(17_17_17/0.08),0_0_0_1px_var(--color-line)]'
                                                     : 'text-faint hover:text-fg',
@@ -153,10 +151,7 @@ export default function Guestbook() {
                             </div>
                         ))}
                     </div>
-                    <label
-                        htmlFor="nickname"
-                        className="text-[0.875rem] text-muted"
-                    >
+                    <label htmlFor="nickname" className="text-sm text-muted">
                         Nickname
                     </label>
                     <input
@@ -183,7 +178,7 @@ export default function Guestbook() {
                         </span>
                     </div>
                     {failed && (
-                        <p role="alert" className="text-[0.875rem] text-muted">
+                        <p role="alert" className="text-sm text-muted">
                             Couldn’t sign just now. Try again in a bit?
                         </p>
                     )}
@@ -209,8 +204,8 @@ function Pill({
                 corner: corner === 'sharp' ? 'rounded-none' : 'rounded-full',
                 font:
                     type === 'serif'
-                        ? 'font-serif text-[1.125rem] leading-none font-normal'
-                        : 'text-[0.9375rem] leading-none font-medium',
+                        ? 'font-serif text-lg leading-none font-normal'
+                        : 'text-md leading-none font-medium',
                 mine: mine
                     ? 'shadow-[0_0_0_2px_var(--color-bg),0_0_0_3.5px_var(--color-sun-ring)]'
                     : '',
@@ -228,8 +223,8 @@ function Swatch({ option }: { option: string }) {
                 aria-hidden="true"
                 className={
                     option === 'serif'
-                        ? 'font-serif text-[1.0625rem] leading-none'
-                        : 'text-[0.875rem] leading-none font-semibold'
+                        ? 'font-serif text-lg leading-none'
+                        : 'text-sm leading-none font-semibold'
                 }
             >
                 Aa
@@ -241,12 +236,12 @@ function Swatch({ option }: { option: string }) {
             aria-hidden="true"
             style={{ background: option === 'gradient' ? GRADIENT : undefined }}
             className={t({
-                size: 'inline-block size-[13px] flex-none',
+                size: 'inline-block size-3.25 flex-none',
                 look: {
                     solid: 'bg-sun',
                     gradient: '',
-                    sharp: 'border-[1.5px] border-current',
-                    rounded: 'rounded-[5px] border-[1.5px] border-current',
+                    sharp: 'border border-current',
+                    rounded: 'rounded-sm border border-current',
                 }[option]!,
             })}
         />

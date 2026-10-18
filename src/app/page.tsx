@@ -9,14 +9,14 @@ import { t } from '@/lib/t';
 
 const quickLink = t({
     layout: 'inline-flex min-h-11 items-center px-2',
-    font: 'text-[0.9375rem] font-medium text-muted',
+    font: 'text-md font-medium text-muted',
     hover: 'transition-colors duration-160 ease-(--ease-out) hover:text-fg',
 });
 
 export default function Home() {
     return (
-        <div className="flex min-h-screen flex-col px-6 pt-16 pb-6 text-[1.25rem] leading-[1.7] font-medium max-sm:pt-12">
-            <main className="mx-auto flex w-full max-w-[620px] flex-1 flex-col gap-14 max-sm:gap-12">
+        <div className="flex min-h-screen flex-col px-6 pt-16 pb-6 max-sm:pt-12">
+            <main className="mx-auto flex w-full max-w-155 flex-1 flex-col gap-14 max-sm:gap-12">
                 {/* Fills the first screen (minus the page's top padding), so the
                     links sit at the bottom and the next section starts below
                     the fold. The smile block takes spare height first, then the
@@ -25,10 +25,10 @@ export default function Home() {
                     <header
                         className={t({
                             layout: 'flex items-baseline justify-between gap-3 pb-1 max-sm:flex-col max-sm:gap-1.5',
-                            font: 'text-[0.9375rem] leading-[1.3]',
+                            font: 'text-md',
                         })}
                     >
-                        <h1 className="font-semibold tracking-[-0.01em]">
+                        <h1 className="font-semibold tracking-tight">
                             Opey Adeyemi
                         </h1>
                         <p className="font-normal text-muted">
@@ -38,7 +38,7 @@ export default function Home() {
 
                     <SmileBlock />
 
-                    <div className="flex grow flex-col gap-6 text-[1.125rem] leading-[1.75] font-normal">
+                    <div className="flex grow flex-col gap-6 text-lg font-normal">
                         <p>
                             Howdy, I’m Opey. I’m a product engineer who cares
                             about doing things well, with whimsy and purpose. My
@@ -79,7 +79,7 @@ export default function Home() {
                         <div className="mb-3">
                             <SectionDivider title="Guestbook" />
                         </div>
-                        <section className="flex items-baseline gap-5 text-[0.875rem] leading-[1.5] font-normal text-muted max-sm:gap-4">
+                        <section className="flex items-baseline gap-5 text-sm font-normal text-muted max-sm:gap-4">
                             <h3 className="font-medium whitespace-nowrap">
                                 My vibe
                             </h3>
@@ -88,7 +88,7 @@ export default function Home() {
                                     <span className="inline-block size-[0.7em] bg-sun" />
                                 </Vibe>
                                 <Vibe word="Sharp" not="Rounded">
-                                    <span className="inline-block size-[0.7em] border-[1.5px] border-current" />
+                                    <span className="inline-block size-[0.7em] border border-current" />
                                 </Vibe>
                                 <Vibe
                                     word="Sans"
@@ -117,7 +117,7 @@ export default function Home() {
                             <code>POST /hello</code> with{' '}
                             <code>{'{"note": "..."}'}</code>)
                         </p>
-                        <p className="text-[0.8125rem] text-muted">
+                        <p className="text-xs text-muted">
                             made with ✨ by opey{' '}
                             <span className="text-faint">(naturally)</span>
                         </p>
@@ -175,7 +175,7 @@ function Ref({
                     aria-hidden="true"
                     style={{ rotate: sticker.rotate }}
                     className={t({
-                        layout: 'mr-[3px] ml-px inline-block size-[1.55em] overflow-visible align-[-0.42em]',
+                        layout: 'mr-0.75 ml-px inline-block size-[1.55em] overflow-visible align-[-0.42em]',
                         look: 'sticker group-hover:sticker-lifted group-focus-visible:sticker-lifted',
                         hover: 'transition-[rotate,scale,translate,filter] duration-320 ease-(--ease-spring) group-hover:-translate-y-px group-hover:scale-130 group-hover:rotate-0! group-focus-visible:scale-130 group-focus-visible:rotate-0! motion-reduce:rotate-0!',
                     })}
