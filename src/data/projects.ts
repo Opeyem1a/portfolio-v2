@@ -63,6 +63,10 @@ export const PROJECTS: Project[] = [
                 href: 'https://addons.mozilla.org/en-US/firefox/addon/exact-browse-with-intention/',
             },
             {
+                label: 'Get the Chrome extension',
+                href: 'https://chromewebstore.google.com/detail/exact-browse-with-intenti/ngidpmndfhgcipnaibeplnhmjcmgolik',
+            },
+            {
                 label: 'See the code on GitHub',
                 href: 'https://github.com/Opeyem1a/exact',
             },
