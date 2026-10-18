@@ -29,7 +29,7 @@ export default function Projects() {
 
     return (
         <section className="flex flex-col leading-[1.5]">
-            <div className="mb-4">
+            <div className="mb-8">
                 <SectionDivider title="Work & projects" />
             </div>
             {PROJECTS.map((project) => {
