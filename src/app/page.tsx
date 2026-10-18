@@ -83,9 +83,11 @@ export default function Home() {
                         <h2 className="-mb-2 text-[0.875rem] leading-[1.5] font-medium text-muted">
                             Guestbook
                         </h2>
-                        <section className="flex items-baseline gap-x-5 gap-y-2 text-[0.875rem] leading-[1.5] font-normal text-muted max-sm:flex-col">
-                            <h3 className="font-medium">My vibe</h3>
-                            <ul className="flex gap-x-5 max-sm:grid max-sm:w-full max-sm:grid-cols-3">
+                        <section className="flex items-baseline gap-5 text-[0.875rem] leading-[1.5] font-normal text-muted max-sm:gap-4">
+                            <h3 className="font-medium whitespace-nowrap">
+                                My vibe
+                            </h3>
+                            <ul className="flex gap-5 max-sm:gap-4">
                                 <Vibe word="Solid" not="Gradients">
                                     <span className="inline-block size-[0.7em] bg-sun" />
                                 </Vibe>
@@ -140,13 +142,11 @@ function Vibe({
     children: ReactNode;
 }) {
     return (
-        // On phones each pick stacks over its crossed-out alternative
-        <li className="flex items-baseline gap-1.5 whitespace-nowrap max-sm:flex-col max-sm:gap-0">
-            <span className="flex items-baseline gap-1.5">
-                <span aria-hidden="true">{children}</span>
-                {word}
-            </span>
-            <s className="text-faint">
+        <li className="flex items-baseline gap-1.5 whitespace-nowrap">
+            <span aria-hidden="true">{children}</span>
+            {word}
+            {/* No room for the alternatives on phones */}
+            <s className="text-faint max-sm:hidden">
                 <span className="sr-only">not </span>
                 {not}
             </s>
