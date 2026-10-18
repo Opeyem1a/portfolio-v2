@@ -53,12 +53,13 @@ export default function Projects() {
                             <span
                                 className={t({
                                     font: 'justify-self-start font-semibold tracking-[-0.01em] max-sm:col-start-1',
-                                    hover: 'decoration-faint decoration-dotted decoration-[1.5px] underline-offset-4 group-hover/row:underline',
+                                    // Yellow while open; no underline, so it never reads as a link
+                                    color: 'transition-colors duration-200 ease-(--ease-out) group-data-open:text-accent',
                                 })}
                             >
                                 {project.name}
                             </span>
-                            <span className="text-muted max-sm:col-start-1">
+                            <span className="text-muted transition-colors duration-200 ease-(--ease-out) group-data-open:text-fg max-sm:col-start-1">
                                 {project.summary}
                             </span>
                             <span className="text-[0.875rem] text-faint max-sm:col-start-1">
@@ -98,12 +99,12 @@ export default function Projects() {
                             >
                                 <div
                                     className={t({
-                                        layout: 'flex flex-col gap-2.5 pb-4 pl-[196px] max-sm:pl-0',
-                                        font: 'text-[0.9375rem] leading-[1.55] font-normal text-pretty',
+                                        layout: 'flex flex-col gap-2.5 pt-1.5 pb-4 pl-[196px] max-sm:pl-0',
+                                        font: 'text-[0.9375rem] leading-[1.55] font-normal text-pretty text-muted',
                                     })}
                                 >
                                     <p>{project.description}</p>
-                                    <p className="text-[0.8125rem] text-muted">
+                                    <p className="text-[0.8125rem] text-faint">
                                         {project.stack}
                                     </p>
                                     <span className="flex flex-wrap gap-x-5 gap-y-1">
@@ -113,10 +114,10 @@ export default function Projects() {
                                                     key={href}
                                                     href={href}
                                                     className={t({
-                                                        font: 'text-[0.9375rem] font-medium',
-                                                        // Underlined like a link, darkening on hover
+                                                        font: 'text-[0.9375rem] text-fg',
+                                                        // Yellow underline; the text turns yellow on hover
                                                         underline:
-                                                            'underline decoration-line-strong decoration-[1.5px] underline-offset-4 hover:decoration-fg',
+                                                            'underline decoration-accent decoration-2 underline-offset-4 hover:text-accent',
                                                         motion: 'transition-colors duration-160 ease-(--ease-out)',
                                                     })}
                                                 >
