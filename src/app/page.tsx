@@ -83,9 +83,9 @@ export default function Home() {
                         <h2 className="-mb-2 text-[0.875rem] leading-[1.5] font-medium text-muted">
                             Guestbook
                         </h2>
-                        <section className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-[0.875rem] leading-[1.5] font-normal text-muted">
+                        <section className="flex items-baseline gap-x-5 gap-y-2 text-[0.875rem] leading-[1.5] font-normal text-muted max-sm:flex-col">
                             <h3 className="font-medium">My vibe</h3>
-                            <ul className="contents">
+                            <ul className="flex gap-x-5 max-sm:grid max-sm:w-full max-sm:grid-cols-3">
                                 <Vibe word="Solid" not="Gradients">
                                     <span className="inline-block size-[0.7em] bg-sun" />
                                 </Vibe>
@@ -140,9 +140,12 @@ function Vibe({
     children: ReactNode;
 }) {
     return (
-        <li className="inline-flex items-baseline gap-1.5 whitespace-nowrap">
-            <span aria-hidden="true">{children}</span>
-            {word}
+        // On phones each pick stacks over its crossed-out alternative
+        <li className="flex items-baseline gap-1.5 whitespace-nowrap max-sm:flex-col max-sm:gap-0">
+            <span className="flex items-baseline gap-1.5">
+                <span aria-hidden="true">{children}</span>
+                {word}
+            </span>
             <s className="text-faint">
                 <span className="sr-only">not </span>
                 {not}
