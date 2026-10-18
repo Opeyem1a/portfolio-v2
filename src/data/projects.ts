@@ -32,7 +32,12 @@ export const PROJECTS: Project[] = [
         description:
             'I collect good questions and these are my favourites. I always love to chat about them, and I spent a lot of time styling these.',
         stack: 'Next.js, React, Tailwind CSS',
-        links: [{ label: 'Visit wdyt.site', href: 'https://wdyt.site' }],
+        links: [
+            {
+                label: 'Browse my favourite questions',
+                href: 'https://wdyt.site',
+            },
+        ],
     },
     {
         id: 'lovely',
