@@ -16,9 +16,9 @@ const quickLink = t({
 
 export default function Home() {
     return (
-        <div className="min-h-screen px-6 py-30 text-[1.25rem] leading-[1.7] font-medium">
+        <div className="min-h-screen px-6 py-30 text-[1.25rem] leading-[1.7] font-medium max-sm:pt-12 max-sm:pb-20">
             <main className="mx-auto flex max-w-[620px] flex-col gap-14 max-sm:gap-12">
-                <div className="flex flex-col gap-14 max-sm:gap-12">
+                <div className="flex flex-col gap-14 max-sm:gap-8">
                     <header
                         className={t({
                             layout: 'flex items-baseline justify-between gap-3 pb-1 max-sm:flex-col max-sm:gap-1.5',
