@@ -18,11 +18,10 @@ const field = t({
 const button = (primary = false) =>
     t({
         size: 'min-h-11 cursor-pointer px-4.5',
-        shape: 'border',
-        font: 'text-md font-semibold',
+        font: 'text-md',
         color: primary
-            ? 'border-fg bg-fg text-bg'
-            : 'border-line bg-bg text-fg',
+            ? 'bg-fg font-semibold text-bg'
+            : 'font-medium text-muted transition-colors duration-160 ease-(--ease-out) hover:text-fg',
     });
 
 /** Relays a note through `/hello` (see src/app/hello/route.ts). */
@@ -163,19 +162,26 @@ export default function Guestbook() {
                         onChange={(e) => setName(e.target.value)}
                         className={field}
                     />
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                        <Pill name={name.trim() || 'nickname'} {...vibe} mine />
-                        <span className="flex gap-2">
-                            <button
-                                className={button()}
-                                onClick={() => setComposing(false)}
-                            >
-                                Cancel
-                            </button>
-                            <button className={button(true)} onClick={sign}>
-                                Sign
-                            </button>
-                        </span>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-sm text-muted">Preview</p>
+                        <div>
+                            <Pill
+                                name={name.trim() || 'nickname'}
+                                {...vibe}
+                                mine
+                            />
+                        </div>
+                    </div>
+                    <div className="flex justify-end gap-2">
+                        <button
+                            className={button()}
+                            onClick={() => setComposing(false)}
+                        >
+                            Cancel
+                        </button>
+                        <button className={button(true)} onClick={sign}>
+                            Sign
+                        </button>
                     </div>
                     {failed && (
                         <p role="alert" className="text-sm text-muted">
