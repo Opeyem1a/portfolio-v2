@@ -15,13 +15,13 @@ const quickLink = t({
 
 export default function Home() {
     return (
-        <div className="flex min-h-screen flex-col px-6 pt-30 pb-6 text-[1.25rem] leading-[1.7] font-medium max-sm:pt-12">
+        <div className="flex min-h-screen flex-col px-6 pt-16 pb-6 text-[1.25rem] leading-[1.7] font-medium max-sm:pt-12">
             <main className="mx-auto flex w-full max-w-[620px] flex-1 flex-col gap-14 max-sm:gap-12">
                 {/* Fills the first screen (minus the page's top padding), so the
                     links sit at the bottom and the next section starts below
                     the fold. The smile block takes spare height first, then the
                     space above the links. The smile block stops at a square. */}
-                <div className="[container-type:inline-size] flex min-h-[calc(100svh-7.5rem)] flex-col gap-14 pb-8 max-sm:min-h-[calc(100svh-3rem)] max-sm:gap-8">
+                <div className="[container-type:inline-size] flex min-h-[calc(100svh-4rem)] flex-col gap-14 pb-8 max-sm:min-h-[calc(100svh-3rem)] max-sm:gap-8">
                     <header
                         className={t({
                             layout: 'flex items-baseline justify-between gap-3 pb-1 max-sm:flex-col max-sm:gap-1.5',
