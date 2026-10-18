@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
         id: 'aftersell',
         name: 'Aftersell Cart',
         summary: 'Product lead at Rokt',
-        kind: 'work · now',
+        kind: 'work',
         description:
             'A ground-up rebuild of Upcart, the cart drawer used by 30,000+ Shopify stores. We’re building it to lead the category.',
         stack: 'React, Preact, Node.js, GCP, BigQuery',
