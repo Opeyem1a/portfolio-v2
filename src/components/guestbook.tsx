@@ -7,8 +7,33 @@ import {
     type Signature,
     type Vibe,
 } from '@/data/guestbook';
-import { button, field, sendNote } from '@/components/note-form';
 import { t } from '@/lib/t';
+
+const field = t({
+    size: 'min-h-11 w-full px-3.5',
+    shape: 'border border-line bg-bg',
+    font: 'text-[0.9375rem] font-normal text-fg',
+});
+
+const button = (primary = false) =>
+    t({
+        size: 'min-h-11 cursor-pointer px-[18px]',
+        shape: 'border',
+        font: 'text-[0.9375rem] font-semibold',
+        color: primary
+            ? 'border-fg bg-fg text-bg'
+            : 'border-line bg-bg text-fg',
+    });
+
+/** Relays a note through `/hello` (see src/app/hello/route.ts). */
+const sendNote = (note: string) =>
+    fetch('/hello', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ note }),
+    })
+        .then((res) => res.ok)
+        .catch(() => false);
 
 const AXES = [
     { key: 'fill', label: 'Solid or gradient', options: ['solid', 'gradient'] },
