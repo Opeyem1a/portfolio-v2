@@ -96,7 +96,7 @@ export const PROJECTS: Project[] = [
         links: [
             {
                 label: 'Try Teamable',
-                href: 'https://teamableanalytics.ok.ubc.ca/',
+                href: 'https://prod.teamableanalytics.ok.ubc.ca/',
             },
             {
                 label: 'How it works',
