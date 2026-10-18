@@ -46,10 +46,9 @@ export default function Guestbook() {
     return (
         <section className="flex flex-col gap-3.5">
             <div className="flex items-center justify-between gap-3">
-                <h2 className="text-[0.875rem] leading-[1.5] font-medium text-muted">
-                    Guestbook <span className="text-faint">/</span>{' '}
+                <p className="text-[0.875rem] leading-[1.5] font-medium text-muted">
                     {SIGNATURES.length + (signed ? 1 : 0)} signed
-                </h2>
+                </p>
                 <button
                     onClick={() => setComposing(!composing)}
                     aria-expanded={composing}
