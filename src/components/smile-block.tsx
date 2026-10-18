@@ -102,7 +102,7 @@ export default function SmileBlock() {
                     <feDisplacementMap
                         in="wobbly"
                         in2="grain"
-                        scale="10"
+                        scale="4"
                         xChannelSelector="R"
                         yChannelSelector="G"
                     />

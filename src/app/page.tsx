@@ -40,22 +40,21 @@ export default function Home() {
                             Howdy, I’m Opey. I’m a product engineer who cares
                             about doing things well, with whimsy and purpose. My
                             favourite project is a garden of my favourite
-                            questions to ask people&nbsp;
-                            <Ref id="wdyt">WDYT</Ref>. A close second is a
-                            newsletter I write for fun&nbsp;
+                            questions to ask people <Ref id="wdyt">WDYT</Ref>. A
+                            close second is a newsletter I write for fun{' '}
                             <Ref id="lovely">Something Lovely</Ref>. I once
                             built a tool to help me use social media less. It
-                            didn’t really work, so I built a
-                            better&nbsp;one&nbsp;<Ref id="exact">Exact</Ref>.
+                            didn’t really work, so I built a better one{' '}
+                            <Ref id="exact">Exact</Ref>.
                         </p>
                         <p>
                             Right now I lead product on a cart app for Shopify
-                            stores at Rokt&nbsp;
+                            stores at Rokt{' '}
                             <Ref id="aftersell">Aftersell Cart</Ref>. Before
                             that, I built community-based recruiting at a
-                            startup that’s since closed&nbsp;
+                            startup that’s since closed{' '}
                             <Ref id="pallet">Pallet</Ref>, and researched better
-                            ways to form student&nbsp;teams&nbsp;
+                            ways to form student teams{' '}
                             <Ref id="teamable">Teamable</Ref>.
                         </p>
 
