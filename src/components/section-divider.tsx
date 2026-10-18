@@ -3,11 +3,12 @@
 import { useEffect, useRef } from 'react';
 import { t } from '@/lib/t';
 
-// The star rolls along the line as the divider scrolls up the screen:
+// The star rolls along the line as the heading scrolls up the screen:
 // --progress goes 0 → 1 from the bottom of the screen to the top. Measured
 // against the screen, not the window, because mobile browsers resize the
 // window as their address bar shows and hides, which made the star jump.
-export default function SectionDivider() {
+// A section title with a line running out from it.
+export default function SectionDivider({ title }: { title: string }) {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -39,58 +40,63 @@ export default function SectionDivider() {
     }, []);
 
     return (
-        <div
-            ref={ref}
-            aria-hidden="true"
-            className="[container-type:inline-size] relative flex h-5 items-center [--progress:0]"
-        >
-            <div className="h-px w-full bg-line" />
-            {/* Moved with transforms only, so scrolling never triggers layout.
-                The background padding cuts the line either side of the star. */}
+        <div className="flex items-center gap-4">
+            <h2 className="shrink-0 text-[0.875rem] leading-[1.5] font-medium text-muted">
+                {title}
+            </h2>
             <div
-                className={t({
-                    layout: 'absolute top-0 left-0 bg-bg px-3',
-                    position:
-                        'translate-x-[calc(var(--progress)*(100cqw-100%))]',
-                    transition:
-                        'transition-[translate] duration-200 ease-(--ease-out)',
-                })}
+                ref={ref}
+                aria-hidden="true"
+                className="[container-type:inline-size] relative flex h-5 grow items-center [--progress:0]"
             >
-                <svg
-                    viewBox="0 0 48 48"
+                <div className="h-px w-full bg-line" />
+                {/* Moved with transforms only, so scrolling never triggers layout.
+                    The background padding cuts the line either side of the star. */}
+                <div
                     className={t({
-                        size: 'block size-5 fill-sun',
-                        rotate: 'rotate-[calc(var(--progress)*360deg)]',
+                        layout: 'absolute top-0 left-0 bg-bg px-3',
+                        position:
+                            'translate-x-[calc(var(--progress)*(100cqw-100%))]',
                         transition:
-                            'transition-[rotate] duration-200 ease-(--ease-out)',
+                            'transition-[translate] duration-200 ease-(--ease-out)',
                     })}
                 >
-                    <rect x="22" width="4" height="48" rx="2" />
-                    <rect
-                        x="48"
-                        y="22"
-                        width="4"
-                        height="48"
-                        rx="2"
-                        transform="rotate(90 48 22)"
-                    />
-                    <rect
-                        x="43"
-                        y="40"
-                        width="4"
-                        height="48"
-                        rx="2"
-                        transform="rotate(135 43 40)"
-                    />
-                    <rect
-                        x="8.82812"
-                        y="42.7695"
-                        width="4"
-                        height="48"
-                        rx="2"
-                        transform="rotate(-135 8.82812 42.7695)"
-                    />
-                </svg>
+                    <svg
+                        viewBox="0 0 48 48"
+                        className={t({
+                            size: 'block size-5 fill-sun',
+                            rotate: 'rotate-[calc(var(--progress)*360deg)]',
+                            transition:
+                                'transition-[rotate] duration-200 ease-(--ease-out)',
+                        })}
+                    >
+                        <rect x="22" width="4" height="48" rx="2" />
+                        <rect
+                            x="48"
+                            y="22"
+                            width="4"
+                            height="48"
+                            rx="2"
+                            transform="rotate(90 48 22)"
+                        />
+                        <rect
+                            x="43"
+                            y="40"
+                            width="4"
+                            height="48"
+                            rx="2"
+                            transform="rotate(135 43 40)"
+                        />
+                        <rect
+                            x="8.82812"
+                            y="42.7695"
+                            width="4"
+                            height="48"
+                            rx="2"
+                            transform="rotate(-135 8.82812 42.7695)"
+                        />
+                    </svg>
+                </div>
             </div>
         </div>
     );

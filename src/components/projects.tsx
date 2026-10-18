@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import SectionDivider from '@/components/section-divider';
 import { PROJECTS } from '@/data/projects';
 import { t } from '@/lib/t';
 
@@ -28,9 +29,9 @@ export default function Projects() {
 
     return (
         <section className="flex flex-col leading-[1.5]">
-            <h2 className="mb-2.5 text-[0.875rem] font-medium text-muted">
-                Work &amp; projects
-            </h2>
+            <div className="mb-4">
+                <SectionDivider title="Work & projects" />
+            </div>
             {PROJECTS.map((project) => {
                 const open = openId === project.id;
                 return (

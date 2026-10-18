@@ -72,17 +72,11 @@ export default function Home() {
                     </div>
                 </div>
 
-                <SectionDivider />
-
                 <Projects />
-
-                <SectionDivider />
 
                 <div className="flex flex-1 flex-col gap-14 max-sm:gap-12">
                     <div className="mb-16 flex flex-col gap-5 max-sm:mb-8">
-                        <h2 className="-mb-2 text-[0.875rem] leading-[1.5] font-medium text-muted">
-                            Guestbook
-                        </h2>
+                        <SectionDivider title="Guestbook" />
                         <section className="flex items-baseline gap-5 text-[0.875rem] leading-[1.5] font-normal text-muted max-sm:gap-4">
                             <h3 className="font-medium whitespace-nowrap">
                                 My vibe
