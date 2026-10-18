@@ -54,8 +54,8 @@ export default function Projects() {
                             <span
                                 className={t({
                                     font: 'justify-self-start font-semibold tracking-tight max-sm:col-start-1',
-                                    // Yellow while open; no underline, so it never reads as a link
-                                    color: 'transition-colors duration-200 ease-(--ease-out) group-data-open:text-accent',
+                                    // A yellow marker while open; no underline, so it never reads as a link
+                                    color: '-mx-1 px-1 transition-colors duration-200 ease-(--ease-out) group-data-open:bg-sun group-data-open:text-ink',
                                 })}
                             >
                                 {project.name}
@@ -116,9 +116,9 @@ export default function Projects() {
                                                     href={href}
                                                     className={t({
                                                         font: 'text-md text-fg',
-                                                        // Yellow underline; the text turns yellow on hover
+                                                        // Yellow underline that fills in on hover
                                                         underline:
-                                                            'underline decoration-accent decoration-2 underline-offset-4 hover:text-accent',
+                                                            'underline decoration-sun decoration-2 underline-offset-4 hover:bg-sun hover:text-ink',
                                                         motion: 'transition-colors duration-160 ease-(--ease-out)',
                                                     })}
                                                 >
