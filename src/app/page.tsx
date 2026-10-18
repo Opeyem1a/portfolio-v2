@@ -43,8 +43,8 @@ export default function Home() {
                             Howdy, I’m Opey. I’m a product engineer who cares
                             about doing things well. My favourite thing to do is
                             talk, and I diligently collect questions to ask new
-                            people <Ref id="wdyt">WDYT</Ref>. A close second is
-                            a newsletter I write for fun{' '}
+                            people <Ref id="wdyt">WDYT</Ref>. I also write a
+                            newsletter for fun{' '}
                             <Ref id="lovely">Something Lovely</Ref>. I once
                             built a tool to help me use social media less. It
                             didn’t really work, so I built a better one{' '}
