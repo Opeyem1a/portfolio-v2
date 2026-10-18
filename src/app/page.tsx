@@ -37,25 +37,25 @@ export default function Home() {
 
                     <div className="flex flex-col gap-6 text-[1.125rem] leading-[1.75] font-normal">
                         <p>
-                            Howdy, I’m Opey. I’m a problem solver and I work as
-                            a product engineer. I care about doing things well,
-                            with whimsy and purpose. My favourite project is my
-                            garden of favourite questions to ask people
-                            <Ref id="wdyt">WDYT</Ref>. Close second is the
-                            newsletter I write for fun
-                            <Ref id="lovely">Something Lovely</Ref>. I built
-                            Finite to use social media less. Didn’t work that
-                            well, so I built Exact to be&nbsp;better
-                            <Ref id="exact">Exact</Ref>.
+                            Howdy, I’m Opey. I’m a product engineer who cares
+                            about doing things well, with whimsy and purpose. My
+                            favourite project is a garden of my favourite
+                            questions to ask people&nbsp;
+                            <Ref id="wdyt">WDYT</Ref>. A close second is a
+                            newsletter I write for fun&nbsp;
+                            <Ref id="lovely">Something Lovely</Ref>. I once
+                            built a tool to help me use social media less. It
+                            didn’t really work, so I built a
+                            better&nbsp;one&nbsp;<Ref id="exact">Exact</Ref>.
                         </p>
                         <p>
-                            I’m currently solving ecommerce with Rokt Aftersell
-                            (I lead product on Aftersell Cart
-                            <Ref id="aftersell">Aftersell Cart</Ref>). I used to
-                            build community-based recruiting with Pallet
-                            <Ref id="pallet">Pallet</Ref> (now closed) and I
-                            researched how to build more effective team
-                            formation approaches for higher&nbsp;education
+                            Right now I lead product on a cart app for Shopify
+                            stores at Rokt&nbsp;
+                            <Ref id="aftersell">Aftersell Cart</Ref>. Before
+                            that, I built community-based recruiting at a
+                            startup that’s since closed&nbsp;
+                            <Ref id="pallet">Pallet</Ref>, and researched better
+                            ways to form student&nbsp;teams&nbsp;
                             <Ref id="teamable">Teamable</Ref>.
                         </p>
 
@@ -161,7 +161,7 @@ function Ref({
 }) {
     const sticker = STICKERS[id];
     return (
-        <span className="ml-0.5 text-[0.75em] leading-none font-medium whitespace-nowrap">
+        <span className="text-[0.75em] leading-none font-medium whitespace-nowrap">
             <a
                 href={`#row-${id}`}
                 aria-label={`Project: ${children}`}
