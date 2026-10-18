@@ -41,7 +41,7 @@ export default function SmileBlock() {
             aria-hidden="true"
             style={{ background: texture }}
             className={t({
-                shape: 'h-48 p-[clamp(1.75rem,5vw,2.5rem)] max-sm:h-40',
+                shape: 'max-h-[100cqw] min-h-48 grow-[1000] p-[clamp(1.75rem,5vw,2.5rem)] max-sm:min-h-40',
                 // Container units let the smile translate across the free space
                 container: '[container-type:size]',
                 start: '[--x:0.5] [--y:calc(1/11)]',
