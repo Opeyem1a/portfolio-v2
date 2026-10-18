@@ -5,14 +5,6 @@ import { t } from '@/lib/t';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
-// Soft edges so the block bleeds into the page instead of ending on a line.
-// The `smile-edge` filter below then roughens and grains that fade.
-const FADE = '1.25rem';
-const fadeMask = [
-    `linear-gradient(to right, transparent, #000 ${FADE}, #000 calc(100% - ${FADE}), transparent)`,
-    `linear-gradient(to bottom, transparent, #000 ${FADE}, #000 calc(100% - ${FADE}), transparent)`,
-].join(', ');
-
 // Warmer and lighter patches so the yellow isn't flat.
 const texture = [
     'radial-gradient(55% 90% at 18% 25%, #ffd86b, transparent 70%)',
@@ -47,72 +39,19 @@ export default function SmileBlock() {
         <div
             ref={ref}
             aria-hidden="true"
+            style={{ background: texture }}
             className={t({
-                shape: 'relative h-48 p-[clamp(1.75rem,5vw,2.5rem)] max-sm:h-40',
+                shape: 'h-48 p-[clamp(1.75rem,5vw,2.5rem)] max-sm:h-40',
                 // Container units let the smile translate across the free space
                 container: '[container-type:size]',
                 start: '[--x:0.5] [--y:calc(1/11)]',
             })}
         >
-            {/* Filtered separately so the smile itself isn't distorted */}
-            <div
-                className="absolute inset-0"
-                style={{ filter: 'url(#smile-edge)' }}
-            >
-                <div
-                    className="size-full"
-                    style={{
-                        background: texture,
-                        maskImage: fadeMask,
-                        maskComposite: 'intersect',
-                    }}
-                />
-            </div>
-            <svg className="absolute size-0">
-                {/* Large, soft noise wobbles the edge; fine noise scatters it
-                    into grain. A flat fill stays flat, so only the edge changes. */}
-                <filter
-                    id="smile-edge"
-                    x="-10%"
-                    y="-20%"
-                    width="120%"
-                    height="140%"
-                >
-                    <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.015"
-                        numOctaves="2"
-                        seed="4"
-                        result="wobble"
-                    />
-                    <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="wobble"
-                        scale="6"
-                        xChannelSelector="R"
-                        yChannelSelector="G"
-                        result="wobbly"
-                    />
-                    <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.9"
-                        seed="9"
-                        result="grain"
-                    />
-                    <feDisplacementMap
-                        in="wobbly"
-                        in2="grain"
-                        scale="4"
-                        xChannelSelector="R"
-                        yChannelSelector="G"
-                    />
-                </filter>
-            </svg>
             <svg
                 viewBox="0 0 1000 1000"
                 fill="none"
                 className={t({
-                    size: 'relative size-24 text-ink max-sm:size-20',
+                    size: 'size-24 text-ink max-sm:size-20',
                     position:
                         'translate-x-[calc(var(--x)*(100cqw-100%))] translate-y-[calc(var(--y)*(100cqh-100%))]',
                     transition:
