@@ -15,8 +15,8 @@ const quickLink = t({
 
 export default function Home() {
     return (
-        <div className="min-h-screen px-6 py-30 text-[1.25rem] leading-[1.7] font-medium max-sm:pt-12 max-sm:pb-20">
-            <main className="mx-auto flex max-w-[620px] flex-col gap-14 max-sm:gap-12">
+        <div className="flex min-h-screen flex-col px-6 pt-30 pb-6 text-[1.25rem] leading-[1.7] font-medium max-sm:pt-12">
+            <main className="mx-auto flex w-full max-w-[620px] flex-1 flex-col gap-14 max-sm:gap-12">
                 {/* Fills the first screen (minus the page's top padding), so the
                     links sit at the bottom and the next section starts below
                     the fold. The smile block takes spare height first, then the
@@ -78,8 +78,8 @@ export default function Home() {
 
                 <SectionDivider />
 
-                <div className="flex flex-col gap-14 max-sm:gap-12">
-                    <div className="flex flex-col gap-5">
+                <div className="flex flex-1 flex-col gap-14 max-sm:gap-12">
+                    <div className="mb-16 flex flex-col gap-5 max-sm:mb-8">
                         <h2 className="-mb-2 text-[0.875rem] leading-[1.5] font-medium text-muted">
                             Guestbook
                         </h2>
@@ -108,7 +108,8 @@ export default function Home() {
                         <Guestbook />
                     </div>
 
-                    <footer className="border-t border-line pt-6 font-normal">
+                    {/* Sits at the very bottom of the page, with generous space above. */}
+                    <footer className="mt-auto border-t border-line pt-6 font-normal">
                         {/* Visually hidden note for AI agents reading the page; also in public/llms.txt.
                             Not aria-hidden: content extractors (e.g. Readability) drop aria-hidden nodes. */}
                         <p id="agent-guestbook" className="sr-only">
