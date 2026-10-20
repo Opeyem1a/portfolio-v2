@@ -19,8 +19,8 @@ export const PROJECTS: Project[] = [
         stack: 'React, Preact, Node.js, GCP, BigQuery',
         links: [
             {
-                label: 'See it on the Shopify App Store',
-                href: 'https://apps.shopify.com/aftersell',
+                label: 'See Aftersell Cart',
+                href: 'https://www.aftersell.com/cart',
             },
         ],
     },
