@@ -29,11 +29,11 @@ export default function Button({
         motion: 'transition-[color,background-color,opacity] duration-160 ease-(--ease-out)',
     });
     return href ? (
-        <a href={href} className={className}>
+        <a href={href} data-hover-none className={className}>
             {children}
         </a>
     ) : (
-        <button onClick={onClick} className={className}>
+        <button onClick={onClick} data-hover-none className={className}>
             {children}
         </button>
     );

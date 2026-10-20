@@ -162,6 +162,7 @@ function Ref({
         <span className="text-[0.75em] leading-none whitespace-nowrap">
             <a
                 href={`#row-${id}`}
+                data-hover-none
                 aria-label={`Project: ${children}`}
                 className={t({
                     layout: 'group rounded-md px-px text-muted squircle',

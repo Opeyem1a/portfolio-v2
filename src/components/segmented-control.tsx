@@ -27,6 +27,7 @@ export default function SegmentedControl<T extends string>({
                     <button
                         key={option}
                         aria-pressed={on}
+                        data-hover-none
                         onClick={() => onChange(option)}
                         className={t({
                             layout: 'inline-flex min-h-10 cursor-pointer items-center gap-1.5 rounded-lg px-2.5 squircle max-sm:flex-1 max-sm:justify-center',

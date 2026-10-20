@@ -20,6 +20,7 @@ export default function ProjectRow({
         >
             <button
                 onClick={onToggle}
+                data-hover-none
                 aria-expanded={open}
                 aria-controls={`acc-${project.id}`}
                 className={t({

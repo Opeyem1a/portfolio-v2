@@ -5,12 +5,10 @@ import { t } from '@/lib/t';
 
 const SIZE = 48;
 
-/** Anything with its own hover state; the blob gets out of its way. */
-const INTERACTIVE = 'a, button, input, label';
-
 /**
- * An inverting circle that follows the cursor, and shrinks away over links,
- * buttons and fields. Only shown on devices with a real cursor.
+ * An inverting circle that follows the cursor. It shrinks away over anything
+ * marked `data-hover-none`, which elements with their own hover state opt into.
+ * Only shown on devices with a real cursor.
  */
 export default function CursorBlob() {
     const ref = useRef<HTMLDivElement>(null);
@@ -30,9 +28,10 @@ export default function CursorBlob() {
                 blob.style.transitionProperty = '';
                 placed = true;
             }
-            const overInteractive =
-                e.target instanceof Element && !!e.target.closest(INTERACTIVE);
-            blob.dataset.state = overInteractive ? 'hidden' : 'idle';
+            const hide =
+                e.target instanceof Element &&
+                !!e.target.closest('[data-hover-none]');
+            blob.dataset.state = hide ? 'hidden' : 'idle';
         };
 
         window.addEventListener('mousemove', onMouseMove, { passive: true });
