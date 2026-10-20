@@ -41,7 +41,7 @@ export default function SmileBlock() {
             aria-hidden="true"
             style={{ background: texture }}
             className={t({
-                shape: 'max-h-[56.25cqw] min-h-48 grow-[1000] p-[clamp(1.75rem,5vw,2.5rem)] max-sm:min-h-40',
+                shape: 'max-h-[50cqw] min-h-48 grow-[1000] rounded-xl p-[clamp(1.75rem,5vw,2.5rem)] max-sm:min-h-40',
                 // Container units let the smile translate across the free space
                 container: '[container-type:size]',
                 start: '[--x:0.5] [--y:calc(1/11)]',
@@ -51,7 +51,7 @@ export default function SmileBlock() {
                 viewBox="0 0 1000 1000"
                 fill="none"
                 className={t({
-                    size: 'size-20 text-ink max-sm:size-16',
+                    size: 'size-16 text-ink max-sm:size-10',
                     position:
                         'translate-x-[calc(var(--x)*(100cqw-100%))] translate-y-[calc(var(--y)*(100cqh-100%))]',
                     transition:
