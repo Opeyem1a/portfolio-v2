@@ -39,6 +39,19 @@
     --text-lg--line-height: 1.75;
 }
 
+/* The smile block's position (see smile-block.tsx). Registered so it can
+   transition. */
+@property --smile-x {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0.5;
+}
+@property --smile-y {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
 @theme inline {
     --font-sans: var(--font-archivo);
     --font-serif: var(--font-instrument-serif);
