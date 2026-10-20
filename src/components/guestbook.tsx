@@ -21,8 +21,9 @@ const button = (primary = false) =>
         shape: 'rounded-xl squircle',
         font: 'text-md',
         color: primary
-            ? 'bg-fg font-semibold text-bg'
-            : 'text-muted transition-colors duration-160 ease-(--ease-out) hover:text-fg',
+            ? 'bg-fg font-semibold text-bg hover:opacity-85'
+            : 'text-muted hover:text-fg',
+        motion: 'transition-[color,opacity] duration-160 ease-(--ease-out)',
     });
 
 /** Relays a note through `/hello` (see src/app/hello/route.ts). */
@@ -77,12 +78,8 @@ export default function Guestbook() {
                 <button
                     onClick={() => setComposing(!composing)}
                     aria-expanded={composing}
-                    className={t({
-                        layout: 'inline-flex cursor-pointer items-center px-2.5',
-                        shape: 'rounded-lg border border-line bg-bg squircle',
-                        font: 'text-sm leading-6',
-                        hover: 'transition-colors duration-160 ease-(--ease-out) hover:border-line-strong hover:bg-surface-2',
-                    })}
+                    // Pulled right so the text lines up with the edge
+                    className={`-mr-4.5 ${button()}`}
                 >
                     Pick yours
                 </button>
