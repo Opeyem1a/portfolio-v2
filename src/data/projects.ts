@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
         summary: 'Product lead at Rokt',
         kind: 'work',
         description:
-            'A category-leading Shopify cart app in a $7M+ ARR business unit. I lead the team building it, including an AI cart builder that cuts setup to under 5 minutes.',
+            'A category-leading Shopify cart app doing $7M+ ARR. I lead the team building it, including an AI cart builder that cuts setup to under 5 minutes.',
         stack: 'React, Preact, Node.js, GCP, BigQuery',
         links: [
             {
