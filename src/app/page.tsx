@@ -41,24 +41,22 @@ export default function Home() {
 
                     <div className="flex grow flex-col gap-6 text-lg font-normal">
                         <p>
-                            Howdy, I’m Opey. I’m a product engineer who cares
-                            about doing things well. My favourite thing to do is
-                            talk, and I diligently collect questions to ask new
-                            people <Ref id="wdyt">WDYT</Ref>. I also write a
-                            newsletter for fun{' '}
-                            <Ref id="lovely">Something Lovely</Ref>. I once
-                            built a tool to help me use social media less. It
-                            didn’t really work, so I built a better one{' '}
-                            <Ref id="exact">Exact</Ref>.
+                            Howdy, I’m Opey. I care about doing things well and
+                            I’m a product engineer. I talk a lot, so I collect
+                            good questions to ask new people{' '}
+                            <Ref id="wdyt">WDYT</Ref>. I also write a newsletter
+                            for fun <Ref id="lovely">Something Lovely</Ref>. On
+                            a normal day, I’m probably overthinking how to do
+                            something in my life more intentionally.
                         </p>
                         <p>
-                            Right now I lead product on a cart app for Shopify
-                            stores at Rokt{' '}
+                            Right now I lead a few products at Rokt Aftersell,
+                            mainly our cart{' '}
                             <Ref id="aftersell">Aftersell Cart</Ref>. Before
                             that, I built community-based recruiting at a
                             startup that’s since closed{' '}
                             <Ref id="pallet">Pallet</Ref>, and researched better
-                            ways to form student teams{' '}
+                            ways to form student teams (sounds easy, it’s not){' '}
                             <Ref id="teamable">Teamable</Ref>.
                         </p>
 
