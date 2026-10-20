@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
     {
         id: 'wdyt',
         name: 'WDYT',
-        summary: 'My garden of favourite questions',
+        summary: 'Good questions to ask new people',
         kind: 'side project',
         description:
             'I collect good questions and these are my favourites. I always love to chat about them, and I spent a lot of time styling these.',
