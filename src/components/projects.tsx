@@ -63,7 +63,8 @@ export default function Projects() {
                             <span className="text-muted transition-colors duration-200 ease-(--ease-out) group-data-open:text-fg max-sm:col-start-1">
                                 {project.summary}
                             </span>
-                            <span className="text-sm text-faint max-sm:col-start-1">
+                            {/* Phones show the kind only once the row is open */}
+                            <span className="text-sm text-faint max-sm:col-start-1 max-sm:hidden max-sm:group-data-open:block">
                                 {project.kind}
                             </span>
                             <svg
