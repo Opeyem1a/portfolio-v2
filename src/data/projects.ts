@@ -93,7 +93,7 @@ export const PROJECTS: Project[] = [
     {
         id: 'teamable',
         name: 'Teamable',
-        summary: 'Team formation research, higher ed',
+        summary: 'Research on forming better student teams',
         kind: 'research',
         description:
             'A tool that lets educators build student teams around pedagogical goals, using a published algorithm. Integrated with Canvas; used in 12+ courses with 1000+ students.',
