@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react';
+import Button from '@/components/button';
 import Guestbook from '@/components/guestbook';
 import Projects from '@/components/projects';
-import SectionDivider from '@/components/section-divider';
+import Section from '@/components/section';
 import SmileBlock from '@/components/smile-block';
 import { STICKERS } from '@/components/stickers';
 import Swatch from '@/components/swatch';
 import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
-import { button } from '@/lib/button';
 import { t } from '@/lib/t';
 
 export default function Home() {
@@ -54,12 +54,18 @@ export default function Home() {
                         </p>
 
                         <div className="mt-auto -ml-2.5 flex flex-wrap items-center gap-1">
-                            <QuickLink href={`mailto:${EMAIL}`}>
+                            <Button variant="ghost" href={`mailto:${EMAIL}`}>
                                 Email me
-                            </QuickLink>
-                            <QuickLink href={GITHUB_LINK}>GitHub</QuickLink>
-                            <QuickLink href={LINKEDIN_LINK}>LinkedIn</QuickLink>
-                            <QuickLink href={RESUME_LINK}>Resume</QuickLink>
+                            </Button>
+                            <Button variant="ghost" href={GITHUB_LINK}>
+                                GitHub
+                            </Button>
+                            <Button variant="ghost" href={LINKEDIN_LINK}>
+                                LinkedIn
+                            </Button>
+                            <Button variant="ghost" href={RESUME_LINK}>
+                                Resume
+                            </Button>
                         </div>
                     </div>
                 </div>
@@ -67,33 +73,36 @@ export default function Home() {
                 <Projects />
 
                 <div className="flex flex-1 flex-col gap-14 max-sm:gap-12">
-                    <div className="mb-16 flex flex-col gap-5 max-sm:mb-8">
-                        <div className="mb-3">
-                            <SectionDivider number="02" title="Guestbook" />
-                        </div>
-                        <section className="flex items-baseline gap-5 text-sm text-muted max-sm:gap-4">
-                            <h3 className="whitespace-nowrap">I’m liking</h3>
-                            <ul className="flex gap-5 max-sm:gap-4">
-                                <Vibe word="Gradients" not="Solid">
-                                    <Swatch option="gradient" />
-                                </Vibe>
-                                <Vibe word="Rounded" not="Sharp">
-                                    <Swatch option="rounded" />
-                                </Vibe>
-                                <Vibe
-                                    word="Sans"
-                                    not={
-                                        <span className="font-serif">
-                                            Serif
-                                        </span>
-                                    }
-                                >
-                                    <Swatch option="sans" />
-                                </Vibe>
-                            </ul>
-                        </section>
+                    <div className="mb-16 max-sm:mb-8">
+                        <Section number="02" title="Guestbook">
+                            <div className="flex flex-col gap-5">
+                                <div className="flex items-baseline gap-5 text-sm text-muted max-sm:gap-4">
+                                    <h3 className="whitespace-nowrap">
+                                        I’m liking
+                                    </h3>
+                                    <ul className="flex gap-5 max-sm:gap-4">
+                                        <Vibe word="Gradients" not="Solid">
+                                            <Swatch option="gradient" />
+                                        </Vibe>
+                                        <Vibe word="Rounded" not="Sharp">
+                                            <Swatch option="rounded" />
+                                        </Vibe>
+                                        <Vibe
+                                            word="Sans"
+                                            not={
+                                                <span className="font-serif">
+                                                    Serif
+                                                </span>
+                                            }
+                                        >
+                                            <Swatch option="sans" />
+                                        </Vibe>
+                                    </ul>
+                                </div>
 
-                        <Guestbook />
+                                <Guestbook />
+                            </div>
+                        </Section>
                     </div>
 
                     {/* Sits at the very bottom of the page, with generous space above. */}
@@ -175,13 +184,5 @@ function Ref({
                 {children}]
             </a>
         </span>
-    );
-}
-
-function QuickLink({ href, children }: { href: string; children: ReactNode }) {
-    return (
-        <a href={href} className={button('ghost')}>
-            {children}
-        </a>
     );
 }

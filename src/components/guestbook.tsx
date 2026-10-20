@@ -7,7 +7,8 @@ import {
     type Signature,
     type Vibe,
 } from '@/data/guestbook';
-import { button } from '@/lib/button';
+import Button from '@/components/button';
+import SegmentedControl from '@/components/segmented-control';
 import Swatch from '@/components/swatch';
 import { t } from '@/lib/t';
 
@@ -91,39 +92,21 @@ export default function Guestbook() {
                     <p className="text-sm text-muted">Sign my guestbook</p>
                     <div className="flex flex-wrap gap-2">
                         {AXES.map((axis) => (
-                            <div
+                            <SegmentedControl
                                 key={axis.key}
-                                role="group"
-                                aria-label={axis.label}
-                                className="inline-flex gap-0.5 rounded-xl bg-surface p-0.75 squircle max-sm:flex max-sm:basis-full"
-                            >
-                                {axis.options.map((option) => {
-                                    const on = vibe[axis.key] === option;
-                                    return (
-                                        <button
-                                            key={option}
-                                            aria-pressed={on}
-                                            onClick={() =>
-                                                setVibe({
-                                                    ...vibe,
-                                                    [axis.key]: option,
-                                                })
-                                            }
-                                            className={t({
-                                                layout: 'inline-flex min-h-10 cursor-pointer items-center gap-1.5 rounded-lg px-2.5 squircle max-sm:flex-1 max-sm:justify-center',
-                                                font: 'text-sm capitalize',
-                                                color: on
-                                                    ? 'bg-bg text-fg shadow-[0_1px_2px_rgb(17_17_17/0.08),0_0_0_1px_var(--color-line)]'
-                                                    : 'text-faint hover:text-fg',
-                                                motion: 'transition-colors duration-160 ease-(--ease-out)',
-                                            })}
-                                        >
-                                            <Swatch option={option} />
-                                            {option}
-                                        </button>
-                                    );
-                                })}
-                            </div>
+                                label={axis.label}
+                                options={axis.options}
+                                value={vibe[axis.key]}
+                                onChange={(option) =>
+                                    setVibe({ ...vibe, [axis.key]: option })
+                                }
+                                renderOption={(option) => (
+                                    <>
+                                        <Swatch option={option} />
+                                        {option}
+                                    </>
+                                )}
+                            />
                         ))}
                     </div>
                     <label htmlFor="nickname" className="text-sm text-muted">
@@ -145,9 +128,9 @@ export default function Guestbook() {
                         </div>
                     </div>
                     <div className="flex justify-end">
-                        <button className={button('solid')} onClick={sign}>
+                        <Button variant="solid" onClick={sign}>
                             Sign
-                        </button>
+                        </Button>
                     </div>
                     {failed && (
                         <p role="alert" className="text-sm text-muted">
