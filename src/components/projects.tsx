@@ -109,17 +109,16 @@ export default function Projects() {
                                     <p className="text-xs text-faint">
                                         {project.stack}
                                     </p>
-                                    <span className="flex flex-wrap gap-x-5 gap-y-1">
+                                    <span className="mt-2 flex flex-wrap gap-2">
                                         {project.links.map(
                                             ({ label, href }) => (
                                                 <a
                                                     key={href}
                                                     href={href}
                                                     className={t({
-                                                        font: 'text-md text-fg',
-                                                        // Yellow underline that fills in on hover
-                                                        underline:
-                                                            '-mx-1.5 rounded-md px-1.5 underline decoration-sun decoration-2 underline-offset-4 squircle hover:bg-sun hover:text-ink',
+                                                        layout: 'rounded-xl px-3 py-1.5 squircle',
+                                                        // A faint button that fills in on hover, like Sign
+                                                        color: 'bg-surface-2 text-md text-fg hover:bg-fg hover:text-bg',
                                                         motion: 'transition-colors duration-160 ease-(--ease-out)',
                                                     })}
                                                 >

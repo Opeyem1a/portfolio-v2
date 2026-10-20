@@ -94,7 +94,7 @@ export default function Guestbook() {
                         shape: 'rounded-2xl border border-line bg-bg squircle',
                     })}
                 >
-                    <p className="text-sm text-muted">What’s your vibe?</p>
+                    <p className="text-sm text-muted">Sign my guestbook</p>
                     <div className="flex flex-wrap gap-2">
                         {AXES.map((axis) => (
                             <div
@@ -147,11 +147,7 @@ export default function Guestbook() {
                     <div className="flex flex-col gap-2">
                         <p className="text-sm text-muted">Preview</p>
                         <div>
-                            <Pill
-                                name={name.trim() || 'nickname'}
-                                {...vibe}
-                                mine
-                            />
+                            <Pill name={name.trim() || 'nickname'} {...vibe} />
                         </div>
                     </div>
                     <div className="flex justify-end">
