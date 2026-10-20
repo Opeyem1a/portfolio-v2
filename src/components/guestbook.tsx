@@ -208,7 +208,7 @@ function Pill({
             className={t({
                 layout: 'inline-flex min-h-9 max-w-full items-center px-3.5',
                 fill: 'bg-sun text-ink',
-                corner: corner === 'sharp' ? 'rounded-none' : 'rounded-full',
+                corner: corner === 'sharp' ? 'rounded-none' : 'squircle rounded-xl',
                 font:
                     type === 'serif'
                         ? 'font-serif text-lg leading-none font-normal'
