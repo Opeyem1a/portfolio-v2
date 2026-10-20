@@ -54,8 +54,8 @@ export default function Projects() {
                             <span
                                 className={t({
                                     font: 'justify-self-start font-semibold tracking-tight max-sm:col-start-1',
-                                    // A yellow marker while open; no underline, so it never reads as a link
-                                    color: '-mx-1.5 rounded-md px-1.5 transition-colors duration-200 ease-(--ease-out) squircle group-data-open:bg-sun group-data-open:text-ink',
+                                    // A yellow dot in the gutter while open
+                                    dot: 'relative before:absolute before:top-1/2 before:-left-3.5 before:size-1.5 before:-translate-y-1/2 before:scale-0 before:rounded-full before:bg-sun before:transition-transform before:duration-200 before:ease-(--ease-out) group-data-open:before:scale-100',
                                 })}
                             >
                                 {project.name}

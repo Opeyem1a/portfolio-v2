@@ -183,13 +183,14 @@ function Pill({
                     corner === 'sharp' ? 'rounded-none' : 'rounded-xl squircle',
                 font:
                     type === 'serif'
-                        ? 'font-serif text-lg leading-none'
-                        : 'text-md leading-none',
+                        ? 'font-serif text-lg leading-normal'
+                        : 'text-md leading-normal',
                 mine: mine
                     ? 'shadow-[0_0_0_2px_var(--color-bg),0_0_0_3.5px_var(--color-sun-ring)]'
                     : '',
             })}
         >
+            {/* Line height leaves room for descenders, which truncate would clip */}
             <span className="max-w-[16ch] truncate">{name}</span>
         </span>
     );
