@@ -56,8 +56,6 @@ export default function SmileBlock() {
                         size: 'size-16 text-ink max-sm:size-10',
                         position:
                             'translate-x-[calc(var(--smile-x)*(100cqw-100%))] translate-y-[calc(var(--smile-y)*(100cqh-100%))]',
-                        transition:
-                            'transition-[translate] duration-600 ease-out motion-reduce:transition-none',
                     })}
                 >
                     <path

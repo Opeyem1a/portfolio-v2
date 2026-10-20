@@ -6,15 +6,8 @@ import SmileBlock from '@/components/smile-block';
 import { STICKERS } from '@/components/stickers';
 import { GRADIENT } from '@/data/guestbook';
 import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
+import { button } from '@/lib/button';
 import { t } from '@/lib/t';
-
-const quickLink = t({
-    layout: 'inline-flex min-h-9 items-center px-2.5',
-    shape: 'rounded-lg squircle',
-    font: 'text-md text-muted',
-    // A faint button shape shows up behind on hover
-    hover: 'transition-colors duration-160 ease-(--ease-out) hover:bg-surface-2 hover:text-fg',
-});
 
 export default function Home() {
     return (
@@ -190,7 +183,7 @@ function Ref({
 
 function QuickLink({ href, children }: { href: string; children: ReactNode }) {
     return (
-        <a href={href} className={quickLink}>
+        <a href={href} className={button('ghost')}>
             {children}
         </a>
     );

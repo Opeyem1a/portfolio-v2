@@ -8,12 +8,10 @@
     /* Swap with the colour scheme; see below. */
     --color-bg: #ffffff;
     --color-fg: #111111;
-    --color-fg-hover: #2a2a2a;
     --color-muted: #6f6f6f;
     --color-faint: #9a9a9a;
     --color-link: #2b4bff;
     --color-line: #e6e6e1;
-    --color-line-strong: #cfcfc9;
     --color-surface: #f4f4f1;
     --color-surface-2: #ecece8;
     --color-highlight: #fff8db;
@@ -159,12 +157,10 @@
         :root {
             --color-bg: #0b0b0a;
             --color-fg: #ededea;
-            --color-fg-hover: #d6d6d2;
             --color-muted: #a3a39e;
             --color-faint: #76766f;
             --color-link: #8da2ff;
             --color-line: #2b2b28;
-            --color-line-strong: #3a3a36;
             --color-surface: #1c1c1a;
             --color-surface-2: #262624;
             --color-highlight: #2a2412;
@@ -190,6 +186,7 @@
 
     @media (prefers-reduced-motion: reduce) {
         *,
+        *::before,
         *::after {
             transition-duration: 0ms !important;
             transition-delay: 0ms !important;

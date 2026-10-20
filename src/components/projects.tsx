@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import SectionDivider from '@/components/section-divider';
 import { PROJECTS } from '@/data/projects';
+import { button } from '@/lib/button';
 import { t } from '@/lib/t';
 
 const ROW_PREFIX = '#row-';
@@ -102,7 +103,7 @@ export default function Projects() {
                                 <div
                                     className={t({
                                         layout: 'flex flex-col gap-2.5 pt-1.5 pb-4 pl-49 max-sm:pl-0',
-                                        font: 'text-md text-pretty text-muted',
+                                        font: 'text-md text-muted',
                                     })}
                                 >
                                     <p>{project.description}</p>
@@ -115,12 +116,7 @@ export default function Projects() {
                                                 <a
                                                     key={href}
                                                     href={href}
-                                                    className={t({
-                                                        layout: 'rounded-lg px-2.5 py-1 squircle',
-                                                        // A faint button that fills in on hover, like Sign
-                                                        color: 'bg-surface-2 text-md text-fg hover:bg-fg hover:text-bg',
-                                                        motion: 'transition-colors duration-160 ease-(--ease-out)',
-                                                    })}
+                                                    className={button('soft')}
                                                 >
                                                     {label}
                                                 </a>

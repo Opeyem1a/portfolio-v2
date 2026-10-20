@@ -7,20 +7,13 @@ import {
     type Signature,
     type Vibe,
 } from '@/data/guestbook';
+import { button } from '@/lib/button';
 import { t } from '@/lib/t';
 
 const field = t({
     size: 'min-h-11 w-full px-3.5',
     shape: 'rounded-xl border border-line bg-bg squircle',
     font: 'text-md text-fg',
-});
-
-const button = t({
-    size: 'min-h-11 cursor-pointer px-4.5',
-    shape: 'rounded-xl squircle',
-    font: 'text-md font-semibold',
-    color: 'bg-fg text-bg hover:opacity-85',
-    motion: 'transition-opacity duration-160 ease-(--ease-out)',
 });
 
 /** Relays a note through `/hello` (see src/app/hello/route.ts). */
@@ -151,7 +144,7 @@ export default function Guestbook() {
                         </div>
                     </div>
                     <div className="flex justify-end">
-                        <button className={button} onClick={sign}>
+                        <button className={button('solid')} onClick={sign}>
                             Sign
                         </button>
                     </div>
