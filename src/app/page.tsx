@@ -41,9 +41,9 @@ export default function Home() {
 
                     <div className="flex grow flex-col gap-6 text-lg">
                         <p>
-                            Howdy, I’m Opey. I care about doing things well and
-                            I’m a product engineer. I talk a lot, so I collect
-                            good questions to ask new people{' '}
+                            Howdy, I’m Opey. I care about doing novel things in
+                            fun ways and I’m a product engineer. I talk a lot,
+                            so I collect good questions to ask new people{' '}
                             <Ref id="wdyt">WDYT</Ref>. I also write a newsletter
                             for fun <Ref id="lovely">Something Lovely</Ref>. On
                             a normal day, I’m probably overthinking how to do
