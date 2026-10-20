@@ -1,8 +1,10 @@
 import { GRADIENT } from '@/data/guestbook';
 import { t } from '@/lib/t';
 
-// The little icon for each vibe option, shared by the guestbook form and the
-// "I’m liking" row.
+/**
+ * The little icon for each vibe option, shared by the guestbook form and the
+ * "I’m liking" row.
+ */
 export default function Swatch({ option }: { option: string }) {
     if (option === 'sans' || option === 'serif') {
         return (

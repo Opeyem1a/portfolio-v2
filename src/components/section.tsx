@@ -3,13 +3,15 @@
 import { type ReactNode, useEffect, useRef } from 'react';
 import { t } from '@/lib/t';
 
-// A page section: a numbered title with a line running out from it, then the
-// content.
-//
-// The star rolls along the line as the heading scrolls up the screen:
-// --progress goes 0 → 1 from the bottom of the screen to the top. Measured
-// against the screen, not the window, because mobile browsers resize the
-// window as their address bar shows and hides, which made the star jump.
+/**
+ * A page section: a numbered title with a line running out from it, then the
+ * content.
+ *
+ * The star rolls along the line as the heading scrolls up the screen:
+ * --progress goes 0 → 1 from the bottom of the screen to the top. Measured
+ * against the screen, not the window, because mobile browsers resize the
+ * window as their address bar shows and hides, which made the star jump.
+ */
 export default function Section({
     number,
     title,

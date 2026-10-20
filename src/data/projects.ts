@@ -81,8 +81,10 @@ export const PROJECTS: Project[] = [
         description:
             'Pallet Recruiter: A hub for recruiters to source and manage vetted candidates, while helping community leaders connect their members to jobs. Used by 450+ startups and 100+ communities before it closed.',
         stack: 'Next.js, React, Apollo GraphQL, Python, Django, GCP',
-        // pallet.com now belongs to a different company, so link to coverage
-        // of the startup instead.
+        /**
+         * pallet.com now belongs to a different company, so link to coverage
+         * of the startup instead.
+         */
         links: [
             {
                 label: 'Read about it in The Pragmatic Engineer',

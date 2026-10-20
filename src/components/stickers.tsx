@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
 
-// Hand-drawn stickers that sit inside the intro's project references, keyed
-// by project id.
+/**
+ * Hand-drawn stickers that sit inside the intro's project references, keyed
+ * by project id.
+ */
 export const STICKERS = {
     wdyt: {
         rotate: '-8deg',

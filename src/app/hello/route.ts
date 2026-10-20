@@ -1,5 +1,7 @@
-// Relays short notes left by visitors (usually via an AI agent) to a private
-// Discord channel. No IPs, cookies, or storage.
+/**
+ * Relays short notes left by visitors (usually via an AI agent) to a private
+ * Discord channel. No IPs, cookies, or storage.
+ */
 
 export const dynamic = 'force-dynamic';
 

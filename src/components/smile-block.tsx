@@ -11,9 +11,11 @@ const texture = [
     'var(--color-sun)',
 ].join(', ');
 
-// The smile drifts towards the cursor. --smile-x and --smile-y place it within
-// the block's free space (0 = start, 1 = end). They're registered in
-// globals.css, so they transition, and the smile and gradient move together.
+/**
+ * The smile drifts towards the cursor. --smile-x and --smile-y place it within
+ * the block's free space (0 = start, 1 = end). They're registered in
+ * globals.css, so they transition, and the smile and gradient move together.
+ */
 export default function SmileBlock() {
     const ref = useRef<HTMLDivElement>(null);
 
