@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
         summary: 'Product lead at Rokt',
         kind: 'work',
         description:
-            'A ground-up rebuild of Upcart, the cart drawer used by 30,000+ Shopify stores. We’re building it to lead the category.',
+            'A category-leading Shopify cart app in a $7M+ ARR business unit. I lead the team of 4 building it, including an AI cart builder that cuts setup to under 5 minutes.',
         stack: 'React, Preact, Node.js, GCP, BigQuery',
         links: [
             {
