@@ -4,6 +4,7 @@ import Projects from '@/components/projects';
 import SectionDivider from '@/components/section-divider';
 import SmileBlock from '@/components/smile-block';
 import { STICKERS } from '@/components/stickers';
+import { GRADIENT } from '@/data/guestbook';
 import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
 import { t } from '@/lib/t';
 
@@ -84,11 +85,14 @@ export default function Home() {
                                 My vibe
                             </h3>
                             <ul className="flex gap-5 max-sm:gap-4">
-                                <Vibe word="Solid" not="Gradients">
-                                    <span className="inline-block size-[0.7em] bg-sun" />
+                                <Vibe word="Gradients" not="Solid">
+                                    <span
+                                        style={{ background: GRADIENT }}
+                                        className="inline-block size-[0.7em]"
+                                    />
                                 </Vibe>
-                                <Vibe word="Sharp" not="Rounded">
-                                    <span className="inline-block size-[0.7em] border border-current" />
+                                <Vibe word="Rounded" not="Sharp">
+                                    <span className="inline-block size-[0.7em] rounded-sm border border-current" />
                                 </Vibe>
                                 <Vibe
                                     word="Sans"

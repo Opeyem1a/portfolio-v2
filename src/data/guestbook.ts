@@ -11,5 +11,5 @@ export const GRADIENT =
 
 // Signatures arrive as notes through /hello. Paste approved ones here.
 export const SIGNATURES: Signature[] = [
-    { name: 'yours truly', fill: 'solid', corner: 'sharp', type: 'sans' },
+    { name: 'yours truly', fill: 'gradient', corner: 'rounded', type: 'sans' },
 ];
