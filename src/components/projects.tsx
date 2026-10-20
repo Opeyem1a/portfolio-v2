@@ -109,7 +109,7 @@ export default function Projects() {
                                     <p className="text-xs text-faint">
                                         {project.stack}
                                     </p>
-                                    <span className="mt-2 flex flex-wrap gap-2">
+                                    <span className="mt-4 flex flex-wrap gap-2">
                                         {project.links.map(
                                             ({ label, href }) => (
                                                 <a
