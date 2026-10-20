@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
     {
         id: 'exact',
         name: 'Exact',
-        summary: 'Browse distracting sites on purpose',
+        summary: 'Trying to use social media less',
         kind: 'side project',
         description:
             'Greys out images and videos on distracting sites until you hover. You can still do everything, you just have to do it on purpose. Built after Finite didn’t work that well.',
