@@ -5,11 +5,9 @@ import { t } from '@/lib/t';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
-// A light glow sits behind the smile and a warmer patch sits opposite it, so
-// the gradient shifts as the smile moves.
+// A soft glow that sits behind the smile and follows it.
 const texture = [
-    'radial-gradient(60% 100% at calc(var(--smile-x) * 100%) calc(var(--smile-y) * 100%), #ffe08a, transparent 70%)',
-    'radial-gradient(50% 90% at calc((1 - var(--smile-x)) * 100%) calc((1 - var(--smile-y)) * 100%), #f2a516, transparent 70%)',
+    'radial-gradient(80% 120% at calc(var(--smile-x) * 100%) calc(var(--smile-y) * 100%), #ffd866, transparent 70%)',
     'var(--color-sun)',
 ].join(', ');
 
