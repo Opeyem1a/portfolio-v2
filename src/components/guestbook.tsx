@@ -15,16 +15,13 @@ const field = t({
     font: 'text-md text-fg',
 });
 
-const button = (primary = false) =>
-    t({
-        size: 'min-h-11 cursor-pointer px-4.5',
-        shape: 'rounded-xl squircle',
-        font: 'text-md',
-        color: primary
-            ? 'bg-fg font-semibold text-bg hover:opacity-85'
-            : 'text-muted hover:text-fg',
-        motion: 'transition-[color,opacity] duration-160 ease-(--ease-out)',
-    });
+const button = t({
+    size: 'min-h-11 cursor-pointer px-4.5',
+    shape: 'rounded-xl squircle',
+    font: 'text-md font-semibold',
+    color: 'bg-fg text-bg hover:opacity-85',
+    motion: 'transition-opacity duration-160 ease-(--ease-out)',
+});
 
 /** Relays a note through `/hello` (see src/app/hello/route.ts). */
 const sendNote = (note: string) =>
@@ -47,7 +44,6 @@ const AXES = [
 ] as const;
 
 export default function Guestbook() {
-    const [composing, setComposing] = useState(false);
     const [vibe, setVibe] = useState<Vibe>({
         fill: 'solid',
         corner: 'rounded',
@@ -62,8 +58,6 @@ export default function Guestbook() {
         setFailed(false);
         if (await sendNote(`Guestbook: ${JSON.stringify(signature)}`)) {
             setSigned(signature);
-            setComposing(false);
-            setName('');
         } else {
             setFailed(true);
         }
@@ -71,19 +65,9 @@ export default function Guestbook() {
 
     return (
         <section className="flex flex-col gap-3.5">
-            <div className="flex items-center justify-between gap-3">
-                <p className="text-sm text-muted">
-                    {SIGNATURES.length + (signed ? 1 : 0)} signed
-                </p>
-                <button
-                    onClick={() => setComposing(!composing)}
-                    aria-expanded={composing}
-                    // Pulled right so the text lines up with the edge
-                    className={`-mr-4.5 ${button()}`}
-                >
-                    Pick yours
-                </button>
-            </div>
+            <p className="text-sm text-muted">
+                {SIGNATURES.length + (signed ? 1 : 0)} signed
+            </p>
             <ul className="flex flex-wrap gap-2">
                 {signed && (
                     <li>
@@ -102,7 +86,8 @@ export default function Guestbook() {
                     you’ll be added for real once I check the list.
                 </p>
             )}
-            {composing && (
+            {/* Swapped for the thanks above once signed */}
+            {!signed && (
                 <div
                     className={t({
                         layout: 'flex flex-col gap-3.5 p-4',
@@ -169,14 +154,8 @@ export default function Guestbook() {
                             />
                         </div>
                     </div>
-                    <div className="flex justify-end gap-2">
-                        <button
-                            className={button()}
-                            onClick={() => setComposing(false)}
-                        >
-                            Cancel
-                        </button>
-                        <button className={button(true)} onClick={sign}>
+                    <div className="flex justify-end">
+                        <button className={button} onClick={sign}>
                             Sign
                         </button>
                     </div>

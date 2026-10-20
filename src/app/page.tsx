@@ -9,9 +9,11 @@ import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
 import { t } from '@/lib/t';
 
 const quickLink = t({
-    layout: 'inline-flex min-h-11 items-center px-2',
+    layout: 'inline-flex min-h-11 items-center px-3',
+    shape: 'rounded-xl squircle',
     font: 'text-md text-muted',
-    hover: 'transition-colors duration-160 ease-(--ease-out) hover:text-fg',
+    // A faint button shape shows up behind on hover
+    hover: 'transition-colors duration-160 ease-(--ease-out) hover:bg-surface-2 hover:text-fg',
 });
 
 export default function Home() {
@@ -58,7 +60,7 @@ export default function Home() {
                             <Ref id="teamable">Teamable</Ref>.
                         </p>
 
-                        <div className="mt-auto -ml-2 flex flex-wrap items-center gap-2.5">
+                        <div className="mt-auto -ml-3 flex flex-wrap items-center gap-0.5">
                             <QuickLink href={`mailto:${EMAIL}`}>
                                 Email me
                             </QuickLink>
