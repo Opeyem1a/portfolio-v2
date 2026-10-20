@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { Archivo, Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import CursorBlob from '@/components/cursor-blob';
 import './globals.css';
 
 const archivo = Archivo({
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </head>
             <body className="font-sans">
                 {children}
+                <CursorBlob />
                 {/* Film grain, as on wdyt.site; styled in globals.css */}
                 <div id="grain-filter" />
                 <Analytics />
