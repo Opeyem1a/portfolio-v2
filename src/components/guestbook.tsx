@@ -12,7 +12,7 @@ import { t } from '@/lib/t';
 const field = t({
     size: 'min-h-11 w-full px-3.5',
     shape: 'rounded-xl border border-line bg-bg squircle',
-    font: 'text-md font-normal text-fg',
+    font: 'text-md text-fg',
 });
 
 const button = (primary = false) =>
@@ -22,7 +22,7 @@ const button = (primary = false) =>
         font: 'text-md',
         color: primary
             ? 'bg-fg font-semibold text-bg'
-            : 'font-medium text-muted transition-colors duration-160 ease-(--ease-out) hover:text-fg',
+            : 'text-muted transition-colors duration-160 ease-(--ease-out) hover:text-fg',
     });
 
 /** Relays a note through `/hello` (see src/app/hello/route.ts). */
@@ -71,7 +71,7 @@ export default function Guestbook() {
     return (
         <section className="flex flex-col gap-3.5">
             <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-medium text-muted">
+                <p className="text-sm text-muted">
                     {SIGNATURES.length + (signed ? 1 : 0)} signed
                 </p>
                 <button
@@ -100,7 +100,7 @@ export default function Guestbook() {
                 ))}
             </ul>
             {signed && (
-                <p className="text-sm font-normal text-muted">
+                <p className="text-sm text-muted">
                     Thanks, {signed.name}! The outlined pill is a preview;
                     you’ll be added for real once I check the list.
                 </p>
@@ -110,7 +110,6 @@ export default function Guestbook() {
                     className={t({
                         layout: 'flex flex-col gap-3.5 p-4',
                         shape: 'rounded-2xl border border-line bg-bg squircle',
-                        font: 'font-normal',
                     })}
                 >
                     <p className="text-sm text-muted">What’s your vibe?</p>
@@ -212,8 +211,8 @@ function Pill({
                     corner === 'sharp' ? 'rounded-none' : 'rounded-xl squircle',
                 font:
                     type === 'serif'
-                        ? 'font-serif text-lg leading-none font-normal'
-                        : 'text-md leading-none font-medium',
+                        ? 'font-serif text-lg leading-none'
+                        : 'text-md leading-none',
                 mine: mine
                     ? 'shadow-[0_0_0_2px_var(--color-bg),0_0_0_3.5px_var(--color-sun-ring)]'
                     : '',

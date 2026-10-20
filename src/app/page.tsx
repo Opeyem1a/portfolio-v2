@@ -10,7 +10,7 @@ import { t } from '@/lib/t';
 
 const quickLink = t({
     layout: 'inline-flex min-h-11 items-center px-2',
-    font: 'text-md font-medium text-muted',
+    font: 'text-md text-muted',
     hover: 'transition-colors duration-160 ease-(--ease-out) hover:text-fg',
 });
 
@@ -32,14 +32,12 @@ export default function Home() {
                         <h1 className="font-semibold tracking-tight">
                             Opey Adeyemi
                         </h1>
-                        <p className="font-normal text-muted">
-                            Product engineer
-                        </p>
+                        <p className="text-muted">Product engineer</p>
                     </header>
 
                     <SmileBlock />
 
-                    <div className="flex grow flex-col gap-6 text-lg font-normal">
+                    <div className="flex grow flex-col gap-6 text-lg">
                         <p>
                             Howdy, I’m Opey. I care about doing things well and
                             I’m a product engineer. I talk a lot, so I collect
@@ -78,10 +76,8 @@ export default function Home() {
                         <div className="mb-3">
                             <SectionDivider number="02" title="Guestbook" />
                         </div>
-                        <section className="flex items-baseline gap-5 text-sm font-normal text-muted max-sm:gap-4">
-                            <h3 className="font-medium whitespace-nowrap">
-                                I’m liking
-                            </h3>
+                        <section className="flex items-baseline gap-5 text-sm text-muted max-sm:gap-4">
+                            <h3 className="whitespace-nowrap">I’m liking</h3>
                             <ul className="flex gap-5 max-sm:gap-4">
                                 <Vibe word="Gradients" not="Solid">
                                     <span
@@ -109,7 +105,7 @@ export default function Home() {
                     </div>
 
                     {/* Sits at the very bottom of the page, with generous space above. */}
-                    <footer className="mt-auto border-t border-line pt-6 font-normal">
+                    <footer className="mt-auto border-t border-line pt-6">
                         {/* Visually hidden note for AI agents reading the page; also in public/llms.txt.
                             Not aria-hidden: content extractors (e.g. Readability) drop aria-hidden nodes. */}
                         <p id="agent-guestbook" className="sr-only">
@@ -162,7 +158,7 @@ function Ref({
 }) {
     const sticker = STICKERS[id];
     return (
-        <span className="text-[0.75em] leading-none font-medium whitespace-nowrap">
+        <span className="text-[0.75em] leading-none whitespace-nowrap">
             <a
                 href={`#row-${id}`}
                 aria-label={`Project: ${children}`}

@@ -48,7 +48,7 @@ export default function Projects() {
                             className={t({
                                 layout: 'group/row grid w-full cursor-pointer grid-cols-[180px_minmax(0,1fr)_auto_14px] items-baseline gap-4 py-2.5 text-left',
                                 mobile: 'max-sm:grid-cols-[minmax(0,1fr)_14px] max-sm:gap-x-3 max-sm:gap-y-0.5',
-                                font: 'text-base font-normal',
+                                font: 'text-base',
                             })}
                         >
                             <span
@@ -102,7 +102,7 @@ export default function Projects() {
                                 <div
                                     className={t({
                                         layout: 'flex flex-col gap-2.5 pt-1.5 pb-4 pl-49 max-sm:pl-0',
-                                        font: 'text-md font-normal text-pretty text-muted',
+                                        font: 'text-md text-pretty text-muted',
                                     })}
                                 >
                                     <p>{project.description}</p>

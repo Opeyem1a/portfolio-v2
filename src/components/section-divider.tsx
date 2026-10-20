@@ -47,7 +47,7 @@ export default function SectionDivider({
 
     return (
         <div className="flex items-center gap-4">
-            <h2 className="shrink-0 text-base font-medium text-muted">
+            <h2 className="shrink-0 text-base font-semibold text-muted">
                 <span
                     aria-hidden="true"
                     className="mr-3 text-faint tabular-nums"
