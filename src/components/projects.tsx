@@ -116,7 +116,7 @@ export default function Projects() {
                                                     key={href}
                                                     href={href}
                                                     className={t({
-                                                        layout: 'rounded-xl px-3 py-1.5 squircle',
+                                                        layout: 'rounded-lg px-2.5 py-1 squircle',
                                                         // A faint button that fills in on hover, like Sign
                                                         color: 'bg-surface-2 text-md text-fg hover:bg-fg hover:text-bg',
                                                         motion: 'transition-colors duration-160 ease-(--ease-out)',
