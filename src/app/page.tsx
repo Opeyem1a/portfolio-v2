@@ -4,7 +4,7 @@ import Projects from '@/components/projects';
 import SectionDivider from '@/components/section-divider';
 import SmileBlock from '@/components/smile-block';
 import { STICKERS } from '@/components/stickers';
-import { GRADIENT } from '@/data/guestbook';
+import Swatch from '@/components/swatch';
 import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
 import { button } from '@/lib/button';
 import { t } from '@/lib/t';
@@ -75,13 +75,10 @@ export default function Home() {
                             <h3 className="whitespace-nowrap">I’m liking</h3>
                             <ul className="flex gap-5 max-sm:gap-4">
                                 <Vibe word="Gradients" not="Solid">
-                                    <span
-                                        style={{ background: GRADIENT }}
-                                        className="inline-block size-[0.7em]"
-                                    />
+                                    <Swatch option="gradient" />
                                 </Vibe>
                                 <Vibe word="Rounded" not="Sharp">
-                                    <span className="inline-block size-[0.7em] rounded-sm border border-current" />
+                                    <Swatch option="rounded" />
                                 </Vibe>
                                 <Vibe
                                     word="Sans"
@@ -91,7 +88,7 @@ export default function Home() {
                                         </span>
                                     }
                                 >
-                                    <span className="font-semibold">Aa</span>
+                                    <Swatch option="sans" />
                                 </Vibe>
                             </ul>
                         </section>
@@ -131,8 +128,8 @@ function Vibe({
     children: ReactNode;
 }) {
     return (
-        <li className="flex items-baseline gap-1.5 whitespace-nowrap">
-            <span aria-hidden="true">{children}</span>
+        <li className="flex items-center gap-1.5 whitespace-nowrap">
+            {children}
             {word}
             {/* No room for the alternatives on phones */}
             <s className="text-faint max-sm:hidden">

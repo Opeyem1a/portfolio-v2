@@ -8,6 +8,7 @@ import {
     type Vibe,
 } from '@/data/guestbook';
 import { button } from '@/lib/button';
+import Swatch from '@/components/swatch';
 import { t } from '@/lib/t';
 
 const field = t({
@@ -188,37 +189,5 @@ function Pill({
                 descenders, which truncate would otherwise clip. */}
             <span className="min-w-0 truncate">{name}</span>
         </span>
-    );
-}
-
-function Swatch({ option }: { option: string }) {
-    if (option === 'sans' || option === 'serif') {
-        return (
-            <span
-                aria-hidden="true"
-                className={
-                    option === 'serif'
-                        ? 'font-serif text-lg leading-none'
-                        : 'text-sm leading-none font-semibold'
-                }
-            >
-                Aa
-            </span>
-        );
-    }
-    return (
-        <span
-            aria-hidden="true"
-            style={{ background: option === 'gradient' ? GRADIENT : undefined }}
-            className={t({
-                size: 'inline-block size-3.25 flex-none',
-                look: {
-                    solid: 'bg-sun',
-                    gradient: '',
-                    sharp: 'border border-current',
-                    rounded: 'rounded-sm border border-current',
-                }[option]!,
-            })}
-        />
     );
 }
