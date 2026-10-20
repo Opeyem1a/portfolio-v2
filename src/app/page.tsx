@@ -80,7 +80,7 @@ export default function Home() {
                         </div>
                         <section className="flex items-baseline gap-5 text-sm font-normal text-muted max-sm:gap-4">
                             <h3 className="font-medium whitespace-nowrap">
-                                My vibe
+                                I’m liking
                             </h3>
                             <ul className="flex gap-5 max-sm:gap-4">
                                 <Vibe word="Gradients" not="Solid">
@@ -167,7 +167,7 @@ function Ref({
                 href={`#row-${id}`}
                 aria-label={`Project: ${children}`}
                 className={t({
-                    layout: 'group px-px text-muted',
+                    layout: 'group rounded-md px-px text-muted squircle',
                     hover: 'transition-colors duration-160 ease-(--ease-out) hover:bg-highlight hover:text-fg',
                 })}
             >

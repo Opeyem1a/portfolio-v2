@@ -57,6 +57,11 @@
     --font-serif: var(--font-instrument-serif);
 }
 
+/* Squircle corners where supported (Chromium); plain rounded corners elsewhere. */
+@utility squircle {
+    corner-shape: squircle;
+}
+
 /* White sticker outline, plus a shadow that lifts on hover. */
 @utility sticker {
     filter: drop-shadow(1.4px 0 0 #fff) drop-shadow(-1.4px 0 0 #fff)

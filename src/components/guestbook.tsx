@@ -11,13 +11,14 @@ import { t } from '@/lib/t';
 
 const field = t({
     size: 'min-h-11 w-full px-3.5',
-    shape: 'border border-line bg-bg',
+    shape: 'rounded-xl border border-line bg-bg squircle',
     font: 'text-md font-normal text-fg',
 });
 
 const button = (primary = false) =>
     t({
         size: 'min-h-11 cursor-pointer px-4.5',
+        shape: 'rounded-xl squircle',
         font: 'text-md',
         color: primary
             ? 'bg-fg font-semibold text-bg'
@@ -78,7 +79,7 @@ export default function Guestbook() {
                     aria-expanded={composing}
                     className={t({
                         layout: 'inline-flex cursor-pointer items-center px-2.5',
-                        shape: 'border border-line bg-bg',
+                        shape: 'rounded-lg border border-line bg-bg squircle',
                         font: 'text-sm leading-6',
                         hover: 'transition-colors duration-160 ease-(--ease-out) hover:border-line-strong hover:bg-surface-2',
                     })}
@@ -108,7 +109,7 @@ export default function Guestbook() {
                 <div
                     className={t({
                         layout: 'flex flex-col gap-3.5 p-4',
-                        shape: 'border border-line bg-bg',
+                        shape: 'rounded-2xl border border-line bg-bg squircle',
                         font: 'font-normal',
                     })}
                 >
@@ -119,7 +120,7 @@ export default function Guestbook() {
                                 key={axis.key}
                                 role="group"
                                 aria-label={axis.label}
-                                className="inline-flex gap-0.5 bg-surface p-0.75 max-sm:flex max-sm:basis-full"
+                                className="inline-flex gap-0.5 rounded-xl bg-surface p-0.75 squircle max-sm:flex max-sm:basis-full"
                             >
                                 {axis.options.map((option) => {
                                     const on = vibe[axis.key] === option;
@@ -134,7 +135,7 @@ export default function Guestbook() {
                                                 })
                                             }
                                             className={t({
-                                                layout: 'inline-flex min-h-10 cursor-pointer items-center gap-1.5 px-2.5 max-sm:flex-1 max-sm:justify-center',
+                                                layout: 'inline-flex min-h-10 cursor-pointer items-center gap-1.5 rounded-lg px-2.5 squircle max-sm:flex-1 max-sm:justify-center',
                                                 font: 'text-sm capitalize',
                                                 color: on
                                                     ? 'bg-bg text-fg shadow-[0_1px_2px_rgb(17_17_17/0.08),0_0_0_1px_var(--color-line)]'
