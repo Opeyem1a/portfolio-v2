@@ -8,7 +8,13 @@ import { t } from '@/lib/t';
 // against the screen, not the window, because mobile browsers resize the
 // window as their address bar shows and hides, which made the star jump.
 // A section title with a line running out from it.
-export default function SectionDivider({ title }: { title: string }) {
+export default function SectionDivider({
+    number,
+    title,
+}: {
+    number: string;
+    title: string;
+}) {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

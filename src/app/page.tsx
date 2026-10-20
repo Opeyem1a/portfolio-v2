@@ -77,7 +77,7 @@ export default function Home() {
                 <div className="flex flex-1 flex-col gap-14 max-sm:gap-12">
                     <div className="mb-16 flex flex-col gap-5 max-sm:mb-8">
                         <div className="mb-3">
-                            <SectionDivider title="Guestbook" />
+                            <SectionDivider number="02" title="Guestbook" />
                         </div>
                         <section className="flex items-baseline gap-5 text-sm font-normal text-muted max-sm:gap-4">
                             <h3 className="font-medium whitespace-nowrap">

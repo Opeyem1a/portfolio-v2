@@ -30,7 +30,7 @@ export default function Projects() {
     return (
         <section className="flex flex-col">
             <div className="mb-8">
-                <SectionDivider title="Work & projects" />
+                <SectionDivider number="01" title="Work & projects" />
             </div>
             {PROJECTS.map((project) => {
                 const open = openId === project.id;
