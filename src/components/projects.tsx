@@ -55,7 +55,7 @@ export default function Projects() {
                                 className={t({
                                     font: 'justify-self-start font-semibold tracking-tight max-sm:col-start-1',
                                     // A yellow marker while open; no underline, so it never reads as a link
-                                    color: '-mx-1 px-1 transition-colors duration-200 ease-(--ease-out) group-data-open:bg-sun group-data-open:text-ink',
+                                    color: '-mx-1.5 px-1.5 transition-colors duration-200 ease-(--ease-out) group-data-open:bg-sun group-data-open:text-ink',
                                 })}
                             >
                                 {project.name}
@@ -118,7 +118,7 @@ export default function Projects() {
                                                         font: 'text-md text-fg',
                                                         // Yellow underline that fills in on hover
                                                         underline:
-                                                            'underline decoration-sun decoration-2 underline-offset-4 hover:bg-sun hover:text-ink',
+                                                            '-mx-1.5 px-1.5 underline decoration-sun decoration-2 underline-offset-4 hover:bg-sun hover:text-ink',
                                                         motion: 'transition-colors duration-160 ease-(--ease-out)',
                                                     })}
                                                 >
