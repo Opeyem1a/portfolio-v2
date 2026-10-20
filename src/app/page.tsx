@@ -19,9 +19,9 @@ export default function Home() {
             <main className="mx-auto flex w-full max-w-155 flex-1 flex-col gap-14 max-sm:gap-12">
                 {/* Fills the first screen (minus the page's top padding), so the
                     links sit at the bottom and the next section starts below
-                    the fold. The smile block takes the spare height, up to a
-                    square. */}
-                <div className="[container-type:inline-size] flex min-h-[calc(100svh-4rem)] flex-col gap-14 pb-8 max-sm:min-h-[calc(100svh-3rem)] max-sm:gap-8">
+                    the fold. The smile block takes the spare height, up to
+                    16:9. */}
+                <div className="[container-type:inline-size] flex min-h-[calc(100svh-4rem)] flex-col gap-12 pb-8 max-sm:min-h-[calc(100svh-3rem)] max-sm:gap-8">
                     <header
                         className={t({
                             layout: 'flex items-baseline justify-between gap-3 pb-1 max-sm:flex-col max-sm:gap-1.5',
@@ -60,7 +60,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="flex grow flex-col gap-4">
+                    <div className="flex grow flex-col gap-6">
                         <SmileBlock />
                         <div className="-ml-2 flex flex-wrap items-center gap-2.5">
                             <QuickLink href={`mailto:${EMAIL}`}>
