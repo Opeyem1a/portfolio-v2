@@ -190,8 +190,10 @@ function Pill({
                     : '',
             })}
         >
-            {/* Line height leaves room for descenders, which truncate would clip */}
-            <span className="max-w-[16ch] truncate">{name}</span>
+            {/* Nicknames are capped at 16 characters, so this only truncates on
+                very narrow screens. The pill's line height leaves room for
+                descenders, which truncate would otherwise clip. */}
+            <span className="min-w-0 truncate">{name}</span>
         </span>
     );
 }
