@@ -51,7 +51,7 @@ export default function SmileBlock() {
                 viewBox="0 0 1000 1000"
                 fill="none"
                 className={t({
-                    size: 'size-24 text-ink max-sm:size-20',
+                    size: 'size-20 text-ink max-sm:size-16',
                     position:
                         'translate-x-[calc(var(--x)*(100cqw-100%))] translate-y-[calc(var(--y)*(100cqh-100%))]',
                     transition:
