@@ -34,10 +34,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             className={`${archivo.variable} ${instrumentSerif.variable}`}
         >
             <head>
+                {/* Low priority so the fonts load first */}
                 <link
                     rel="preload"
                     href="https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png"
                     as="image"
+                    fetchPriority="low"
                 />
             </head>
             <body className="font-sans">
