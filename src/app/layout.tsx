@@ -19,7 +19,7 @@ const instrumentSerif = Instrument_Serif({
 const metadata: Metadata = {
     metadataBase: new URL('https://opeyadeyemi.com'),
     title: 'Opey Adeyemi',
-    description: 'I just want to make something cool',
+    description: 'having fun (stubbornly)',
     twitter: { card: 'summary_large_image' },
 };
 
