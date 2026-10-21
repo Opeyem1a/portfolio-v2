@@ -19,7 +19,8 @@ const instrumentSerif = Instrument_Serif({
 const metadata: Metadata = {
     metadataBase: new URL('https://opeyadeyemi.com'),
     title: 'Opey Adeyemi',
-    description: 'A selection of thoughts and work.',
+    description:
+        'Product engineer at Rokt Aftersell. I care about doing novel things in fun ways.',
     twitter: { card: 'summary_large_image' },
 };
 
