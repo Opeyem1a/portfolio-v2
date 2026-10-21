@@ -5,8 +5,10 @@
 - Export at the bottom of the file (`export default Name;`, `export { a, b };`).
   Never inline `export` on a function, variable or type.
 - Multi-line comments are JSDoc blocks (`/** … */`), not stacked `//` lines.
-- One component per file in `src/components`. Splitting into files to keep
-  things readable and reviewable is encouraged; it isn't abstraction.
+- Each component gets its own file in `src/components`. Small helpers used by
+  only that component (e.g. `Chevron` in `project-row.tsx`) can live alongside
+  it. Splitting into files to keep things readable and reviewable is encouraged;
+  it isn't abstraction.
 - Use the shared pieces: `Button` for anything button-shaped, `Section` for page
   sections.
 - Group long Tailwind class lists with `t({ … })` (`src/lib/t.ts`).
