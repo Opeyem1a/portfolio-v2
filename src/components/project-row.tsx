@@ -1,92 +1,104 @@
+import Button from '@/components/button';
 import type { Project } from '@/data/projects';
-import CornerArrow from '@/assets/corner-arrow.svg';
 import { t } from '@/lib/t';
 
-export default function ProjectRow({
-    title,
-    subtitle,
-    category,
-    description,
-    links,
-    skills,
-}: Project) {
+// One accordion row in Work & projects.
+function ProjectRow({
+    project,
+    open,
+    onToggle,
+}: {
+    project: Project;
+    open: boolean;
+    onToggle: () => void;
+}) {
     return (
         <div
-            className={t({
-                layout: 'flex flex-col gap-4 desktop:flex-row',
-                padding: 'px-2 py-10 tablet:py-16',
-                border: 'border-b border-fg/10 transition-[border-color] hover:border-fg/50',
-            })}
+            id={`row-${project.id}`}
+            data-open={open || undefined}
+            className="group scroll-mt-6 border-t border-line"
         >
-            <div
+            <button
+                onClick={onToggle}
+                data-hover-none
+                aria-expanded={open}
+                aria-controls={`acc-${project.id}`}
                 className={t({
-                    // Subtitle sits above the title until desktop
-                    layout: 'flex flex-1 flex-col-reverse justify-between gap-2 desktop:flex-col desktop:gap-6',
+                    layout: 'grid w-full cursor-pointer grid-cols-[180px_minmax(0,1fr)_auto_14px] items-baseline gap-4 py-2.5 text-left',
+                    mobile: 'max-sm:grid-cols-[minmax(0,1fr)_14px] max-sm:gap-x-3 max-sm:gap-y-0.5',
+                    font: 'text-base',
                 })}
             >
-                <p
+                <span
                     className={t({
-                        width: 'w-fit desktop:max-w-[10ch]',
-                        font: 'font-heading text-[3rem] leading-[125%] tablet:text-[3.6rem]',
+                        font: 'justify-self-start font-semibold tracking-tight max-sm:col-start-1',
+                        // A yellow dot in the gutter while open
+                        dot: 'relative before:absolute before:top-1/2 before:-left-3.5 before:size-1.5 before:-translate-y-1/2 before:scale-0 before:rounded-full before:bg-sun before:transition-transform before:duration-200 before:ease-(--ease-out) group-data-open:before:scale-100',
                     })}
                 >
-                    {title}
-                </p>
-                <p className="leading-[160%] opacity-50">{subtitle}</p>
-            </div>
-            <div className="flex flex-1 flex-col gap-9 pt-4 tablet:flex-row">
-                <div className="flex flex-1 flex-col justify-between gap-8">
-                    <p className="hidden text-[1.25rem] leading-[160%] tablet:block">
-                        {category}
-                    </p>
-                    <div
-                        data-hover-none
-                        className="flex flex-col gap-2 tablet:gap-1"
-                    >
-                        {links.map(({ label, href }) => (
-                            <a
-                                key={href}
-                                href={href}
-                                target="_blank"
-                                className={t({
-                                    font: 'w-fit leading-[160%] text-fg uppercase dark:text-primary',
-                                    // Underline grows in from the left on hover
-                                    underline:
-                                        'after:block after:h-[3px] after:origin-left after:scale-x-0 after:bg-primary hover:after:scale-x-100 dark:after:bg-fg',
-                                    transition:
-                                        'after:transition-transform after:ease-out motion-reduce:after:transition-none',
-                                })}
-                            >
-                                {label}&nbsp;&nbsp;
-                                <CornerArrow
-                                    className={t({
-                                        size: 'inline h-[0.75em] w-auto align-baseline',
-                                        fill: '[&_*]:fill-primary dark:[&_*]:fill-fg',
-                                    })}
-                                />
-                            </a>
-                        ))}
-                    </div>
-                </div>
-                <div className="flex flex-1 flex-col justify-between gap-8">
-                    <p className="max-w-[45ch] leading-[160%]">{description}</p>
-                    {skills && (
-                        <ul className="flex max-w-[45ch] flex-wrap gap-2">
-                            {skills.map((skill) => (
-                                <li
-                                    key={skill}
-                                    className={t({
-                                        shape: 'rounded-2xl bg-fg/10 px-3 py-1.5',
-                                        font: 'text-[0.75rem] leading-[160%]',
-                                    })}
-                                >
-                                    {skill}
-                                </li>
+                    {project.name}
+                </span>
+                <span className="text-muted transition-colors duration-200 ease-(--ease-out) group-data-open:text-fg max-sm:col-start-1">
+                    {project.summary}
+                </span>
+                {/* Phones show the kind only once the row is open */}
+                <span className="text-sm text-faint max-sm:col-start-1 max-sm:hidden max-sm:group-data-open:block">
+                    {project.kind}
+                </span>
+                <Chevron />
+            </button>
+            {/* Rows animate open via grid-template-rows 0fr -> 1fr. */}
+            <div
+                id={`acc-${project.id}`}
+                className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-220 ease-(--ease-out) group-data-open:grid-rows-[1fr]"
+            >
+                <div
+                    className={t({
+                        layout: 'min-h-0 overflow-hidden',
+                        // Hidden from tab order and screen readers while closed
+                        visibility:
+                            'invisible transition-[visibility] delay-220 group-data-open:visible group-data-open:delay-0',
+                    })}
+                >
+                    <div className="flex flex-col gap-2.5 pt-1.5 pb-4 pl-49 text-md text-muted max-sm:pl-0">
+                        <p>{project.description}</p>
+                        <p className="text-xs text-faint">{project.stack}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                            {project.links.map(({ label, href }) => (
+                                <Button key={href} variant="soft" href={href}>
+                                    {label}
+                                </Button>
                             ))}
-                        </ul>
-                    )}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
+
+// Points down; flips while the row is open.
+function Chevron() {
+    return (
+        <svg
+            viewBox="0 0 12 12"
+            aria-hidden="true"
+            className={t({
+                size: 'size-3 self-center text-muted',
+                mobile: 'max-sm:col-start-2 max-sm:row-start-1',
+                open: 'transition-transform duration-200 ease-(--ease-out) group-data-open:rotate-180',
+            })}
+        >
+            <path
+                d="M2.5 4.5L6 8l3.5-3.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+}
+
+export default ProjectRow;

@@ -1,7 +1,9 @@
-// Relays short notes left by visitors (usually via an AI agent) to a private
-// Discord channel. No IPs, cookies, or storage.
+/**
+ * Relays short notes left by visitors (usually via an AI agent) to a private
+ * Discord channel. No IPs, cookies, or storage.
+ */
 
-export const dynamic = 'force-dynamic';
+const dynamic = 'force-dynamic';
 
 const MAX_LENGTH = 500;
 const RATE_LIMIT = 20; // per minute, best-effort per instance
@@ -68,5 +70,7 @@ const handle = async (request: Request) => {
     return res?.ok ? text('Thanks, sent!') : text("Couldn't deliver.", 502);
 };
 
-export const GET = handle;
-export const POST = handle;
+const GET = handle;
+const POST = handle;
+
+export { dynamic, GET, POST };
