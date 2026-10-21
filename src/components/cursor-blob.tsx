@@ -10,7 +10,7 @@ const SIZE = 40;
  * marked `data-hover-none`, which elements with their own hover state opt into.
  * Only shown on devices with a real cursor.
  */
-export default function CursorBlob() {
+function CursorBlob() {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -61,3 +61,5 @@ export default function CursorBlob() {
         />
     );
 }
+
+export default CursorBlob;

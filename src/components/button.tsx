@@ -11,7 +11,7 @@ const VARIANTS = {
 };
 
 // Every button-shaped link and button on the site. With an href it's a link.
-export default function Button({
+function Button({
     variant,
     href,
     onClick,
@@ -38,3 +38,5 @@ export default function Button({
         </button>
     );
 }
+
+export default Button;

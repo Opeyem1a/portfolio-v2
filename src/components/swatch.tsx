@@ -5,7 +5,7 @@ import { t } from '@/lib/t';
  * The little icon for each vibe option, shared by the guestbook form and the
  * "I’m liking" row.
  */
-export default function Swatch({ option }: { option: string }) {
+function Swatch({ option }: { option: string }) {
     if (option === 'sans' || option === 'serif') {
         return (
             <span
@@ -36,3 +36,5 @@ export default function Swatch({ option }: { option: string }) {
         />
     );
 }
+
+export default Swatch;

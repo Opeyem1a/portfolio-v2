@@ -13,7 +13,7 @@ const transition =
  * and --smile-y place them within their free space (0 = start, 1 = end). Both
  * move with translate transitions, so nothing repaints while they glide.
  */
-export default function SmileBlock() {
+function SmileBlock() {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -83,3 +83,5 @@ export default function SmileBlock() {
         </div>
     );
 }
+
+export default SmileBlock;

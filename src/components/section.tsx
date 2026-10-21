@@ -12,7 +12,7 @@ import { t } from '@/lib/t';
  * against the screen, not the window, because mobile browsers resize the
  * window as their address bar shows and hides, which made the star jump.
  */
-export default function Section({
+function Section({
     number,
     title,
     children,
@@ -122,3 +122,5 @@ export default function Section({
         </section>
     );
 }
+
+export default Section;

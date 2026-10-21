@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { t } from '@/lib/t';
 
 // Pick one of a few options, shown side by side in a track.
-export default function SegmentedControl<T extends string>({
+function SegmentedControl<T extends string>({
     label,
     options,
     value,
@@ -45,3 +45,5 @@ export default function SegmentedControl<T extends string>({
         </div>
     );
 }
+
+export default SegmentedControl;

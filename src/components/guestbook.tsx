@@ -8,6 +8,8 @@ import {
     type Vibe,
 } from '@/data/guestbook';
 import Button from '@/components/button';
+import Preferences from '@/components/preferences';
+import Section from '@/components/section';
 import SegmentedControl from '@/components/segmented-control';
 import Swatch from '@/components/swatch';
 import { t } from '@/lib/t';
@@ -38,7 +40,7 @@ const AXES = [
     { key: 'type', label: 'Sans or serif', options: ['sans', 'serif'] },
 ] as const;
 
-export default function Guestbook() {
+function Guestbook() {
     const [vibe, setVibe] = useState<Vibe>({
         fill: 'solid',
         corner: 'rounded',
@@ -59,87 +61,104 @@ export default function Guestbook() {
     };
 
     return (
-        <section className="flex flex-col gap-3.5">
-            <p className="text-sm text-muted">
-                {SIGNATURES.length + (signed ? 1 : 0)} signed
-            </p>
-            <ul className="flex flex-wrap gap-2">
-                {signed && (
-                    <li>
-                        <Pill {...signed} mine />
-                    </li>
-                )}
-                {SIGNATURES.map((signature, i) => (
-                    <li key={i}>
-                        <Pill {...signature} />
-                    </li>
-                ))}
-            </ul>
-            {signed && (
-                <p className="text-sm text-muted">
-                    Thanks, {signed.name}! The outlined pill is a preview;
-                    you’ll be added for real once I check the list.
-                </p>
-            )}
-            {/* Swapped for the thanks above once signed */}
-            {!signed && (
-                <div
-                    className={t({
-                        layout: 'flex flex-col gap-3.5 p-4',
-                        shape: 'rounded-2xl border border-line bg-bg squircle',
-                    })}
-                >
-                    <p className="text-sm text-muted">Sign my guestbook</p>
-                    <div className="flex flex-wrap gap-2">
-                        {AXES.map((axis) => (
-                            <SegmentedControl
-                                key={axis.key}
-                                label={axis.label}
-                                options={axis.options}
-                                value={vibe[axis.key]}
-                                onChange={(option) =>
-                                    setVibe({ ...vibe, [axis.key]: option })
-                                }
-                                renderOption={(option) => (
-                                    <>
-                                        <Swatch option={option} />
-                                        {option}
-                                    </>
-                                )}
-                            />
+        <Section number="02" title="Guestbook">
+            <div className="flex flex-col gap-5">
+                <Preferences />
+                <div className="flex flex-col gap-3.5">
+                    <p className="text-sm text-muted">
+                        {SIGNATURES.length + (signed ? 1 : 0)} signed
+                    </p>
+                    <ul className="flex flex-wrap gap-2">
+                        {signed && (
+                            <li>
+                                <Pill {...signed} mine />
+                            </li>
+                        )}
+                        {SIGNATURES.map((signature, i) => (
+                            <li key={i}>
+                                <Pill {...signature} />
+                            </li>
                         ))}
-                    </div>
-                    <label htmlFor="nickname" className="text-sm text-muted">
-                        Nickname
-                    </label>
-                    <input
-                        id="nickname"
-                        type="text"
-                        maxLength={16}
-                        placeholder="Up to 16 characters"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className={field}
-                    />
-                    <div className="flex flex-col gap-2">
-                        <p className="text-sm text-muted">Preview</p>
-                        <div>
-                            <Pill name={name.trim() || 'nickname'} {...vibe} />
-                        </div>
-                    </div>
-                    <div className="flex justify-end">
-                        <Button variant="solid" onClick={sign}>
-                            Sign
-                        </Button>
-                    </div>
-                    {failed && (
-                        <p role="alert" className="text-sm text-muted">
-                            Couldn’t sign just now. Try again in a bit?
+                    </ul>
+                    {signed && (
+                        <p className="text-sm text-muted">
+                            Thanks, {signed.name}! The outlined pill is a
+                            preview; you’ll be added for real once I check the
+                            list.
                         </p>
                     )}
+                    {/* Swapped for the thanks above once signed */}
+                    {!signed && (
+                        <div
+                            className={t({
+                                layout: 'flex flex-col gap-3.5 p-4',
+                                shape: 'rounded-2xl border border-line bg-bg squircle',
+                            })}
+                        >
+                            <p className="text-sm text-muted">
+                                Sign my guestbook
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                {AXES.map((axis) => (
+                                    <SegmentedControl
+                                        key={axis.key}
+                                        label={axis.label}
+                                        options={axis.options}
+                                        value={vibe[axis.key]}
+                                        onChange={(option) =>
+                                            setVibe({
+                                                ...vibe,
+                                                [axis.key]: option,
+                                            })
+                                        }
+                                        renderOption={(option) => (
+                                            <>
+                                                <Swatch option={option} />
+                                                {option}
+                                            </>
+                                        )}
+                                    />
+                                ))}
+                            </div>
+                            <label
+                                htmlFor="nickname"
+                                className="text-sm text-muted"
+                            >
+                                Nickname
+                            </label>
+                            <input
+                                id="nickname"
+                                type="text"
+                                maxLength={16}
+                                placeholder="Up to 16 characters"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className={field}
+                            />
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm text-muted">Preview</p>
+                                <div>
+                                    <Pill
+                                        name={name.trim() || 'nickname'}
+                                        {...vibe}
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex justify-end">
+                                <Button variant="solid" onClick={sign}>
+                                    Sign
+                                </Button>
+                            </div>
+                            {failed && (
+                                <p role="alert" className="text-sm text-muted">
+                                    Couldn’t sign just now. Try again in a bit?
+                                </p>
+                            )}
+                        </div>
+                    )}
                 </div>
-            )}
-        </section>
+            </div>
+        </Section>
     );
 }
 
@@ -174,3 +193,5 @@ function Pill({
         </span>
     );
 }
+
+export default Guestbook;

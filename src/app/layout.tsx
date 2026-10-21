@@ -16,19 +16,19 @@ const instrumentSerif = Instrument_Serif({
     variable: '--font-instrument-serif',
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
     title: 'Opey Adeyemi',
     description: 'A selection of thoughts and work.',
 };
 
-export const viewport: Viewport = {
+const viewport: Viewport = {
     themeColor: [
         { media: '(prefers-color-scheme: light)', color: '#ffffff' },
         { media: '(prefers-color-scheme: dark)', color: '#0b0b0a' },
     ],
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html
             lang="en"
@@ -53,3 +53,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </html>
     );
 }
+
+export { metadata, viewport };
+export default RootLayout;

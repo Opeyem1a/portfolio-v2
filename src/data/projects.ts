@@ -1,4 +1,4 @@
-export type Project = {
+type Project = {
     id: string;
     name: string;
     summary: string;
@@ -8,7 +8,7 @@ export type Project = {
     links: { label: string; href: string }[];
 };
 
-export const PROJECTS: Project[] = [
+const PROJECTS: Project[] = [
     {
         id: 'aftersell',
         name: 'Aftersell Cart',
@@ -116,3 +116,6 @@ export const PROJECTS: Project[] = [
         ],
     },
 ];
+
+export type { Project };
+export { PROJECTS };

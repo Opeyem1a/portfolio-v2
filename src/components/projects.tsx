@@ -7,7 +7,7 @@ import { PROJECTS } from '@/data/projects';
 
 const ROW_PREFIX = '#row-';
 
-export default function Projects() {
+function Projects() {
     const [openId, setOpenId] = useState<string | null>(null);
 
     // References in the intro link to `#row-<id>`; following one opens that row.
@@ -42,3 +42,5 @@ export default function Projects() {
         </Section>
     );
 }
+
+export default Projects;

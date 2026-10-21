@@ -3,7 +3,7 @@ import type { Project } from '@/data/projects';
 import { t } from '@/lib/t';
 
 // One accordion row in Work & projects.
-export default function ProjectRow({
+function ProjectRow({
     project,
     open,
     onToggle,
@@ -100,3 +100,5 @@ function Chevron() {
         </svg>
     );
 }
+
+export default ProjectRow;
