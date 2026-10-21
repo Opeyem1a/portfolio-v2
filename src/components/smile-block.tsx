@@ -5,16 +5,13 @@ import { t } from '@/lib/t';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
-// A soft glow that sits behind the smile and follows it.
-const texture = [
-    'radial-gradient(80% 120% at calc(var(--smile-x) * 100%) calc(var(--smile-y) * 100%), #ffd866, transparent 70%)',
-    'var(--color-sun)',
-].join(', ');
+const transition =
+    'transition-[translate] duration-600 ease-out motion-reduce:transition-none';
 
 /**
- * The smile drifts towards the cursor. --smile-x and --smile-y place it within
- * the block's free space (0 = start, 1 = end). They're registered in
- * globals.css, so they transition, and the smile and gradient move together.
+ * The smile drifts towards the cursor, with a soft glow behind it. --smile-x
+ * and --smile-y place them within their free space (0 = start, 1 = end). Both
+ * move with translate transitions, so nothing repaints while they glide.
  */
 export default function SmileBlock() {
     const ref = useRef<HTMLDivElement>(null);
@@ -41,14 +38,23 @@ export default function SmileBlock() {
             ref={ref}
             aria-hidden="true"
             data-hover-none
-            style={{ background: texture }}
             className={t({
-                shape: 'relative max-h-[50cqw] min-h-48 grow-[1000] rounded-xl max-sm:min-h-40',
+                shape: 'relative max-h-[50cqw] min-h-48 grow-[1000] overflow-hidden rounded-xl bg-sun max-sm:min-h-40',
                 start: '[--smile-x:0.5] [--smile-y:calc(1/11)]',
-                transition:
-                    'transition-[--smile-x,--smile-y] duration-600 ease-out motion-reduce:transition-none',
             })}
         >
+            {/* The glow's track spans the whole block. The glow is centred on
+                the track's top-left corner, then translated across it. */}
+            <div className="[container-type:size] absolute inset-0">
+                <div
+                    className={t({
+                        shape: 'absolute top-[-120%] left-[-80%] h-[240%] w-[160%] bg-[radial-gradient(closest-side,#ffd866,transparent_70%)]',
+                        position:
+                            'translate-x-[calc(var(--smile-x)*100cqw)] translate-y-[calc(var(--smile-y)*100cqh)]',
+                        transition,
+                    })}
+                />
+            </div>
             {/* The smile's track, inset so it never touches the edges. Absolute,
                 so it has a definite height for the container units below. */}
             <div className="[container-type:size] absolute inset-12 max-sm:inset-8">
@@ -59,6 +65,7 @@ export default function SmileBlock() {
                         size: 'size-16 text-ink max-sm:size-10',
                         position:
                             'translate-x-[calc(var(--smile-x)*(100cqw-100%))] translate-y-[calc(var(--smile-y)*(100cqh-100%))]',
+                        transition,
                     })}
                 >
                     <path
