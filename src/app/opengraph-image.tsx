@@ -22,16 +22,18 @@ function OpengraphImage() {
             <div
                 style={{
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    alignItems: 'flex-end',
                     flexGrow: 1,
+                    padding: 80,
                     borderRadius: 36,
                     backgroundColor: '#ffc42d',
+                    backgroundImage:
+                        'radial-gradient(circle at 26% 52%, #ffe38a 0%, #ffd866 22%, #ffc42d 62%)',
                 }}
             >
                 <svg
-                    width="240"
-                    height="240"
+                    width="160"
+                    height="160"
                     viewBox="0 0 1000 1000"
                     fill="none"
                 >
