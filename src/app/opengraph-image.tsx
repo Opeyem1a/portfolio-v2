@@ -43,7 +43,7 @@ async function OpengraphImage() {
                     display: 'flex',
                     alignItems: 'flex-end',
                     flexGrow: 1,
-                    padding: 56,
+                    padding: 80,
                     borderRadius: 36,
                     backgroundColor: '#ffc42d',
                     backgroundImage:
