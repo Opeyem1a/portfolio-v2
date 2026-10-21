@@ -81,13 +81,16 @@ export default function Home() {
                                         I’m liking
                                     </h3>
                                     <ul className="flex gap-5 max-sm:gap-4">
-                                        <Vibe word="Gradients" not="Solid">
+                                        <Preference
+                                            word="Gradients"
+                                            not="Solid"
+                                        >
                                             <Swatch option="gradient" />
-                                        </Vibe>
-                                        <Vibe word="Rounded" not="Sharp">
+                                        </Preference>
+                                        <Preference word="Rounded" not="Sharp">
                                             <Swatch option="rounded" />
-                                        </Vibe>
-                                        <Vibe
+                                        </Preference>
+                                        <Preference
                                             word="Sans"
                                             not={
                                                 <span className="font-serif">
@@ -96,7 +99,7 @@ export default function Home() {
                                             }
                                         >
                                             <Swatch option="sans" />
-                                        </Vibe>
+                                        </Preference>
                                     </ul>
                                 </div>
 
@@ -127,7 +130,8 @@ export default function Home() {
     );
 }
 
-function Vibe({
+// One style I prefer, with the one I don't struck through.
+function Preference({
     word,
     not,
     children,
