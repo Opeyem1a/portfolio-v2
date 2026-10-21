@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { t } from '@/lib/t';
 
-const SIZE = 48;
+const SIZE = 40;
 
 /**
  * An inverting circle that follows the cursor. It shrinks away over anything
@@ -50,8 +50,13 @@ export default function CursorBlob() {
                 shape: 'rounded-full backdrop-invert',
                 idle: 'data-[state=idle]:scale-50',
                 hidden: 'data-[state=hidden]:scale-25 data-[state=hidden]:opacity-0',
+                /**
+                 * A long ease-out on translate makes it drift after the cursor.
+                 * Each move restarts the transition from wherever the blob is,
+                 * so it stays smooth while the cursor keeps moving.
+                 */
                 transition:
-                    'transition-[translate,scale,opacity] duration-[180ms,200ms,200ms] ease-out motion-reduce:transition-[opacity]',
+                    'transition-[translate,scale,opacity] duration-[700ms,200ms,200ms] ease-out motion-reduce:transition-[opacity]',
             })}
         />
     );

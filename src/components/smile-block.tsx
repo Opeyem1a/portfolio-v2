@@ -40,6 +40,7 @@ export default function SmileBlock() {
         <div
             ref={ref}
             aria-hidden="true"
+            data-hover-none
             style={{ background: texture }}
             className={t({
                 shape: 'relative max-h-[50cqw] min-h-48 grow-[1000] rounded-xl max-sm:min-h-40',
