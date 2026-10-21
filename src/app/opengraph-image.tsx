@@ -23,8 +23,8 @@ async function OpengraphImage() {
                 width: '100%',
                 height: '100%',
                 padding: 56,
-                backgroundColor: '#ffffff',
-                color: '#111111',
+                backgroundColor: '#0b0b0a',
+                color: '#ededea',
                 fontFamily: 'Archivo',
             }}
         >
