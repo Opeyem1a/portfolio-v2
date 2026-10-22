@@ -30,6 +30,12 @@ const sendNote = (note: string) =>
         .then((res) => res.ok)
         .catch(() => false);
 
+/** Formats a signature as a `SIGNATURES` entry, ready to paste into src/data/guestbook.ts. */
+const toEntry = (signature: Signature) =>
+    `{ ${Object.entries(signature)
+        .map(([key, value]) => `${key}: '${value.replace(/[\\']/g, '\\$&')}'`)
+        .join(', ')} }`;
+
 const AXES = [
     { key: 'fill', label: 'Solid or gradient', options: ['solid', 'gradient'] },
     {
@@ -53,7 +59,7 @@ function Guestbook() {
     const sign = async () => {
         const signature = { name: name.trim() || 'anonymous', ...vibe };
         setFailed(false);
-        if (await sendNote(`Guestbook: ${JSON.stringify(signature)}`)) {
+        if (await sendNote(`Guestbook: ${toEntry(signature)}`)) {
             setSigned(signature);
         } else {
             setFailed(true);
