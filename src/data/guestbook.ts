@@ -18,6 +18,12 @@ const SIGNATURES: Signature[] = [
     { name: 'Noush Doush', fill: 'gradient', corner: 'rounded', type: 'serif' },
     { name: 'Brenden T', fill: 'gradient', corner: 'rounded', type: 'sans' },
     { name: 'Sophia! :)', fill: 'gradient', corner: 'rounded', type: 'serif' },
+    {
+        name: 'girlbossnova;)',
+        fill: 'gradient',
+        corner: 'rounded',
+        type: 'sans',
+    },
 ];
 
 export type { Vibe, Signature };
