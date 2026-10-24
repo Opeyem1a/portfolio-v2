@@ -5,18 +5,28 @@ import { t } from '@/lib/t';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
+/** How long the smile waits before following the cursor, in ms. */
+const DELAY = 140;
+
 const transition =
-    'transition-[translate] duration-600 ease-out motion-reduce:transition-none';
+    'transition-[translate] duration-900 ease-out motion-reduce:transition-none';
 
 /**
  * The smile drifts towards the cursor, with a soft glow behind it. --smile-x
  * and --smile-y place them within their free space (0 = start, 1 = end). Both
  * move with translate transitions, so nothing repaints while they glide.
+ *
+ * Each target is held back by DELAY before it's applied, so the smile lags a
+ * beat behind the cursor. This can't be a transition-delay: that restarts on
+ * every mousemove, so the smile would freeze until the cursor stopped.
  */
 function SmileBlock() {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const timers = new Set<number>();
+        const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
         const onMouseMove = (e: MouseEvent) => {
             const el = ref.current;
             if (!el) return;
@@ -25,12 +35,28 @@ function SmileBlock() {
                 (e.clientX - (rect.left + rect.width / 2)) / innerWidth;
             const ratioY =
                 (e.clientY - (rect.top + rect.height / 2)) / innerHeight;
-            el.style.setProperty('--smile-x', `${clamp(ratioX + 0.5)}`);
-            el.style.setProperty('--smile-y', `${clamp(ratioY + 0.5)}`);
+            const x = `${clamp(ratioX + 0.5)}`;
+            const y = `${clamp(ratioY + 0.5)}`;
+            const place = () => {
+                el.style.setProperty('--smile-x', x);
+                el.style.setProperty('--smile-y', y);
+            };
+            if (reducedMotion.matches) {
+                place();
+                return;
+            }
+            const timer = window.setTimeout(() => {
+                timers.delete(timer);
+                place();
+            }, DELAY);
+            timers.add(timer);
         };
 
         window.addEventListener('mousemove', onMouseMove, { passive: true });
-        return () => window.removeEventListener('mousemove', onMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove);
+            timers.forEach((timer) => window.clearTimeout(timer));
+        };
     }, []);
 
     return (
