@@ -24,6 +24,7 @@ const SIGNATURES: Signature[] = [
         corner: 'rounded',
         type: 'sans',
     },
+    { name: 'emdawgz', fill: 'gradient', corner: 'rounded', type: 'sans' },
 ];
 
 export type { Vibe, Signature };
