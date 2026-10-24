@@ -1,5 +1,6 @@
 import Button from '@/components/button';
 import ProjectMention from '@/components/project-mention';
+import SplitReveal from '@/components/split-reveal';
 import SmileBlock from '@/components/smile-block';
 import { EMAIL, GITHUB_LINK, LINKEDIN_LINK, RESUME_LINK } from '@/data/links';
 import { t } from '@/lib/t';
@@ -19,7 +20,9 @@ function Intro() {
                     font: 'text-md',
                 })}
             >
-                <h1 className="font-semibold tracking-tight">Opey Adeyemi</h1>
+                <h1 className="font-semibold tracking-tight">
+                    <SplitReveal text="Opey Adeyemi" stagger={35} />
+                </h1>
                 <p className="text-muted">Product engineer</p>
             </header>
 

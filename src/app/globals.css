@@ -186,3 +186,30 @@
         }
     }
 }
+
+/* MOCK: letter reveal variants, switched with html[data-reveal]. */
+@keyframes reveal-blur {
+    from {
+        opacity: 0;
+        filter: blur(4px);
+    }
+}
+@keyframes reveal-lift {
+    from {
+        opacity: 0;
+        translate: 0 0.35em;
+    }
+}
+.reveal-char {
+    display: inline-block;
+    animation: reveal-blur 600ms var(--ease-out) both;
+    animation-delay: calc(var(--i) * var(--stagger));
+}
+html[data-reveal='lift'] .reveal-char {
+    animation-name: reveal-lift;
+}
+@media (prefers-reduced-motion: reduce) {
+    .reveal-char {
+        animation: none;
+    }
+}
