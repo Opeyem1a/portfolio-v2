@@ -51,12 +51,12 @@ function CursorBlob() {
                 idle: 'data-[state=idle]:scale-50',
                 hidden: 'data-[state=hidden]:scale-25 data-[state=hidden]:opacity-0',
                 /**
-                 * A long ease-out on translate makes it drift after the cursor.
+                 * An ease-out on translate makes it drift after the cursor.
                  * Each move restarts the transition from wherever the blob is,
                  * so it stays smooth while the cursor keeps moving.
                  */
                 transition:
-                    'transition-[translate,scale,opacity] duration-[700ms,200ms,200ms] ease-out motion-reduce:transition-[opacity]',
+                    'transition-[translate,scale,opacity] duration-[450ms,200ms,200ms] ease-out motion-reduce:transition-[opacity]',
             })}
         />
     );
