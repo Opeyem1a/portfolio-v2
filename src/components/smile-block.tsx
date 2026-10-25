@@ -7,12 +7,12 @@ const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
 /**
  * Each mousemove restarts the transition, so how far the smile lags is set by
- * how fast the curve starts. The drift curve starts gentler than ease-out, so
- * it trails the cursor. It only ever slows down, so it doesn't surge after the
- * cursor stops.
+ * how fast the curve starts. The plain CSS ease-out starts gentler than the
+ * theme's ease-out, so the smile trails the cursor, and it only ever slows
+ * down, so it doesn't surge after the cursor stops.
  */
 const transition =
-    'transition-[translate] duration-1000 ease-drift motion-reduce:transition-none';
+    'transition-[translate] duration-700 ease-[ease-out] motion-reduce:transition-none';
 
 /**
  * The smile drifts towards the cursor, with a soft glow behind it. --smile-x
