@@ -186,3 +186,26 @@
         }
     }
 }
+
+/*
+ Letters resolve from a soft blur, one after another (see SplitReveal). Blur
+ repaints, but it runs once per reveal, never on scroll.
+ */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        filter: blur(4px);
+    }
+}
+
+.reveal-char {
+    display: inline-block;
+    animation: reveal 600ms var(--ease-out) both;
+    animation-delay: calc(var(--i) * var(--stagger));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-char {
+        animation: none;
+    }
+}

@@ -11,6 +11,7 @@ import Button from '@/components/button';
 import Preferences from '@/components/preferences';
 import Section from '@/components/section';
 import SegmentedControl from '@/components/segmented-control';
+import SplitReveal from '@/components/split-reveal';
 import Swatch from '@/components/swatch';
 import { t } from '@/lib/t';
 
@@ -88,9 +89,10 @@ function Guestbook() {
                     </ul>
                     {signed && (
                         <p className="text-sm text-muted">
-                            Thanks, {signed.name}! The outlined pill is a
-                            preview; you’ll be added for real once I check the
-                            list.
+                            <SplitReveal
+                                text={`Thanks, ${signed.name}! The outlined pill is a preview; you’ll be added for real once I check the list.`}
+                                stagger={10}
+                            />
                         </p>
                     )}
                     {/* Swapped for the thanks above once signed */}
