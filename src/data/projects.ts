@@ -35,7 +35,7 @@ const PROJECTS: Project[] = [
         links: [
             {
                 label: 'Browse my favourite questions',
-                href: 'https://wdyt.site',
+                href: 'https://www.wdyt.site/ask',
             },
         ],
     },
