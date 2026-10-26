@@ -5,38 +5,100 @@ import { t } from '@/lib/t';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
+/** Roughly how long the smile takes to catch up with the cursor, in ms. */
+const LAG = 250;
+
+type Axis = { value: number; velocity: number };
+
 /**
- * Each mousemove restarts the transition, so how far the smile lags is set by
- * how fast the curve starts. The plain CSS ease-out starts gentler than the
- * theme's ease-out, so the smile trails the cursor, and it only ever slows
- * down, so it doesn't surge after the cursor stops.
+ * Moves value towards target on a critically damped spring (Unity's
+ * SmoothDamp). Velocity carries over between frames, so the smile doesn't
+ * lurch each time the target jumps, and it never overshoots.
  */
-const transition =
-    'transition-[translate] duration-700 ease-[ease-out] motion-reduce:transition-none';
+const smoothDamp = (axis: Axis, target: number, dt: number) => {
+    const omega = 2 / LAG;
+    const x = omega * dt;
+    const decay = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
+    const change = axis.value - target;
+    const temp = (axis.velocity + omega * change) * dt;
+    axis.velocity = (axis.velocity - omega * temp) * decay;
+    axis.value = target + (change + temp) * decay;
+};
 
 /**
  * The smile drifts towards the cursor, with a soft glow behind it. --smile-x
- * and --smile-y place them within their free space (0 = start, 1 = end). Both
- * move with translate transitions, so nothing repaints while they glide.
+ * and --smile-y place them within their free space (0 = start, 1 = end).
+ *
+ * A CSS transition restarted on every mousemove lurches and stalls when the
+ * events arrive unevenly, since each restart throws away the current speed.
+ * A spring stepped every frame keeps it, so the motion stays continuous.
+ * Only translate changes, so nothing repaints while they glide.
  */
 function SmileBlock() {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+        const target = { x: 0.5, y: 1 / 11 };
+        const current = {
+            x: { value: target.x, velocity: 0 },
+            y: { value: target.y, velocity: 0 },
+        };
+        let frame = 0;
+        let last = 0;
+
+        const apply = () => {
+            ref.current?.style.setProperty('--smile-x', `${current.x.value}`);
+            ref.current?.style.setProperty('--smile-y', `${current.y.value}`);
+        };
+
+        const snap = () => {
+            current.x = { value: target.x, velocity: 0 };
+            current.y = { value: target.y, velocity: 0 };
+        };
+
+        const step = (now: number) => {
+            // Clamped: rAF time can precede the event, and a stalled tab shouldn't fling it
+            const dt = Math.min(Math.max(now - last, 0), 100);
+            last = now;
+            smoothDamp(current.x, target.x, dt);
+            smoothDamp(current.y, target.y, dt);
+
+            const settled =
+                Math.abs(target.x - current.x.value) < 1e-4 &&
+                Math.abs(target.y - current.y.value) < 1e-4 &&
+                Math.abs(current.x.velocity) < 1e-6 &&
+                Math.abs(current.y.velocity) < 1e-6;
+            if (settled) snap();
+            apply();
+            frame = settled ? 0 : requestAnimationFrame(step);
+        };
+
         const onMouseMove = (e: MouseEvent) => {
             const el = ref.current;
             if (!el) return;
             const rect = el.getBoundingClientRect();
-            const ratioX =
-                (e.clientX - (rect.left + rect.width / 2)) / innerWidth;
-            const ratioY =
-                (e.clientY - (rect.top + rect.height / 2)) / innerHeight;
-            el.style.setProperty('--smile-x', `${clamp(ratioX + 0.5)}`);
-            el.style.setProperty('--smile-y', `${clamp(ratioY + 0.5)}`);
+            target.x = clamp(
+                (e.clientX - (rect.left + rect.width / 2)) / innerWidth + 0.5
+            );
+            target.y = clamp(
+                (e.clientY - (rect.top + rect.height / 2)) / innerHeight + 0.5
+            );
+
+            if (reduceMotion.matches) {
+                snap();
+                apply();
+            } else if (!frame) {
+                last = performance.now();
+                frame = requestAnimationFrame(step);
+            }
         };
 
         window.addEventListener('mousemove', onMouseMove, { passive: true });
-        return () => window.removeEventListener('mousemove', onMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove);
+            cancelAnimationFrame(frame);
+        };
     }, []);
 
     return (
@@ -57,7 +119,6 @@ function SmileBlock() {
                         shape: 'absolute top-[-120%] left-[-80%] h-[240%] w-[160%] bg-[radial-gradient(closest-side,#ffd866,transparent_70%)]',
                         position:
                             'translate-x-[calc(var(--smile-x)*100cqw)] translate-y-[calc(var(--smile-y)*100cqh)]',
-                        transition,
                     })}
                 />
             </div>
@@ -71,7 +132,6 @@ function SmileBlock() {
                         size: 'size-16 text-ink max-sm:size-10',
                         position:
                             'translate-x-[calc(var(--smile-x)*(100cqw-100%))] translate-y-[calc(var(--smile-y)*(100cqh-100%))]',
-                        transition,
                     })}
                 >
                     <path
