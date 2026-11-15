@@ -32,6 +32,7 @@ const SIGNATURES: Signature[] = [
     { name: 'gerg', fill: 'gradient', corner: 'sharp', type: 'sans' },
     { name: 'ktown', fill: 'gradient', corner: 'rounded', type: 'sans' },
     { name: 'bonk', fill: 'gradient', corner: 'sharp', type: 'sans' },
+    { name: 'jazzman', fill: 'solid', corner: 'rounded', type: 'serif' },
 ];
 
 export type { Vibe, Signature };
